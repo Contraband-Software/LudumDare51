@@ -3,7 +3,6 @@
 
 [mergetool "unityyamlmerge"]
 	trustExitCode = false
-	keepTemporaries = true
 	keepBackup = false
 	path = '%programfiles%\\Unity\\Hub\\Editor\\2021.3.11f1\\Editor\\Data\\Tools\\UnityYAMLMerge.exe'
 	cmd = '%programfiles%\\Unity\\Hub\\Editor\\2021.3.11f1\\Editor\\Data\\Tools\\UnityYAMLMerge.exe' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGE"

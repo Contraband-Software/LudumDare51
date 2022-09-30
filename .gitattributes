@@ -2,5 +2,5 @@
 * text=auto
 
 *.unity binary merge=unityyamlmerge
-*.prefab binary
-*.asset binary
+*.prefab binary merge=unityyamlmerge
+*.asset binary merge=unityyamlmerge
