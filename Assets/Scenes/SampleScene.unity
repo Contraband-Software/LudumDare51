@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 611158190}
   - component: {fileID: 611158189}
   - component: {fileID: 611158193}
+  - component: {fileID: 611158194}
   m_Layer: 0
   m_Name: AWESOMECube
   m_TagString: Untagged
@@ -550,6 +551,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &611158194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611158188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbe997be298e0a4693d46ccce1cf8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
