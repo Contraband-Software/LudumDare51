@@ -1,9 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-[attr]unityyaml -text merge=unityyamlmerge diff#=unity binary
-
-*.unity unityyaml
-*.prefab unityyaml
-*.asset unityyaml
-*.meta unityyaml
+*.unity binary merge=unityyamlmerge
+*.prefab binary
+*.asset binary
