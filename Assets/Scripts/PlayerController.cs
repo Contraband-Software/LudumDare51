@@ -1,42 +1,92 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] float MoveForce = 50.0f;
-    [SerializeField] float JumpForce = 10.0f;
-    [SerializeField] float MaxMoveSpeed = 10.0f;
+    [SerializeField] CharacterController characterController;
+    [SerializeField] float MoveSpeed = 10.0f;
     [SerializeField] float MaxFallSpeed = 10.0f;
+    [SerializeField] float JumpHeight = 3.5f;
 
-    private Rigidbody rigidBody;
+    [Header("Camera")]
+    [SerializeField] float SensitivityX = 8f;
+    [SerializeField] float SensitivityY = 0.5f;
+    [SerializeField] bool LockCursorOnStart = true;
+    [SerializeField] Transform PlayerCamera;
+    [SerializeField] float LookXClamp = 85f;
 
-    private float ClampToSpeed(float val, float speed) { return Mathf.Clamp(val, speed * -1, speed); }
+    [Header("Environment")]
+    [SerializeField] float GravityAcceleration = 30.0f;
+    [SerializeField] LayerMask GroundLayerMask;
 
-    void Start()
+    private Vector2 horizontalInput;
+
+    private float verticalVelocity = 0f;
+
+    private bool isGrounded = false;
+    private bool isJumping = false;
+
+    private float mouseX, mouseY;
+    private float xRotation = 0f;
+
+    private float ClampAbsolute(float val, float factor) { return Mathf.Clamp(val, factor * -1, factor); }
+
+    public void OnMove(InputValue input)
     {
-        rigidBody = GetComponent<Rigidbody>();
+        horizontalInput = input.Get<Vector2>();
+    }
+    public void OnJump()
+    {
+        isJumping = true;
     }
 
-    void FixedUpdate()
+    private void Awake()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Cursor.lockState = (LockCursorOnStart) ? CursorLockMode.Locked : CursorLockMode.None;
+    }
 
-        rigidBody.AddForce(movement * MoveForce);
+    private void Update()
+    {
+        mouseX = (Mouse.current.delta.ReadValue() * Time.deltaTime).x;
+        mouseY = (Mouse.current.delta.ReadValue() * Time.deltaTime).y;
+    }
 
-        rigidBody.velocity = new Vector3(
-            ClampToSpeed(rigidBody.velocity.x, MaxMoveSpeed),
-            0,
-            ClampToSpeed(rigidBody.velocity.z, MaxMoveSpeed)
-        );
+    private void FixedUpdate()
+    {
+        //CAMERA LOOK
+        //Turning left and right
+        transform.Rotate(Vector3.up, mouseX * SensitivityX * Time.deltaTime);
+        //looking up and down
+        xRotation -= mouseY * SensitivityY;
+        xRotation = ClampAbsolute(xRotation, LookXClamp);
+        Vector3 targetRotation = PlayerCamera.eulerAngles;
+        targetRotation.x = xRotation;
+        PlayerCamera.eulerAngles = targetRotation;
 
-        rigidBody.velocity.Set(rigidBody.velocity.x, ClampToSpeed(rigidBody.velocity.y, MaxFallSpeed), rigidBody.velocity.z);
-
-
-        if (Input.GetButtonDown("PlayerJump"))
+        //MOVEMENTS
+        isGrounded = Physics.CheckSphere(transform.position, characterController.height, GroundLayerMask);
+        if (isGrounded)
         {
-            rigidBody.AddForce(new Vector3(0, JumpForce, 0));
+            if (isJumping)
+            {
+                verticalVelocity = Mathf.Sqrt(2f * JumpHeight * GravityAcceleration);
+                isJumping = false;
+            } else
+            {
+                verticalVelocity = 0;
+            }
+        } else
+        {
+            verticalVelocity += GravityAcceleration * Time.deltaTime * -1;
         }
+
+        //falling/jumping
+        characterController.Move(transform.up * Time.deltaTime * ClampAbsolute(verticalVelocity, MaxFallSpeed));
+        //horizontal movement
+        characterController.Move((transform.right * horizontalInput.x + transform.forward * horizontalInput.y) * MoveSpeed * Time.deltaTime);
     }
 }
