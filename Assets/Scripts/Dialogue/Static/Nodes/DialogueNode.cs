@@ -12,8 +12,7 @@ namespace GraphSystem
         {
             public string name;
             public string dialog;
-            public List<GraphConnections.ResponseConnection> responses;
-            public int responsesLength;
+            public List<GraphConnections.ResponseConnectionData> responses;
         }
 
         [SerializeField, TextArea] private string name;
@@ -24,7 +23,7 @@ namespace GraphSystem
         [Input]
         public GraphConnections.ResponseConnectionLink previous;
 
-        [Output(dynamicPortList = true)]
+        [Output(dynamicPortList = true, connectionType = ConnectionType.Override)]
         public List<GraphConnections.ResponseConnectionData> responses;
 
         protected override void Init()
@@ -34,7 +33,7 @@ namespace GraphSystem
             dialogueData = new DialogueData();
             dialogueData.name = name;
             dialogueData.dialog = dialogue;
-            //dialogueData.responses = responses;
+            dialogueData.responses = responses;
             //dialogueData.responsesLength = responses.Count;
         }
 

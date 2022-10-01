@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System.Linq;
+using XNode;
 
 namespace GraphSystem
 {
     using XNode;
     public class Parser
     {
-        private ChronoDialogueGraph graph;
+        private NodeGraph graph;
         private RootNode root;
         private BaseNode currentNode;
 
-        public Parser(ChronoDialogueGraph chronoGraph)
+        public Parser(NodeGraph chronoGraph)
         {
             graph = chronoGraph;
             root = GetRootNode(chronoGraph);
+            currentNode = root.GetStartNode();
 
 #if UNITY_EDITOR
             if (root == null)
@@ -26,7 +28,7 @@ namespace GraphSystem
 #endif
         }
 
-        private RootNode GetRootNode(ChronoDialogueGraph graph)
+        private RootNode GetRootNode(NodeGraph graph)
         {
             foreach (BaseNode node in graph.nodes)
             {
@@ -39,9 +41,12 @@ namespace GraphSystem
             return null;
         }
 
+        /// <summary>
+        /// Returns the node **after** the root node, the first game node.
+        /// </summary>
+        /// <returns></returns>
         public BaseNode GetStartNode()
         {
-            currentNode = root.GetStartNode();
             return currentNode;
         }
 
@@ -54,20 +59,23 @@ namespace GraphSystem
                 case NodeType.Dialogue:
                     if (responseIndex < currentNode.DynamicOutputs.Count())
                     {
-                        //currentNode.DynamicOutputs
+                        return (BaseNode)currentNode.DynamicOutputs.ToList<NodePort>()[(int)responseIndex].Connection.node;
                     }
-                    //foreach (NodePort dynamicOutput in currentNode.DynamicOutputs)
-                    //{
-                    //    Debug.Log(dynamicOutput.fieldName);
-                    //}
+                    else {
+                        Debug.LogException(new System.Exception("Graph System: Response index out of range!"));
+                        return null;
+                    }
                     break;
                 case NodeType.Wait:
+                    return (BaseNode)currentNode.GetOutputPort(GraphGlobals.WaitNextFieldName).Connection.node;
+                    break;
+                case NodeType.End:
+                case NodeType.Root:
+                    return null;
                     break;
             }
 
             return null;
-            
-            //currentNode is not a dialogueNode
         }
     }
 }

@@ -23,7 +23,9 @@ public class DialogueParserController : MonoBehaviour
             case NodeType.Dialogue:
                 DialogueNode.DialogueData diag = (DialogueNode.DialogueData)data.data;
                 Debug.Log(diag.dialog);
-                Parser.GetNextNode(2);
+                NodeData data2 = Parser.GetNextNode(0).GetNodeValue();
+                DialogueNode.DialogueData diag2 = (DialogueNode.DialogueData)data2.data;
+                Debug.Log(diag2.dialog);
                 break;
             case NodeType.Wait:
                 float time = (float)data.data;
