@@ -7,6 +7,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.github.siccity.xnode": {
+      "version": "https://github.com/Siccity/xNode.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "71a6ba87a4c858af9e3e37a615c480b6bae4bb44"
+    },
     "com.unity.burst": {
       "version": "1.7.3",
       "depth": 1,
