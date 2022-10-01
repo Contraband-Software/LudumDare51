@@ -3,12 +3,21 @@
     "maps": [
         {
             "name": "Player",
-            "id": "ab303637-3aa6-4456-b957-ccdf9fb346f7",
+            "id": "00d3fdc3-1ff6-45e2-ac8b-a50496195ae7",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "5ff2e87b-8cbb-4409-9308-40e15d1cd5d7",
+                    "id": "84179eba-cbc1-4eb2-90c5-fce4fc0c1f16",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "ab40a386-6022-4f6e-91b9-e5ba1e0fd7fe",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,43 +26,52 @@
                 {
                     "name": "Fire",
                     "type": "Button",
-                    "id": "f037e1af-5557-4e8e-9586-614c4df41af8",
+                    "id": "ce51c36f-1185-45f0-b1b2-7bcf0f101cbc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "DialogueTest",
                     "type": "Button",
-                    "id": "042426c0-8694-4cd4-bb6b-f39c1eb23065",
+                    "id": "c49e117b-a7d6-44fe-85fb-a4e7ec130dbf",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LookX",
-                    "type": "PassThrough",
-                    "id": "992f78f6-2723-4e52-ad07-e3d7277dee06",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LookY",
-                    "type": "PassThrough",
-                    "id": "4941d497-76a0-4c8e-b631-589f2ef3ccc5",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DDone",
+                    "name": "Dialogue1",
                     "type": "Button",
-                    "id": "ca04743c-88ef-4224-a0bd-14ac0c8c7025",
+                    "id": "eaee4e47-a353-4110-8941-ae13abba5c9e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dialogue2",
+                    "type": "Button",
+                    "id": "b2b7fecd-20f1-4bfa-bcd3-485138668c94",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dialogue3",
+                    "type": "Button",
+                    "id": "c3e5464f-705d-4998-bb12-f88d830a5371",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dialogue4",
+                    "type": "Button",
+                    "id": "631721e6-3851-448e-b6ff-894ed6f53d42",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -195,6 +213,39 @@
                 },
                 {
                     "name": "",
+                    "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse;Touch",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
+                    "path": "<Joystick>/{Hatswitch}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -250,45 +301,56 @@
                 },
                 {
                     "name": "",
-                    "id": "1ff6344d-0c58-4edb-840a-d4db6c5f51d6",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0d8af631-278e-47fc-8b91-bba2ba3fe981",
-                    "path": "<Mouse>/delta/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "LookX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c70f4987-2b0f-4238-a2ac-b7ed750072c4",
-                    "path": "<Mouse>/delta/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "LookY",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "94a2ac79-a91b-40b8-af78-6c0a032e846c",
+                    "id": "f77d0a6e-5ccb-4be0-a225-fa8b2c5e46aa",
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "DDone",
+                    "action": "DialogueTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "802ffc6e-82aa-489b-9434-d481d6dbebc6",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dialogue1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62deda3d-f639-47d7-aef1-160ed1bb5feb",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dialogue2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20d388f3-bb26-4f13-8480-b3dc89ebff40",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dialogue3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c85ee09-2257-4b0c-8308-211d710c0f26",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dialogue4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -296,12 +358,12 @@
         },
         {
             "name": "UI",
-            "id": "1034b51c-af88-40aa-8972-155888590eed",
+            "id": "3000af6b-f8e6-4180-92e5-7d7f4b0c73d4",
             "actions": [
                 {
                     "name": "Navigate",
                     "type": "PassThrough",
-                    "id": "ace19c8b-94be-4dc1-9848-34ebead3bfb0",
+                    "id": "af3048fd-4ec9-44b3-a1c1-cba0abc1289a",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -310,7 +372,7 @@
                 {
                     "name": "Submit",
                     "type": "Button",
-                    "id": "3aaf54c8-56ea-42e5-8d1d-3a982134d487",
+                    "id": "9592ee41-307f-43f2-b05b-3138c5ee4eff",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -319,7 +381,7 @@
                 {
                     "name": "Cancel",
                     "type": "Button",
-                    "id": "0b367a63-634d-42f1-9585-161b57789627",
+                    "id": "06c868e0-529e-4a56-9291-8f1a698a1e04",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -328,7 +390,7 @@
                 {
                     "name": "Point",
                     "type": "PassThrough",
-                    "id": "854ca8de-a872-4811-be4d-f982f759a45b",
+                    "id": "fa6e9c5d-0e5c-4e87-8327-514eaedbf58d",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -337,7 +399,7 @@
                 {
                     "name": "Click",
                     "type": "PassThrough",
-                    "id": "0eea6640-6297-427d-b44e-1913d0c9c5fb",
+                    "id": "0fec9f5e-56f7-4fd5-9d8e-ddf0aea76b5e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -346,7 +408,7 @@
                 {
                     "name": "ScrollWheel",
                     "type": "PassThrough",
-                    "id": "ece4db73-7d34-4305-aff6-48e1275207b5",
+                    "id": "3dce8b9e-a974-4b91-a69e-b0b9862037f9",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -355,7 +417,7 @@
                 {
                     "name": "MiddleClick",
                     "type": "PassThrough",
-                    "id": "36a81ca6-4f5a-4dd3-bf01-df3d39bffc3b",
+                    "id": "af7b3d45-799a-4b10-86ac-c76953ec355a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -364,7 +426,7 @@
                 {
                     "name": "RightClick",
                     "type": "PassThrough",
-                    "id": "0d1210f5-8da7-4214-af57-4ef4fc4e37c4",
+                    "id": "94efa7fc-33d6-4639-bdbe-1e33fca6938f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -373,7 +435,7 @@
                 {
                     "name": "TrackedDevicePosition",
                     "type": "PassThrough",
-                    "id": "03442005-497a-49a4-ac7e-86c29d4a76d2",
+                    "id": "15f86f24-8b3d-4659-889f-83b75f6aa594",
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
@@ -382,17 +444,8 @@
                 {
                     "name": "TrackedDeviceOrientation",
                     "type": "PassThrough",
-                    "id": "19800408-8bfc-48f1-b6b7-ea85956ad5e6",
+                    "id": "38f22725-0ac3-4b64-a2e6-02e1498ac120",
                     "expectedControlType": "Quaternion",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DialogueTest",
-                    "type": "Button",
-                    "id": "1ed40d63-d347-46cf-9856-55800cdedb99",
-                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -814,17 +867,6 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "43c6e7a1-ef74-40c9-bafb-a1462d7b2a6b",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "DialogueTest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
