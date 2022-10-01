@@ -15,23 +15,35 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
 
 
+    [Header("UI Animation")]
+    //Resetting Variables
+    private bool dialogueChosen = false;
+    [SerializeField] List<RectTransform> dialogueTextRects = new List<RectTransform>();
+    private Vector2 option1_position;
+    private List<Vector2> dialogueTextPositionsStored = new List<Vector2>();
+    [SerializeField] LeanTweenType cg_fadout;
+    [SerializeField] float cg_fadout_time;
+
+    //Dialogue Variables
     private List<string> current_DialogueOptions = new List<string>();
     private int diagOptions = 0;
     private string current_SpeakerName;
 
     private void Awake()
     {
-
+        SetOriginalTextPositions();
     }
 
 
     //Pass in the speaker name and list of options
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
-    public void DrawNode(string speakerName, List<string> dialogueOptions)
+    public void DrawNode(string incomingText, bool canReply, string speakerName, List<string> dialogueOptions)
     {
+
         MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
         InstantDialoguePanelOpaque();
+        ResetReadyToDisplay();
 
         current_SpeakerName = speakerName;
         current_DialogueOptions = dialogueOptions;
@@ -61,7 +73,7 @@ public class UI_Controller : MonoBehaviour
     //prompts a test dialogue
     private void OnDialogueTest()
     {
-        DrawNode("Jakub", new List<string> { "How are you?", "I hate you", "Im hungy" });
+        DrawNode("What is your name?", true, "Jakub", new List<string> { "Im Jakub", "Go Away", "I LOVE CRACK" });
     }
 
     #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
@@ -95,14 +107,71 @@ public class UI_Controller : MonoBehaviour
     }
     #endregion
 
+    //Sends when valid dialogue options chosen. 
     private void SendDialogueChosen(int indexChosen)
     {
-        print("OPTION CHOSE: " + indexChosen.ToString());
-        ChosenDialogueTransition(indexChosen-1);
-        FadeOutDialogueOptions();
+        if (!dialogueChosen)
+        {
+            print("OPTION CHOSE: " + indexChosen.ToString());
+            ChosenDialogueTransition(indexChosen - 1);
+            FadeOutDialogueOptions();
+            GlitchChosenDialogueIntoPosition_Part1(dialogueTextRects[indexChosen - 1]);
+
+            dialogueChosen = true;
+        }
+        
+    }
+
+    #region RESETTING
+    private void ResetReadyToDisplay()
+    {
+        dialogueChosen = false;
+        LeanTween.cancel(dialogueOptions_cg.gameObject);
+        LeanTween.cancel(dialogueUI_cg.gameObject);
+        ResetTextPositionToOriginal();
     }
 
 
+    private void SetOriginalTextPositions()
+    {
+        for(int rt= 0; rt < dialogueTextRects.Count; rt++)
+        {
+            dialogueTextPositionsStored.Add(dialogueTextRects[rt].anchoredPosition);
+        }
+        option1_position = new Vector2(dialogueTextRects[0].anchoredPosition.x, dialogueTextRects[0].anchoredPosition.y);
+    }
+    private void ResetTextPositionToOriginal()
+    {
+        for (int rt = 0; rt < dialogueTextRects.Count; rt++)
+        {
+            dialogueTextRects[rt].anchoredPosition = dialogueTextPositionsStored[rt];
+        }
+    }
+    #endregion
+
+    #region UI ANIMATION
+    RectTransform optTemp;
+    private void GlitchChosenDialogueIntoPosition_Part1(RectTransform opt)
+    {
+        float additionalOffset = 0;
+        if(opt.anchoredPosition.x == 0)
+        {
+            additionalOffset = 100f;
+        }
+        LeanTween.move(opt.gameObject, new Vector3(opt.position.x + 200f + additionalOffset, opt.position.y, 0f), 0.00f)
+            .setOnComplete(GlitchChosenDialogueIntoPosition_Part2);
+        optTemp = opt;
+    }
+    private void GlitchChosenDialogueIntoPosition_Part2()
+    {
+        LeanTween.delayedCall(0.07f, GlitchChosenDialogueIntoPosition_Part3);
+    }
+    private void GlitchChosenDialogueIntoPosition_Part3()
+    {
+        LeanTween.move(optTemp, new Vector3(option1_position.x, option1_position.y, 0f), 0.00f);
+        optTemp = null;
+    }
+    #endregion
 
 
     #region DIALOGUE VISIBILITY CONTROLS
@@ -143,7 +212,7 @@ public class UI_Controller : MonoBehaviour
     //fades out entire dialogue PANEL
     private void FadeOutDialoguePanel()
     {
-        LeanTween.value(dialogueUI_cg.gameObject, UpdateEntireCGAlpha, 1f, 0f, 1f).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.value(dialogueUI_cg.gameObject, UpdateEntireCGAlpha, 1f, 0f, cg_fadout_time).setEase(cg_fadout);
     }
     private void UpdateEntireCGAlpha(float a)
     {
@@ -153,7 +222,7 @@ public class UI_Controller : MonoBehaviour
     //fades out dialogue OPTIONS
     private void FadeOutDialogueOptions()
     {
-        LeanTween.value(dialogueOptions_cg.gameObject, UpdateOptionsCGAlpha, 1f, 0f, 1f).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.value(dialogueOptions_cg.gameObject, UpdateOptionsCGAlpha, 1f, 0f, cg_fadout_time).setEase(cg_fadout);
     }
     private void UpdateOptionsCGAlpha(float a)
     {
