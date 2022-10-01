@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-using static GraphSystem.GraphConnections;
 
 namespace GraphSystem
 {
@@ -20,10 +19,10 @@ namespace GraphSystem
         private DialogueData dialogueData;
 
         [Input(dynamicPortList = true)]
-        public ResponseConnection previous;
+        public GraphConnections.ResponseConnection previous;
 
         [Output(dynamicPortList = true)]
-        public List<ResponseConnection> responses;
+        public List<GraphConnections.ResponseConnection> responses;
 
         protected override void Init()
         {

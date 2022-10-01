@@ -9,11 +9,9 @@ namespace GraphSystem
     {
         [SerializeField, TextArea] private int tineInSeconds;
 
-        // Use this for initialization
         protected override void Init()
         {
             base.Init();
-
         }
 
         public override object GetValue(NodePort port)

@@ -43,6 +43,10 @@ public class PlayerController : MonoBehaviour
     {
         isJumping = true;
     }
+    public void OnDDone()
+    {
+        Debug.Log("rfrsdhfhj");
+    }
 
     private void Awake()
     {
