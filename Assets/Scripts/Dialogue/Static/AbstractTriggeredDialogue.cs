@@ -13,12 +13,13 @@ namespace GraphSystem
 
         private void Awake()
         {
+            Debug.Log("AbstractTriggeredDialogue awake");
             DialogueGraphParser = new Parser(graph);
         }
 
         public abstract void Suspend(bool status);
-        public abstract BaseNode Initiate();
-        public abstract BaseNode AdvanceDialogue(int responseIndex);
+        public abstract NodeData Initiate();
+        public abstract NodeData AdvanceDialogue(int responseIndex);
         public abstract bool IsComplete();
     }
 }

@@ -59,51 +59,7 @@ MonoBehaviour:
   timeOut: 0
   responses:
   - response: What now
-    AutoChoose: 0
---- !u!114 &-8495462515752772782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
-  m_Name: Wait
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -8, y: 72}
-  ports:
-    keys:
-    - previous
-    - next
-    values:
-    - _fieldName: previous
-      _node: {fileID: -8495462515752772782}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: responses 1
-        node: {fileID: 2441067931153027776}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: next
-      _node: {fileID: -8495462515752772782}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: previous
-        node: {fileID: 7032659992361758415}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  timeInSeconds: 10
+    AutoChoose: 1
 --- !u!114 &-4183054509469879520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +139,6 @@ MonoBehaviour:
   - {fileID: 7032659992361758415}
   - {fileID: 7342153078910902649}
   - {fileID: -4183054509469879520}
-  - {fileID: -8495462515752772782}
   - {fileID: 4763175205390689829}
   - {fileID: 579015775322629817}
 --- !u!114 &579015775322629817
@@ -209,7 +164,10 @@ MonoBehaviour:
       _node: {fileID: 579015775322629817}
       _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: responses 0
+        node: {fileID: 4763175205390689829}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -218,7 +176,10 @@ MonoBehaviour:
       _node: {fileID: 579015775322629817}
       _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: previous
+        node: {fileID: 7342153078910902649}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -285,7 +246,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: -8495462515752772782}
+        node: {fileID: 7032659992361758415}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -312,7 +273,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 360, y: -392}
+  position: {x: 248, y: -376}
   ports:
     keys:
     - previous
@@ -345,7 +306,10 @@ MonoBehaviour:
       _node: {fileID: 4763175205390689829}
       _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: previous
+        node: {fileID: 579015775322629817}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -369,7 +333,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 216, y: 72}
+  position: {x: -8, y: 40}
   ports:
     keys:
     - previous
@@ -381,8 +345,8 @@ MonoBehaviour:
       _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: next
-        node: {fileID: -8495462515752772782}
+      - fieldName: responses 1
+        node: {fileID: 2441067931153027776}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -415,7 +379,7 @@ MonoBehaviour:
   timeOut: 0
   responses:
   - response: And what
-    AutoChoose: 0
+    AutoChoose: 1
 --- !u!114 &7342153078910902649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +407,9 @@ MonoBehaviour:
       connections:
       - fieldName: responses 0
         node: {fileID: 7032659992361758415}
+        reroutePoints: []
+      - fieldName: next
+        node: {fileID: 579015775322629817}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

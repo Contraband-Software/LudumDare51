@@ -23,21 +23,23 @@ public class ChronoDialogueController : AbstractTriggeredDialogue
 
         return false;
     }
-    public override BaseNode AdvanceDialogue(int responseIndex)
+    public override NodeData AdvanceDialogue(int responseIndex)
     {
         BaseNode newNode = DialogueGraphParser.GetNextNode((uint)responseIndex);
 
         currentNodeData = newNode.GetNodeValue();
 
-        return newNode;
+        return currentNodeData;
     }
 
-    public override BaseNode Initiate()
+    public override NodeData Initiate()
     {
         BaseNode newNode = DialogueGraphParser.GetStartNode();
 
         currentNodeData = newNode.GetNodeValue();
 
-        return newNode;
+        Debug.Log("ChronoDialogueController Initiate");
+
+        return currentNodeData;
     }
 }

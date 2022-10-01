@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
+using GraphSystem;
+
 public class UI_Controller : MonoBehaviour
 {
 
@@ -25,20 +27,25 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] float cg_fadout_time;
 
     //Dialogue Variables
-    private List<string> current_DialogueOptions = new List<string>();
+    private List<GraphConnections.ResponseConnectionData> current_DialogueOptions = new List<GraphConnections.ResponseConnectionData>();
     private int diagOptions = 0;
     private string current_SpeakerName;
 
+    //Game Controls
+    GameController gameCon;
+
     private void Awake()
     {
+        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         SetOriginalTextPositions();
     }
 
 
     //Pass in the speaker name and list of options
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
-    public void DrawNode(string incomingText, bool canReply, string speakerName, List<string> dialogueOptions)
+    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut)
     {
+        Debug.Log("DrawNode");
 
         MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
@@ -49,12 +56,20 @@ public class UI_Controller : MonoBehaviour
         current_DialogueOptions = dialogueOptions;
         diagOptions = dialogueOptions.Count;
 
+        int autoChooseChoice = 0;
+
         //UPDATE TEXTS TO REFLECT RESPONSE PROMPT
         speakerName_text.text = speakerName + ": ";
         float smallestTextSize = Mathf.Infinity;
         for(int s = 0; s < dialogueOptions.Count; s++)
         {
-            dialogueOptions_text[s].text = (s+1).ToString() + "] " + dialogueOptions[s];
+            if (dialogueOptions[s].AutoChoose)
+            {
+                autoChooseChoice = s;
+                Debug.Log("auto choice");
+            }
+
+            dialogueOptions_text[s].text = (s+1).ToString() + "] " + dialogueOptions[s].response;
             if(dialogueOptions_text[s].fontSize < smallestTextSize)
             {
                 smallestTextSize = dialogueOptions_text[s].fontSize;
@@ -71,10 +86,10 @@ public class UI_Controller : MonoBehaviour
     }
 
     //prompts a test dialogue
-    private void OnDialogueTest()
-    {
-        DrawNode("What is your name?", true, "Jakub", new List<string> { "Im Jakub", "Go Away", "I LOVE CRACK" });
-    }
+    //private void OnDialogueTest()
+    //{
+    //    DrawNode("What is your name?", true, "Jakub", new List<string> { "Im Jakub", "Go Away", "I LOVE CRACK" });
+    //}
 
     #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
     private void OnDialogue1()
@@ -118,6 +133,7 @@ public class UI_Controller : MonoBehaviour
             GlitchChosenDialogueIntoPosition_Part1(dialogueTextRects[indexChosen - 1]);
 
             dialogueChosen = true;
+            gameCon.PostResponse(indexChosen - 1);
         }
         
     }
