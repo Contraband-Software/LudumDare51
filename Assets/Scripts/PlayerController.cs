@@ -55,8 +55,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        mouseX = (Mouse.current.delta.ReadValue() * Time.deltaTime).x;
-        mouseY = (Mouse.current.delta.ReadValue() * Time.deltaTime).y;
+        //mouseX = (Mouse.current.delta.ReadValue() * Time.deltaTime).x;
+        //mouseY = (Mouse.current.delta.ReadValue() * Time.deltaTime).y;
     }
 
     private void FixedUpdate()
