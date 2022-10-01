@@ -20,5 +20,6 @@ namespace GraphSystem
     public static class GraphGlobals
     {
         public static string ResponseFieldName = "Responses";
+        public static string WaitNextFieldName = "Next";
     }
 }

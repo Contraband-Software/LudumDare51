@@ -14,8 +14,8 @@ namespace GraphSystem
         [Input]
         public GraphConnections.ResponseConnectionLink previous;
 
-        [Output]
-        public GraphConnections.ResponseConnectionLink responses;
+        [Output(connectionType = ConnectionType.Override)]
+        public GraphConnections.ResponseConnectionLink next;
 
         public override NodeData GetNodeValue()
         {

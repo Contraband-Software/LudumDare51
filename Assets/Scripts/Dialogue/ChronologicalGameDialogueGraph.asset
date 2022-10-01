@@ -39,7 +39,7 @@ MonoBehaviour:
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -51,13 +51,57 @@ MonoBehaviour:
         node: {fileID: 7342153078910902649}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   name: Sam
   dialogue: Nice
   responses:
   - response: What now
+--- !u!114 &-8495462515752772782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -24, y: 248}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -8495462515752772782}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: responses 1
+        node: {fileID: 2441067931153027776}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -8495462515752772782}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 7032659992361758415}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  timeInSeconds: 10
 --- !u!114 &-4183054509469879520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +115,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 831.7004, y: 54.790825}
+  position: {x: 840, y: 40}
   ports:
     keys:
     - previous
@@ -101,7 +145,7 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -424, y: -152}
+  position: {x: -472, y: -168}
   ports:
     keys:
     - Start
@@ -115,7 +159,7 @@ MonoBehaviour:
         node: {fileID: 2441067931153027776}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &11400000
@@ -137,6 +181,7 @@ MonoBehaviour:
   - {fileID: 7032659992361758415}
   - {fileID: 7342153078910902649}
   - {fileID: -4183054509469879520}
+  - {fileID: -8495462515752772782}
 --- !u!114 &2441067931153027776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +195,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -136, y: -312}
+  position: {x: -184, y: -312}
   ports:
     keys:
     - previous
@@ -177,7 +222,7 @@ MonoBehaviour:
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -189,7 +234,7 @@ MonoBehaviour:
         node: {fileID: -8843241248414862292}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
     - _fieldName: responses 1
@@ -198,10 +243,10 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: 7032659992361758415}
+        node: {fileID: -8495462515752772782}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   name: Sam
@@ -234,8 +279,8 @@ MonoBehaviour:
       _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: responses 1
-        node: {fileID: 2441067931153027776}
+      - fieldName: next
+        node: {fileID: -8495462515752772782}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -248,7 +293,7 @@ MonoBehaviour:
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -260,7 +305,7 @@ MonoBehaviour:
         node: {fileID: 7342153078910902649}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   name: "Sam\t"
@@ -309,7 +354,7 @@ MonoBehaviour:
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -321,7 +366,7 @@ MonoBehaviour:
         node: {fileID: -4183054509469879520}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
   name: Sam
