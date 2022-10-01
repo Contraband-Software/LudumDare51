@@ -54,7 +54,7 @@ namespace GraphSystem
                 case NodeType.Dialogue:
                     if (responseIndex < currentNode.DynamicOutputs.Count())
                     {
-
+                        //currentNode.DynamicOutputs
                     }
                     //foreach (NodePort dynamicOutput in currentNode.DynamicOutputs)
                     //{
