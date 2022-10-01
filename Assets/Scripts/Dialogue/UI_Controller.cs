@@ -45,7 +45,7 @@ public class UI_Controller : MonoBehaviour
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
     public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut)
     {
-        Debug.Log("DrawNode");
+        //Debug.Log("DrawNode");
 
         MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
@@ -66,7 +66,7 @@ public class UI_Controller : MonoBehaviour
             if (dialogueOptions[s].AutoChoose)
             {
                 autoChooseChoice = s;
-                Debug.Log("auto choice");
+                //Debug.Log("auto choice");
             }
 
             dialogueOptions_text[s].text = (s+1).ToString() + "] " + dialogueOptions[s].response;
