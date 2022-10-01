@@ -9,6 +9,7 @@ namespace GraphSystem
         Root,
         Wait,
         Dialogue,
+        Action,
         End
     }
     public struct NodeData
@@ -20,7 +21,7 @@ namespace GraphSystem
     public static class GraphGlobals
     {
         public static string ResponseFieldName = "Responses";
-        public static string WaitNextFieldName = "Next";
+        public static string LinkNextNodeFieldName = "Next";
 
         public static string MagicDialogueSkipValue = "[PASS]";
     }

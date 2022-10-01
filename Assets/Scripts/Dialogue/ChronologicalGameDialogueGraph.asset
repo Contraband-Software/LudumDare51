@@ -184,7 +184,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
-  timeInSeconds: 0
+  timeInSeconds: 10
 --- !u!114 &2441067931153027776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   timeOut: 0
   responses:
   - response: '[PASS]'
-    AutoChoose: 0
+    AutoChoose: 1
 --- !u!114 &7032659992361758415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,4 +442,4 @@ MonoBehaviour:
   timeOut: 0
   responses:
   - response: Ok
-    AutoChoose: 0
+    AutoChoose: 1

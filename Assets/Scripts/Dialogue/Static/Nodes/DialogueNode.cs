@@ -22,11 +22,13 @@ namespace GraphSystem
 
         private DialogueData dialogueData;
 
+#region NODE_INTERFACE
         [Input]
         public GraphConnections.ResponseConnectionLink previous;
 
         [Output(dynamicPortList = true, connectionType = ConnectionType.Override)]
         public List<GraphConnections.ResponseConnectionData> responses;
+#endregion
 
         protected override void Init()
         {
