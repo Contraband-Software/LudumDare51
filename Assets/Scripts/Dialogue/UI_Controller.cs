@@ -28,6 +28,7 @@ public class UI_Controller : MonoBehaviour
     public void DrawNode(string speakerName, List<string> dialogueOptions)
     {
         InstantSoftClearDialogueOptions();
+        InstantDialoguePanelOpaque();
 
         current_SpeakerName = speakerName;
         current_DialogueOptions = dialogueOptions;
@@ -63,28 +64,28 @@ public class UI_Controller : MonoBehaviour
     }
 
     #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
-    private void Dialogue1()
+    private void OnDialogue1()
     {
         if(diagOptions >= 1)
         {
             SendDialogueChosen(1);
         }
     }
-    private void Dialogue2()
+    private void OnDialogue2()
     {
         if (diagOptions >= 2)
         {
             SendDialogueChosen(2);
         }
     }
-    private void Dialogue3()
+    private void OnDialogue3()
     {
         if (diagOptions >= 3)
         {
             SendDialogueChosen(3);
         }
     }
-    private void Dialogue4()
+    private void OnDialogue4()
     {
         if (diagOptions >= 4)
         {
@@ -96,6 +97,7 @@ public class UI_Controller : MonoBehaviour
     private void SendDialogueChosen(int indexChosen)
     {
         print(indexChosen);
+        FadeOutDialoguePanel();
     }
 
 
@@ -111,10 +113,21 @@ public class UI_Controller : MonoBehaviour
         }
     }
 
+    //forces dialogue panel to be alpha 1
+    private void InstantDialoguePanelOpaque()
+    {
+        dialogueUI_cg.alpha = 1f;
+    }
+
+
     //fades out entire dialogue panel
     private void FadeOutDialoguePanel()
     {
-
+        LeanTween.value(dialogueUI_cg.gameObject, UpdateCGAlpha, 1f, 0f, 1f).setEase(LeanTweenType.easeOutQuad);
+    }
+    private void UpdateCGAlpha(float a)
+    {
+        dialogueUI_cg.alpha = a;
     }
     #endregion
 }

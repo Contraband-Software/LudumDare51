@@ -622,8 +622,7 @@ MonoBehaviour:
   m_text: SPEAKER NAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 130ef18c89dab4c4184d1c33379c742f, type: 2}
-  m_sharedMaterial: {fileID: -611431830893671465, guid: 130ef18c89dab4c4184d1c33379c742f,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 1b6a6338fced3d14cbb8ddafc977b913, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -742,7 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c670aa4e7f717094585a9b336339d7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueUI_cg: {fileID: 0}
+  dialogueUI_cg: {fileID: 923913601}
   speakerName_text: {fileID: 1295565059}
   dialogueOptions_text:
   - {fileID: 1647192159}
