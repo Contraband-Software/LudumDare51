@@ -37,7 +37,7 @@ public class UI_Controller : MonoBehaviour
 
     //Pass in the speaker name and list of options
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
-    public void DrawNode(string speakerName, List<string> dialogueOptions)
+    public void DrawNode(string incomingText, bool canReply, string speakerName, List<string> dialogueOptions)
     {
 
         MoveAllTransitionedBack();
@@ -73,7 +73,7 @@ public class UI_Controller : MonoBehaviour
     //prompts a test dialogue
     private void OnDialogueTest()
     {
-        DrawNode("Jakub", new List<string> { "How are you?", "I hate you", "Im hungy" });
+        DrawNode("What is your name?", true, "Jakub", new List<string> { "Im Jakub", "Go Away", "I LOVE CRACK" });
     }
 
     #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
