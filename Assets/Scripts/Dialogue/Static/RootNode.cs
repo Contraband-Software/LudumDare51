@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
+using static GraphSystem.DialogueNode;
+using static GraphSystem.GraphGlobals;
 
 namespace GraphSystem
 {
-    public class RootNode : Node
+    public class RootNode : BaseNode
     {
         [Output]
-        public GraphConnections.ResponseConnection Start;
+        public GraphConnections.ResponseConnectionLink Start;
 
-        protected override void Init()
+        public BaseNode GetStartNode()
         {
-            base.Init();
+            return (BaseNode)GetOutputPort("Start").Connection.node;
         }
 
-        public override object GetValue(NodePort port)
+        public override NodeData GetNodeValue()
         {
-            return Start;
+            NodeData baseData;
+            baseData.type = NodeType.Root;
+            baseData.data = null;
+            return baseData;
         }
     }
 }
