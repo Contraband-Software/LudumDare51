@@ -2,21 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
+using static GraphSystem.DialogueNode;
+using static GraphSystem.GraphGlobals;
 
 namespace GraphSystem
 {
-    public class WaitNode : Node
+    public class WaitNode : BaseNode
     {
-        [SerializeField, TextArea] private int tineInSeconds;
+        [SerializeField] private float timeInSeconds;
 
-        protected override void Init()
-        {
-            base.Init();
-        }
+        [Input]
+        public GraphConnections.ResponseConnectionLink previous;
 
-        public override object GetValue(NodePort port)
+        [Output]
+        public GraphConnections.ResponseConnectionLink responses;
+
+        public override NodeData GetNodeValue()
         {
-            return tineInSeconds;
+            NodeData baseData;
+            baseData.type = NodeType.Wait;
+            baseData.data = timeInSeconds;
+            return baseData;
         }
     }
 }

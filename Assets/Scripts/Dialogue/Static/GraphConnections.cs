@@ -6,8 +6,15 @@ namespace GraphSystem
 {
     public class GraphConnections
     {
+        public class ResponseConnection { }
+
         [Serializable]
-        public struct ResponseConnection
+        public class ResponseConnectionLink : ResponseConnection
+        {
+
+        }
+        [Serializable]
+        public class ResponseConnectionData : ResponseConnection
         {
             public string response;
         }
