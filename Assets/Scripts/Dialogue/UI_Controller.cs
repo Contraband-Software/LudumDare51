@@ -22,10 +22,23 @@ public class UI_Controller : MonoBehaviour
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
     public void DrawNode(string speakerName, List<string> dialogueOptions)
     {
+        //UPDATE TEXTS TO REFLECT RESPONSE PROMPT
         speakerName_text.text = speakerName + ": ";
+        float smallestTextSize = Mathf.Infinity;
         for(int s = 0; s < dialogueOptions.Count; s++)
         {
-            dialogueOptions_text[s].text = s.ToString() + "] " + dialogueOptions[s];
+            dialogueOptions_text[s].text = (s+1).ToString() + "] " + dialogueOptions[s];
+            if(dialogueOptions_text[s].fontSize < smallestTextSize)
+            {
+                smallestTextSize = dialogueOptions_text[s].fontSize;
+            }
+        }
+
+        //UNIFORMIZE DIALOGUE OPTIONS FONT SIZES
+        foreach(TextMeshProUGUI t in dialogueOptions_text)
+        {
+            t.enableAutoSizing = false;
+            t.fontSize = smallestTextSize;
         }
 
     }
