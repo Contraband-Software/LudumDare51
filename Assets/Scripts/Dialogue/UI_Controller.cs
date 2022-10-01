@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UI_Controller : MonoBehaviour
 {
+    //[SerializeField] InputAction dialogueTestInput;
     [SerializeField] CanvasGroup dialogueUI_cg;
+
+    private void Awake()
+    {
+
+    }
 
 
     //Pass in the speaker name and list of options
@@ -15,9 +22,7 @@ public class UI_Controller : MonoBehaviour
     }
 
 
-
-
-    public void OnDialogueTest()
+    private void OnDialogueTest()
     {
         print("P pressed");
     }

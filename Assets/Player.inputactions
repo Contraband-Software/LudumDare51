@@ -51,9 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+<<<<<<< Updated upstream
                     "name": "DDone",
                     "type": "Button",
                     "id": "ca04743c-88ef-4224-a0bd-14ac0c8c7025",
+=======
+                    "name": "DialogueTest",
+                    "type": "Button",
+                    "id": "294f1ff0-b2be-4ef1-9275-c89f4a53ee32",
+>>>>>>> Stashed changes
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -283,12 +289,20 @@
                 },
                 {
                     "name": "",
+<<<<<<< Updated upstream
                     "id": "94a2ac79-a91b-40b8-af78-6c0a032e846c",
+=======
+                    "id": "2cbeb7fe-d4da-45a4-96e2-5067055e68bf",
+>>>>>>> Stashed changes
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+<<<<<<< Updated upstream
                     "action": "DDone",
+=======
+                    "action": "DialogueTest",
+>>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -384,15 +398,6 @@
                     "type": "PassThrough",
                     "id": "19800408-8bfc-48f1-b6b7-ea85956ad5e6",
                     "expectedControlType": "Quaternion",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DialogueTest",
-                    "type": "Button",
-                    "id": "1ed40d63-d347-46cf-9856-55800cdedb99",
-                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -814,17 +819,6 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "43c6e7a1-ef74-40c9-bafb-a1462d7b2a6b",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "DialogueTest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
