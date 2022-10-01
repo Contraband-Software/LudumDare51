@@ -13,6 +13,7 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] CanvasGroup dialogueUI_cg;
     [SerializeField] CanvasGroup dialogueOptions_cg;
     [SerializeField] GameObject transitionedTexts;
+    [SerializeField] TextMeshProUGUI currentDialogue_text;
     [SerializeField] TextMeshProUGUI speakerName_text;
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
 
@@ -30,6 +31,7 @@ public class UI_Controller : MonoBehaviour
     private List<GraphConnections.ResponseConnectionData> current_DialogueOptions = new List<GraphConnections.ResponseConnectionData>();
     private int diagOptions = 0;
     private string current_SpeakerName;
+    private bool canReplyCurrent = false;
 
     //Game Controls
     GameController gameCon;
@@ -46,6 +48,7 @@ public class UI_Controller : MonoBehaviour
     public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut)
     {
         //Debug.Log("DrawNode");
+        StopCoroutine(NoOptionTimeOutReply(0, 0));
 
         MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
@@ -55,34 +58,57 @@ public class UI_Controller : MonoBehaviour
         current_SpeakerName = speakerName;
         current_DialogueOptions = dialogueOptions;
         diagOptions = dialogueOptions.Count;
+        currentDialogue_text.text = incomingText;
 
+        canReplyCurrent = canReply;
         int autoChooseChoice = 0;
+
+        Debug.Log(timeOut);
 
         //UPDATE TEXTS TO REFLECT RESPONSE PROMPT
         speakerName_text.text = speakerName + ": ";
         float smallestTextSize = Mathf.Infinity;
-        for(int s = 0; s < dialogueOptions.Count; s++)
+
+        if (canReply)
         {
-            if (dialogueOptions[s].AutoChoose)
+            //print("CAN REPLY");
+            for (int s = 0; s < dialogueOptions.Count; s++)
             {
-                autoChooseChoice = s;
-                //Debug.Log("auto choice");
+                if (dialogueOptions[s].AutoChoose)
+                {
+                    autoChooseChoice = s;
+                    //Debug.Log("auto choice");
+                }
+
+                dialogueOptions_text[s].text = (s + 1).ToString() + "] " + dialogueOptions[s].response;
+                if (dialogueOptions_text[s].fontSize < smallestTextSize)
+                {
+                    smallestTextSize = dialogueOptions_text[s].fontSize;
+                }
             }
 
-            dialogueOptions_text[s].text = (s+1).ToString() + "] " + dialogueOptions[s].response;
-            if(dialogueOptions_text[s].fontSize < smallestTextSize)
+            //UNIFORMIZE DIALOGUE OPTIONS FONT SIZES
+            foreach (TextMeshProUGUI t in dialogueOptions_text)
             {
-                smallestTextSize = dialogueOptions_text[s].fontSize;
+                t.enableAutoSizing = false;
+                t.fontSize = smallestTextSize;
             }
         }
-
-        //UNIFORMIZE DIALOGUE OPTIONS FONT SIZES
-        foreach(TextMeshProUGUI t in dialogueOptions_text)
+        else
         {
-            t.enableAutoSizing = false;
-            t.fontSize = smallestTextSize;
+            Debug.Log("StartCoroutine + NoOptionTimeOutReply");
+            StartCoroutine(NoOptionTimeOutReply(timeOut + gameCon.GetGlobalTimeDelay(), 0));
         }
+    }
 
+    IEnumerator NoOptionTimeOutReply(float time, int index)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("NoOptionTimeOutReply + WaitForSeconds: " + time.ToString());
+
+        SendDialogueChosen(index);
+
+        yield break;
     }
 
     //prompts a test dialogue
@@ -125,14 +151,19 @@ public class UI_Controller : MonoBehaviour
     //Sends when valid dialogue options chosen. 
     private void SendDialogueChosen(int indexChosen)
     {
+        Debug.Log(dialogueChosen);
         if (!dialogueChosen)
         {
-            print("OPTION CHOSE: " + indexChosen.ToString());
-            ChosenDialogueTransition(indexChosen - 1);
-            FadeOutDialogueOptions();
-            GlitchChosenDialogueIntoPosition_Part1(dialogueTextRects[indexChosen - 1]);
+            if (canReplyCurrent)
+            {
+                //print("OPTION CHOSE: " + indexChosen.ToString());
+                ChosenDialogueTransition(indexChosen - 1);
+                FadeOutDialogueOptions();
+                GlitchChosenDialogueIntoPosition_Part1(dialogueTextRects[indexChosen - 1]);
+            }
 
             dialogueChosen = true;
+
             gameCon.PostResponse(indexChosen - 1);
         }
         
@@ -141,6 +172,7 @@ public class UI_Controller : MonoBehaviour
     #region RESETTING
     private void ResetReadyToDisplay()
     {
+        Debug.Log("ResetReadyToDisplay");
         dialogueChosen = false;
         LeanTween.cancel(dialogueOptions_cg.gameObject);
         LeanTween.cancel(dialogueUI_cg.gameObject);
@@ -166,26 +198,24 @@ public class UI_Controller : MonoBehaviour
     #endregion
 
     #region UI ANIMATION
-    RectTransform optTemp;
     private void GlitchChosenDialogueIntoPosition_Part1(RectTransform opt)
     {
+        //print("Glitch part 1");
+
         float additionalOffset = 0;
         if(opt.anchoredPosition.x == 0)
         {
             additionalOffset = 100f;
         }
-        LeanTween.move(opt.gameObject, new Vector3(opt.position.x + 200f + additionalOffset, opt.position.y, 0f), 0.00f)
-            .setOnComplete(GlitchChosenDialogueIntoPosition_Part2);
-        optTemp = opt;
+
+        opt.anchoredPosition = new Vector3(opt.anchoredPosition.x + 200f + additionalOffset, opt.anchoredPosition.y, 0f);
+        GlitchChosenDialogueIntoPosition_Part2(opt);
     }
-    private void GlitchChosenDialogueIntoPosition_Part2()
+    private IEnumerator GlitchChosenDialogueIntoPosition_Part2(RectTransform opt)
     {
-        LeanTween.delayedCall(0.07f, GlitchChosenDialogueIntoPosition_Part3);
-    }
-    private void GlitchChosenDialogueIntoPosition_Part3()
-    {
-        LeanTween.move(optTemp, new Vector3(option1_position.x, option1_position.y, 0f), 0.00f);
-        optTemp = null;
+        //print("Glitch part 2");
+        yield return new WaitForSeconds(0.1f);
+        opt.anchoredPosition = new Vector2(option1_position.x, option1_position.y);
     }
     #endregion
 
@@ -238,10 +268,12 @@ public class UI_Controller : MonoBehaviour
     //fades out dialogue OPTIONS
     private void FadeOutDialogueOptions()
     {
+        //print("FadeOutDialogueOptions");
         LeanTween.value(dialogueOptions_cg.gameObject, UpdateOptionsCGAlpha, 1f, 0f, cg_fadout_time).setEase(cg_fadout);
     }
     private void UpdateOptionsCGAlpha(float a)
     {
+        //print("fading..." + a.ToString());
         dialogueOptions_cg.alpha = a;
     }
     #endregion

@@ -54,9 +54,9 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
-  name: Sam
+  name: Sam2
   dialogue: Nice
-  timeOut: 0
+  timeOut: 10
   responses:
   - response: What now
     AutoChoose: 1
@@ -252,7 +252,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
-  name: Sam
+  name: Sam1
   dialogue: Hello, I am sam
   timeOut: 25.25
   responses:
@@ -314,9 +314,9 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
-  name: 
+  name: Sam4
   dialogue: 
-  timeOut: 0
+  timeOut: 1
   responses:
   - response: '[PASS]'
     AutoChoose: 1
@@ -374,7 +374,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
-  name: "Sam\t"
+  name: Sam3
   dialogue: That's not very nice
   timeOut: 0
   responses:
@@ -437,7 +437,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 1
-  name: Sam
+  name: Sam  5
   dialogue: Time to go
   timeOut: 0
   responses:

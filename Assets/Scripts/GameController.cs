@@ -24,6 +24,10 @@ public class GameController : MonoBehaviour
     [SerializeField] AbstractTriggeredDialogue MainDialogue;
     [SerializeField] List<NamedTriggeredEvent> TriggeredEvents;
 
+    [Header("Settings")]
+    [Tooltip("Time in seconds to insert between consecutive dialogues on top of any wait nodes.")]
+    [SerializeField, Min(0)] float GlobalDialogueDelay = 10;
+
     UI_Controller UIController;
 
     AbstractTriggeredDialogue currentEvent;
@@ -96,18 +100,18 @@ public class GameController : MonoBehaviour
 
                 DialogueNode.DialogueData diagData = (DialogueNode.DialogueData)currentDialogue.data;
 
-                bool canRespond = false;
+                bool canRespond = true;
                 if (diagData.responses.Count == 1)
                 {
-                    canRespond = diagData.responses[0].response == GraphGlobals.MagicDialogueSkipValue;
+                    canRespond = !(diagData.responses[0].response == GraphGlobals.MagicDialogueSkipValue);
                 }
-
+                Debug.Log(diagData.timeOut);
                 UIController.DrawNode(diagData.dialog, canRespond, diagData.name, diagData.responses, diagData.timeOut);
                 break;
             case NodeType.Wait:
                 float waitData = (float)currentDialogue.data;
                 //wait for time, then move to next node
-                WaitNode(waitData);
+                StartCoroutine(WaitNode(waitData));
                 break;
             case NodeType.End:
                 //Stop processing nodes, continue processing custom evenmt script
@@ -132,14 +136,17 @@ public class GameController : MonoBehaviour
 
     public void PostResponse(int choiceIndex)
     {
+        //Debug.Log(currentDialogue)
         //-1 means there was no dialogue options
         if (choiceIndex == -1)
         {
+            Debug.Log("AdvanceDialogueChoiceless");
             AdvanceDialogueChoiceless();
         } else
         {
             currentDialogue = currentEvent.AdvanceDialogue(choiceIndex);
         }
+
         HandleCurrentNode();
     }
 
@@ -158,5 +165,10 @@ public class GameController : MonoBehaviour
 
         //triggered event already playing
         return false;
+    }
+
+    public float GetGlobalTimeDelay()
+    {
+        return GlobalDialogueDelay;
     }
 }

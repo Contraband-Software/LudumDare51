@@ -21,6 +21,7 @@ namespace GraphSystem
             NodeData baseData;
             baseData.type = NodeType.Action;
             baseData.data = gameObject;
+            baseData.NodeID = "ActionNode_" + gameObject + "_" + this.position;
             return baseData;
         }
 	}

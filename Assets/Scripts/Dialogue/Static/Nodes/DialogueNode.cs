@@ -38,6 +38,7 @@ namespace GraphSystem
             dialogueData.name = name;
             dialogueData.dialog = dialogue;
             dialogueData.responses = responses;
+            dialogueData.timeOut = timeOut;
             //dialogueData.responsesLength = responses.Count;
         }
 
@@ -46,6 +47,7 @@ namespace GraphSystem
             NodeData baseData;
             baseData.type = NodeType.Dialogue;
             baseData.data = dialogueData;
+            baseData.NodeID = "Dialig_" + name + "_" + this.position;
             return baseData;
         }
     }

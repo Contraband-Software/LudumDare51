@@ -679,6 +679,11 @@ PrefabInstance:
       propertyPath: MainDialogue
       value: 
       objectReference: {fileID: 5193464323960956359}
+    - target: {fileID: 5454764168417418495, guid: 8959ce3d1096e4b4786f46a49a758171,
+        type: 3}
+      propertyPath: GlobalDialogueDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8959ce3d1096e4b4786f46a49a758171, type: 3}
 --- !u!4 &5193464323960956357 stripped

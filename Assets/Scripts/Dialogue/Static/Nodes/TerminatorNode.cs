@@ -15,6 +15,7 @@ namespace GraphSystem
             NodeData baseData;
             baseData.type = NodeType.End;
             baseData.data = null;
+            baseData.NodeID = "TerminatorNode_" + this.position;
             return baseData;
         }
     }

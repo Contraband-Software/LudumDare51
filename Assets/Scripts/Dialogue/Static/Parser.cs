@@ -59,7 +59,8 @@ namespace GraphSystem
                 case NodeType.Dialogue:
                     if (responseIndex < currentNode.DynamicOutputs.Count())
                     {
-                        return (BaseNode)currentNode.DynamicOutputs.ToList<NodePort>()[(int)responseIndex].Connection.node;
+                        currentNode = (BaseNode)currentNode.DynamicOutputs.ToList<NodePort>()[(int)responseIndex].Connection.node;
+                        return currentNode;
                     }
                     else {
                         Debug.LogException(new System.Exception("Graph System: Response index out of range!"));
@@ -68,7 +69,8 @@ namespace GraphSystem
                     break;
                 case NodeType.Action:
                 case NodeType.Wait:
-                    return (BaseNode)currentNode.GetOutputPort(GraphGlobals.LinkNextNodeFieldName).Connection.node;
+                    currentNode = (BaseNode)currentNode.GetOutputPort(GraphGlobals.LinkNextNodeFieldName).Connection.node;
+                    return currentNode;
                     break;
                 case NodeType.End:
                 case NodeType.Root:

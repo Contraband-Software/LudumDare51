@@ -14,6 +14,9 @@ namespace GraphSystem
     }
     public struct NodeData
     {
+#if UNITY_EDITOR
+        public string NodeID;
+#endif
         public NodeType type;
         public object data;
     }

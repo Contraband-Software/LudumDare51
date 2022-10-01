@@ -22,6 +22,7 @@ namespace GraphSystem
             NodeData baseData;
             baseData.type = NodeType.Wait;
             baseData.data = timeInSeconds;
+            baseData.NodeID = "WaitNode_" + timeInSeconds.ToString() + "_" + this.position;
             return baseData;
         }
     }

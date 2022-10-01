@@ -7,8 +7,6 @@ using GraphSystem;
 public class ChronoDialogueController : AbstractTriggeredDialogue
 {
     [Header("Settings")]
-    [Tooltip("Time in seconds to insert between consecutive dialogues on top of any wait nodes.")]
-    [SerializeField, Min(0)] float GlobalDialogueDelay = 10;
 
     NodeData currentNodeData;
 
@@ -25,7 +23,6 @@ public class ChronoDialogueController : AbstractTriggeredDialogue
     public override NodeData AdvanceDialogue(int responseIndex)
     {
         BaseNode newNode = DialogueGraphParser.GetNextNode((uint)responseIndex);
-
         currentNodeData = newNode.GetNodeValue();
 
         return GetCurrentDialogue();

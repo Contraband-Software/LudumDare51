@@ -24,6 +24,7 @@ namespace GraphSystem
             NodeData baseData;
             baseData.type = NodeType.Root;
             baseData.data = null;
+            baseData.NodeID = "RootNode_" + this.position;
             return baseData;
         }
     }
