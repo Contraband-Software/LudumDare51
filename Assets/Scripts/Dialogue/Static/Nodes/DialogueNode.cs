@@ -12,11 +12,13 @@ namespace GraphSystem
         {
             public string name;
             public string dialog;
+            public float timeOut;
             public List<GraphConnections.ResponseConnectionData> responses;
         }
 
         [SerializeField, TextArea] private string name;
         [SerializeField, TextArea(5, 100)] private string dialogue;
+        [SerializeField, Min(0)] private float timeOut;
 
         private DialogueData dialogueData;
 

@@ -4,6 +4,12 @@ using UnityEngine;
 using XNode;
 using GraphSystem;
 
+/*
+ 
+TEST SCRIPT, NOT PRODUCTION
+ 
+ */
+
 public class DialogueParserController : MonoBehaviour
 {
     [SerializeField] NodeGraph graph;
@@ -12,7 +18,7 @@ public class DialogueParserController : MonoBehaviour
 
     void Start()
     {
-        Parser = new GraphSystem.Parser((ChronoDialogueGraph)graph);
+        Parser = new GraphSystem.Parser(graph);
 
         NodeData data = Parser.GetStartNode().GetNodeValue();
 

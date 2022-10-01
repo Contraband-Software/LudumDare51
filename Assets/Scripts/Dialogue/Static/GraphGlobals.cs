@@ -21,5 +21,7 @@ namespace GraphSystem
     {
         public static string ResponseFieldName = "Responses";
         public static string WaitNextFieldName = "Next";
+
+        public static string MagicDialogueSkipValue = "[PASS]";
     }
 }

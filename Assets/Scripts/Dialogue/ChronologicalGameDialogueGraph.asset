@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 184, y: -344}
+  position: {x: -8, y: -360}
   ports:
     keys:
     - previous
@@ -48,7 +48,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: 7342153078910902649}
+        node: {fileID: 4763175205390689829}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -56,8 +56,10 @@ MonoBehaviour:
       _dynamic: 1
   name: Sam
   dialogue: Nice
+  timeOut: 0
   responses:
   - response: What now
+    AutoChoose: 0
 --- !u!114 &-8495462515752772782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +73,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -24, y: 248}
+  position: {x: -8, y: 72}
   ports:
     keys:
     - previous
@@ -115,7 +117,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: 40}
+  position: {x: 1144, y: 24}
   ports:
     keys:
     - previous
@@ -145,7 +147,7 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -472, y: -168}
+  position: {x: -616, y: -184}
   ports:
     keys:
     - Start
@@ -182,6 +184,46 @@ MonoBehaviour:
   - {fileID: 7342153078910902649}
   - {fileID: -4183054509469879520}
   - {fileID: -8495462515752772782}
+  - {fileID: 4763175205390689829}
+  - {fileID: 579015775322629817}
+--- !u!114 &579015775322629817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: -216}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: 579015775322629817}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 579015775322629817}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  timeInSeconds: 0
 --- !u!114 &2441067931153027776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +237,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -184, y: -312}
+  position: {x: -376, y: -312}
   ports:
     keys:
     - previous
@@ -251,9 +293,69 @@ MonoBehaviour:
       _dynamic: 1
   name: Sam
   dialogue: Hello, I am sam
+  timeOut: 25.25
   responses:
   - response: Hello
+    AutoChoose: 1
   - response: I HATE YOU
+    AutoChoose: 0
+--- !u!114 &4763175205390689829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 360, y: -392}
+  ports:
+    keys:
+    - previous
+    - responses
+    - responses 0
+    values:
+    - _fieldName: previous
+      _node: {fileID: 4763175205390689829}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: responses 0
+        node: {fileID: -8843241248414862292}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: responses
+      _node: {fileID: 4763175205390689829}
+      _typeQualifiedName: System.Collections.Generic.List`1[[GraphSystem.GraphConnections+ResponseConnectionData,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: responses 0
+      _node: {fileID: 4763175205390689829}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  name: 
+  dialogue: 
+  timeOut: 0
+  responses:
+  - response: '[PASS]'
+    AutoChoose: 0
 --- !u!114 &7032659992361758415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,8 +412,10 @@ MonoBehaviour:
       _dynamic: 1
   name: "Sam\t"
   dialogue: That's not very nice
+  timeOut: 0
   responses:
   - response: And what
+    AutoChoose: 0
 --- !u!114 &7342153078910902649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +429,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 520, y: -152}
+  position: {x: 872, y: -104}
   ports:
     keys:
     - previous
@@ -339,9 +443,6 @@ MonoBehaviour:
       connections:
       - fieldName: responses 0
         node: {fileID: 7032659992361758415}
-        reroutePoints: []
-      - fieldName: responses 0
-        node: {fileID: -8843241248414862292}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -371,5 +472,7 @@ MonoBehaviour:
       _dynamic: 1
   name: Sam
   dialogue: Time to go
+  timeOut: 0
   responses:
   - response: Ok
+    AutoChoose: 0

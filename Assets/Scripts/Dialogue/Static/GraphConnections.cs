@@ -20,6 +20,8 @@ namespace GraphSystem
         {
             [TextArea]
             public string response;
+
+            public bool AutoChoose;
         }
     }
 }
