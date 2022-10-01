@@ -9,6 +9,8 @@ public class UI_Controller : MonoBehaviour
 
     [Header("Dialogue Display")]
     [SerializeField] CanvasGroup dialogueUI_cg;
+    [SerializeField] CanvasGroup dialogueOptions_cg;
+    [SerializeField] GameObject transitionedTexts;
     [SerializeField] TextMeshProUGUI speakerName_text;
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
 
@@ -27,6 +29,7 @@ public class UI_Controller : MonoBehaviour
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
     public void DrawNode(string speakerName, List<string> dialogueOptions)
     {
+        MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
         InstantDialoguePanelOpaque();
 
@@ -58,8 +61,6 @@ public class UI_Controller : MonoBehaviour
     //prompts a test dialogue
     private void OnDialogueTest()
     {
-        print("P pressed");
-
         DrawNode("Jakub", new List<string> { "How are you?", "I hate you", "Im hungy" });
     }
 
@@ -96,14 +97,32 @@ public class UI_Controller : MonoBehaviour
 
     private void SendDialogueChosen(int indexChosen)
     {
-        print(indexChosen);
-        FadeOutDialoguePanel();
+        print("OPTION CHOSE: " + indexChosen.ToString());
+        ChosenDialogueTransition(indexChosen-1);
+        FadeOutDialogueOptions();
     }
 
 
 
 
     #region DIALOGUE VISIBILITY CONTROLS
+
+    //places chosen dialogue option into region where it wont fade out
+    private void ChosenDialogueTransition(int indexChosen)
+    {
+        Transform rect = dialogueOptions_text[indexChosen].transform;
+        rect.SetParent(rect.parent.parent.Find("DialogueOptions_Transitioned"));
+    }
+
+    private void MoveAllTransitionedBack()
+    {
+        for(int c = 0; c < transitionedTexts.transform.childCount; c++)
+        {
+            transitionedTexts.transform.GetChild(c).SetParent(dialogueOptions_cg.gameObject.transform);
+        }
+    }
+
+
     //changes dialogue option texts to be blank
     private void InstantSoftClearDialogueOptions()
     {
@@ -117,17 +136,28 @@ public class UI_Controller : MonoBehaviour
     private void InstantDialoguePanelOpaque()
     {
         dialogueUI_cg.alpha = 1f;
+        dialogueOptions_cg.alpha = 1f;
     }
 
 
-    //fades out entire dialogue panel
+    //fades out entire dialogue PANEL
     private void FadeOutDialoguePanel()
     {
-        LeanTween.value(dialogueUI_cg.gameObject, UpdateCGAlpha, 1f, 0f, 1f).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.value(dialogueUI_cg.gameObject, UpdateEntireCGAlpha, 1f, 0f, 1f).setEase(LeanTweenType.easeOutQuad);
     }
-    private void UpdateCGAlpha(float a)
+    private void UpdateEntireCGAlpha(float a)
     {
         dialogueUI_cg.alpha = a;
+    }
+
+    //fades out dialogue OPTIONS
+    private void FadeOutDialogueOptions()
+    {
+        LeanTween.value(dialogueOptions_cg.gameObject, UpdateOptionsCGAlpha, 1f, 0f, 1f).setEase(LeanTweenType.easeOutQuad);
+    }
+    private void UpdateOptionsCGAlpha(float a)
+    {
+        dialogueOptions_cg.alpha = a;
     }
     #endregion
 }
