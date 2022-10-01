@@ -20,6 +20,7 @@ namespace GraphSystem
         public abstract void Suspend(bool status);
         public abstract NodeData Initiate();
         public abstract NodeData AdvanceDialogue(int responseIndex);
+        public abstract NodeData GetCurrentDialogue();
         public abstract bool IsComplete();
     }
 }
