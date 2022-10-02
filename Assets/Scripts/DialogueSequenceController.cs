@@ -152,6 +152,12 @@ public class DialogueSequenceController : MonoBehaviour
                 HandleCurrentNode();
                 break;
 
+            case NodeType.Action:
+                //invoke action
+                AdvanceDialogueChoiceless();
+                HandleCurrentNode();
+                break;
+
             case NodeType.End:
                 //Stop processing nodes, continue processing custom event script
                 break;
