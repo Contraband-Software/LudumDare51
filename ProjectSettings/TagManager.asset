@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UIController
   - ActController
+  - Interactable
   layers:
   - Default
   - TransparentFX
