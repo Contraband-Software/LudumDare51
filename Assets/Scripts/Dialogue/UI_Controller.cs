@@ -41,7 +41,7 @@ public class UI_Controller : MonoBehaviour
     //Game Controls
     DialogueSequenceController dialogCon;
 
-    private void Awake()
+    private void Start()
     {
         dialogCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController();
         SetOriginalTextPositions();
@@ -66,6 +66,7 @@ public class UI_Controller : MonoBehaviour
     {
         Debug.Log("DrawNode: " + incomingText);
         StopCoroutine(NoOptionTimeOutReply(0, 0));
+        StopCoroutine(CountdownDisplay(0));
 
         MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
@@ -142,9 +143,10 @@ public class UI_Controller : MonoBehaviour
         float remainingTime = fullTime;
         while(remainingTime > 0)
         {
+            //Debug.Log("REMAINING TIME: " + remainingTime.ToString());
             remainingTime -= Time.deltaTime;
             timeOutBar.localScale = new Vector2((remainingTime/ fullTime), timeOutBar.localScale.y);
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
         if (canReplyCurrent)
         {

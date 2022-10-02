@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GraphSystem;
-using static GraphSystem.DialogueNode;
-using Unity.VisualScripting;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(ChronoDialogueController))]
 public class DialogueSequenceController : MonoBehaviour
 {
+    public UnityEvent OnMainDialogueEnd;
+
     [Serializable]
     public struct NamedTriggeredEvent
     {
@@ -107,6 +108,8 @@ public class DialogueSequenceController : MonoBehaviour
         {
             Debug.Log("DialogueSequenceController: MAIN SEQUENCE ENDED.");
             MainSequenceEnded = true;
+
+            OnMainDialogueEnd.Invoke();
         }
     }
 
@@ -125,6 +128,8 @@ public class DialogueSequenceController : MonoBehaviour
 
     private void HandleCurrentNode()
     {
+        Debug.Log(currentDialogue.NodeID);
+
         switch (currentDialogue.type)
         {
             case NodeType.Dialogue:

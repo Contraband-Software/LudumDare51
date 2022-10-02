@@ -4,9 +4,28 @@ using UnityEngine;
 
 public class Global
 {
-    public static class SceneNames
+    public enum SceneNames
     {
-        public static string MAINMENU = "MainMenu";
-        public static string GAME = "Game";
+        MAINMENU,
+        ACT1,
+        ACT2
+    }
+
+    public static string GetScene(SceneNames scene)
+    {
+        switch (scene)
+        {
+            case SceneNames.MAINMENU:
+                return "MainMenu";
+                break;
+            case SceneNames.ACT1:
+                return "SamPrototyping";
+                break;
+            case SceneNames.ACT2:
+                return "SamPrototyping2";
+                break;
+        }
+
+        throw new System.Exception("WRONG SCENE NAME");
     }
 }
