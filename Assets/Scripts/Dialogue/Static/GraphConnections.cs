@@ -8,15 +8,15 @@ namespace GraphSystem
 {
     public class GraphConnections
     {
-        public class ResponseConnection { }
+        public class BaseFlowConnection { }
 
         [Serializable]
-        public class ResponseConnectionLink : ResponseConnection
+        public class ConnectionLink : BaseFlowConnection
         {
 
         }
         [Serializable]
-        public class ResponseConnectionData : ResponseConnection
+        public class ResponseConnectionData : BaseFlowConnection
         {
             [TextArea] public string response;
             public bool AutoChoose;

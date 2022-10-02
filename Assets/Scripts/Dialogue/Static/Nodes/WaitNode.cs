@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Events;
 using XNode;
 using static GraphSystem.DialogueNode;
 using static GraphSystem.GraphGlobals;

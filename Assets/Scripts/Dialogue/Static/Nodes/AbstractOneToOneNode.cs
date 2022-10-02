@@ -8,9 +8,9 @@ namespace GraphSystem
     public abstract class AbstractOneToOneNode : BaseNode
     {
         [Input]
-        public GraphConnections.ResponseConnectionLink previous;
+        public GraphConnections.ConnectionLink previous;
 
         [Output(connectionType = ConnectionType.Override)]
-        public GraphConnections.ResponseConnectionLink next;
+        public GraphConnections.ConnectionLink next;
     }
 }

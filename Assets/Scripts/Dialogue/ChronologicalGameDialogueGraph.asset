@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1016, y: -152}
+  position: {x: 1208, y: -200}
   ports:
     keys:
     - next
@@ -21,7 +21,7 @@ MonoBehaviour:
     values:
     - _fieldName: next
       _node: {fileID: -6377894510142632473}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
@@ -33,7 +33,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: previous
       _node: {fileID: -6377894510142632473}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
@@ -47,10 +47,6 @@ MonoBehaviour:
   dialogue: I am Sam!
   audioClip: {fileID: 0}
   timeOut: 2
-  next:
-    response: 
-    AutoChoose: 0
-    audioClip: {fileID: 0}
 --- !u!114 &-5593850167792493912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +68,7 @@ MonoBehaviour:
     values:
     - _fieldName: previous
       _node: {fileID: -5593850167792493912}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: responses 2
@@ -84,7 +80,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: next
       _node: {fileID: -5593850167792493912}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
@@ -109,14 +105,14 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2792, y: 216}
+  position: {x: 3560, y: 248}
   ports:
     keys:
     - previous
     values:
     - _fieldName: previous
       _node: {fileID: -4183054509469879520}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
@@ -142,7 +138,7 @@ MonoBehaviour:
   m_Name: Dialogue Node Respond
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1784, y: 568}
+  position: {x: 2040, y: -72}
   ports:
     keys:
     - responses
@@ -162,7 +158,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: previous
       _node: {fileID: -3644222684648900101}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
@@ -241,7 +237,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: previous
       _node: {fileID: -3349038071476883747}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
@@ -314,7 +310,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2312, y: -120}
+  position: {x: 2568, y: -40}
   ports:
     keys:
     - previous
@@ -322,7 +318,7 @@ MonoBehaviour:
     values:
     - _fieldName: previous
       _node: {fileID: -2438127087454341536}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: responses 0
@@ -334,11 +330,11 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: next
       _node: {fileID: -2438127087454341536}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: 6626741245739555457}
+        node: {fileID: 1119485331311749484}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -359,7 +355,7 @@ MonoBehaviour:
   m_Name: Halt For Flag
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1784, y: -200}
+  position: {x: 2040, y: -312}
   ports:
     keys:
     - previous
@@ -367,7 +363,7 @@ MonoBehaviour:
     values:
     - _fieldName: previous
       _node: {fileID: -201299036880887756}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
@@ -379,7 +375,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: next
       _node: {fileID: -201299036880887756}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
@@ -416,6 +412,8 @@ MonoBehaviour:
   - {fileID: -5593850167792493912}
   - {fileID: -201299036880887756}
   - {fileID: 3453258494024764244}
+  - {fileID: 1119485331311749484}
+  - {fileID: 1319653990447724924}
 --- !u!114 &815715740760770167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +427,7 @@ MonoBehaviour:
   m_Name: Dialogue Node Respond
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2376, y: 328}
+  position: {x: 2376, y: 232}
   ports:
     keys:
     - responses
@@ -448,7 +446,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: previous
       _node: {fileID: 815715740760770167}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: responses 1
@@ -478,6 +476,102 @@ MonoBehaviour:
   - response: :(
     AutoChoose: 1
     audioClip: {fileID: 0}
+--- !u!114 &1119485331311749484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1baf2651b1fe84cb006ef88f1bfbac, type: 3}
+  m_Name: Action
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2840, y: -136}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: 1119485331311749484}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -2438127087454341536}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 1119485331311749484}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 6626741245739555457}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 5c2e39a5fd96c1046b90867e499a970e, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1319653990447724924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebed63212ef5e444e80a0781a06ece81, type: 3}
+  m_Name: Set Interrupt
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 984, y: 184}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: 1319653990447724924}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 1319653990447724924}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Set: 0
 --- !u!114 &3054318342187835651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,14 +585,14 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 536, y: -88}
+  position: {x: 280, y: -24}
   ports:
     keys:
     - Start
     values:
     - _fieldName: Start
       _node: {fileID: 3054318342187835651}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
@@ -521,7 +615,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1656, y: -424}
+  position: {x: 1768, y: -184}
   ports:
     keys:
     - previous
@@ -529,7 +623,7 @@ MonoBehaviour:
     values:
     - _fieldName: previous
       _node: {fileID: 3453258494024764244}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: responses 0
@@ -541,7 +635,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: next
       _node: {fileID: 3453258494024764244}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
@@ -566,7 +660,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2632, y: -248}
+  position: {x: 3144, y: -168}
   ports:
     keys:
     - next
@@ -574,7 +668,7 @@ MonoBehaviour:
     values:
     - _fieldName: next
       _node: {fileID: 6626741245739555457}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
@@ -586,14 +680,14 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: previous
       _node: {fileID: 6626741245739555457}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: next
-        node: {fileID: -2438127087454341536}
-        reroutePoints: []
       - fieldName: responses 0
         node: {fileID: -3644222684648900101}
+        reroutePoints: []
+      - fieldName: next
+        node: {fileID: 1119485331311749484}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -603,10 +697,6 @@ MonoBehaviour:
   dialogue: Goodbye then!
   audioClip: {fileID: 0}
   timeOut: 4
-  next:
-    response: 
-    AutoChoose: 0
-    audioClip: {fileID: 0}
 --- !u!114 &7603906741103608850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +710,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 792, y: -152}
+  position: {x: 984, y: -200}
   ports:
     keys:
     - next
@@ -628,7 +718,7 @@ MonoBehaviour:
     values:
     - _fieldName: next
       _node: {fileID: 7603906741103608850}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
@@ -640,7 +730,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: previous
       _node: {fileID: 7603906741103608850}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Start
@@ -654,10 +744,6 @@ MonoBehaviour:
   dialogue: Hello!
   audioClip: {fileID: 0}
   timeOut: 1
-  next:
-    response: 
-    AutoChoose: 0
-    audioClip: {fileID: 0}
 --- !u!114 &8234128782366898715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +757,7 @@ MonoBehaviour:
   m_Name: Dialogue Node Respond
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2056, y: -264}
+  position: {x: 2328, y: -424}
   ports:
     keys:
     - responses
@@ -690,7 +776,7 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: previous
       _node: {fileID: 8234128782366898715}
-      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionLink, Assembly-CSharp,
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: responses 1

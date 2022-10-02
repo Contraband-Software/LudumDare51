@@ -73,6 +73,7 @@ namespace GraphSystem
                     break;
 
                 //Link-only nodes
+                case NodeType.SetInterrupt:
                 case NodeType.HaltFlagged:
                 case NodeType.Action:
                 case NodeType.Wait:
