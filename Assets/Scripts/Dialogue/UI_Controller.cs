@@ -14,6 +14,7 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] CanvasGroup dialogueOptions_cg;
     [SerializeField] GameObject transitionedTexts;
     [SerializeField] RectTransform speakerCanvasRect;
+    [SerializeField] RectTransform timeOutCanvasRect;
     [SerializeField] TextMeshProUGUI currentDialogue_text;
     [SerializeField] TextMeshProUGUI speakerName_text;
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
@@ -106,12 +107,15 @@ public class UI_Controller : MonoBehaviour
                 t.enableAutoSizing = false;
                 t.fontSize = smallestTextSize;
             }
+
+            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
         }
         else
         {
             Debug.Log("StartCoroutine + NoOptionTimeOutReply: " + timeOut.ToString());
-            speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f);
+            speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f + timeOutCanvasRect.sizeDelta.y);
             StartCoroutine(NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0));
+            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
         }
     }
 
@@ -120,12 +124,25 @@ public class UI_Controller : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("NoOptionTimeOutReply + WaitForSeconds: " + time.ToString());
 
+        StopCoroutine(CountdownDisplay(0));
         SendDialogueBlank(index);
 
         yield break;
     }
-#endregion
+    #endregion
 
+
+    #region TIMING
+    private IEnumerator CountdownDisplay(float startingTime)
+    {
+        float remainingTime = startingTime;
+        while(remainingTime > 0)
+        {
+            remainingTime -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+    #endregion
 
     #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
     private void OnDialogue1()
@@ -172,6 +189,7 @@ public class UI_Controller : MonoBehaviour
 
             dialogueChosen = true;
 
+            StopCoroutine(CountdownDisplay(0));
             dialogCon.PostResponse(indexChosen - 1);
         }
         
@@ -273,8 +291,6 @@ public class UI_Controller : MonoBehaviour
         dialogueUI_cg.alpha = 1f;
         dialogueOptions_cg.alpha = 1f;
     }
-
-
 
     #endregion
 }
