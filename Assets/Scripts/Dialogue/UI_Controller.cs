@@ -170,36 +170,17 @@ public class UI_Controller : MonoBehaviour
     }
     #endregion
 
-    #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
-    private void OnDialogue1()
+    public void SelectDialogueOption(int option)
     {
-        if(diagOptions >= 1)
+        if(option <= diagOptions)
         {
-            SendDialogueChosen(1);
+            SendDialogueChosen(option);
+        }
+        else
+        {
+            throw new System.Exception("ERROR - UI CONTROLLER INVALID OPTION");
         }
     }
-    private void OnDialogue2()
-    {
-        if (diagOptions >= 2)
-        {
-            SendDialogueChosen(2);
-        }
-    }
-    private void OnDialogue3()
-    {
-        if (diagOptions >= 3)
-        {
-            SendDialogueChosen(3);
-        }
-    }
-    private void OnDialogue4()
-    {
-        if (diagOptions >= 4)
-        {
-            SendDialogueChosen(4);
-        }
-    }
-    #endregion
 
     //Sends when valid dialogue options chosen. 
     private void SendDialogueChosen(int indexChosen)

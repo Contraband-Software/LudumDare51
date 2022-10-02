@@ -245,7 +245,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIController
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6797336242585121712, guid: 53f86c4cfd0a46b4289a3b09d88a7a7e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53f86c4cfd0a46b4289a3b09d88a7a7e, type: 3}
 --- !u!224 &4677110233654115078 stripped
 RectTransform:
