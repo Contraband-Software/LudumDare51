@@ -7,7 +7,7 @@ public class KeyDialogue : AbstractTriggeredDialogue
 {
     public override bool IsComplete()
     {
-        return GetCurrentDialogue().type == NodeType.End;
+        return EndAtTerminator();
     }
 
     public override void Suspend(bool status)

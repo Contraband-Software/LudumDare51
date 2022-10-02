@@ -41,6 +41,8 @@ namespace GraphSystem
             return GetCurrentDialogue();
         }
 
+        protected bool EndAtTerminator() { return GetCurrentDialogue().type == NodeType.End; }
+
         public abstract bool IsComplete();
         public abstract void Suspend(bool status);
     }

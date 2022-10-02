@@ -10,5 +10,7 @@ public class MyInteractableObject : MonoBehaviour
         {
 
         }
+
+        //start game ui
     }
 }
