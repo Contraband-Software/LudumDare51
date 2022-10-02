@@ -8,6 +8,11 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] private GameObject raycastObject;
     [SerializeField] private float interactionDistance;
 
+    private string currentlyHoveredObject;
+    private bool hoveringOverObject = false;
+    private bool showingInteractionPrompt = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +35,42 @@ public class InteractWithObjects : MonoBehaviour
         {
             if (objectHit.collider.gameObject.tag == "Interactable")
             {
-                print("HITTING INTERACTABLE");
+                hoveringOverObject = true;
+                if(objectHit.collider.gameObject.name != currentlyHoveredObject)
+                {
+                    currentlyHoveredObject = objectHit.collider.gameObject.name;
+                    DisplayInteractionPrompt();
+                }
+            }
+            else
+            {
+                hoveringOverObject = false;
+                currentlyHoveredObject = "";
+                if (showingInteractionPrompt)
+                {
+                    HideInteractionPrompt();
+                }
             }
         }
+        else
+        {
+            hoveringOverObject = false;
+            currentlyHoveredObject = "";
+            if (showingInteractionPrompt)
+            {
+                HideInteractionPrompt();
+            }
+        }
+    }
+
+    private void DisplayInteractionPrompt()
+    {
+        showingInteractionPrompt = true;
+        print("DISPLAYING PROMPT");
+    }
+    private void HideInteractionPrompt()
+    {
+        showingInteractionPrompt = false;
+        print("HIDING PROMPT");
     }
 }
