@@ -123,11 +123,7 @@ public class UI_Controller : MonoBehaviour
         yield break;
     }
 #endregion
-    //prompts a test dialogue
-    //private void OnDialogueTest()
-    //{
-    //    DrawNode("What is your name?", true, "Jakub", new List<string> { "Im Jakub", "Go Away", "I LOVE CRACK" });
-    //}
+
 
     #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
     private void OnDialogue1()
@@ -170,8 +166,8 @@ public class UI_Controller : MonoBehaviour
             {
                 //print("OPTION CHOSE: " + indexChosen.ToString());
                 ChosenDialogueTransition(indexChosen - 1);
-                FadeOutDialogueOptions();
-                GlitchChosenDialogueIntoPosition_Part1(dialogueTextRects[indexChosen - 1]);
+                dialogueOptions_cg.alpha = 0f;
+                
             }
 
             dialogueChosen = true;
@@ -267,26 +263,6 @@ public class UI_Controller : MonoBehaviour
     }
 
 
-    //fades out entire dialogue PANEL
-    private void FadeOutDialoguePanel()
-    {
-        LeanTween.value(gameObject, UpdateEntireCGAlpha, dialogueUI_cg.alpha, 0f, cg_fadout_time).setEase(cg_fadout);
-    }
-    private void UpdateEntireCGAlpha(float a)
-    {
-        dialogueUI_cg.alpha = a;
-    }
 
-    //fades out dialogue OPTIONS
-    private void FadeOutDialogueOptions()
-    {
-        //print("FadeOutDialogueOptions");
-        LeanTween.value(gameObject, UpdateOptionsCGAlpha, dialogueOptions_cg.alpha, 0f, cg_fadout_time).setEase(cg_fadout);
-    }
-    private void UpdateOptionsCGAlpha(float a)
-    {
-        //print("fading..." + a.ToString());
-        dialogueOptions_cg.alpha = a;
-    }
     #endregion
 }
