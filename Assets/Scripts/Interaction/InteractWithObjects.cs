@@ -19,6 +19,8 @@ public class InteractWithObjects : MonoBehaviour
 
     private AbstractBaseObject currentlyHoveredObject;
 
+    private List<InteractableObject> Inventory;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +42,13 @@ public class InteractWithObjects : MonoBehaviour
         RaycastHit objectHit;
         if (Physics.Raycast(raycastObject.transform.position, fwd, out objectHit, interactionDistance))
         {
-            if (objectHit.collider.gameObject.tag == "Interactable")
+            if (objectHit.collider.gameObject.tag == "Interactable" || objectHit.collider.gameObject.tag == "Usable") 
             {
+                GameObject root = objectHit.collider.transform.root.gameObject;
                 hoveringOverObject = true;
-                if(currentlyHoveredObject == null || objectHit.collider.gameObject.GetInstanceID() != currentlyHoveredObject.gameObject.GetInstanceID())
+                if(currentlyHoveredObject == null || root.GetInstanceID() != currentlyHoveredObject.gameObject.GetInstanceID())
                 {
-                    currentlyHoveredObject = objectHit.collider.gameObject.GetComponent<AbstractBaseObject>();
+                    currentlyHoveredObject = root.GetComponent<AbstractBaseObject>();
                     DisplayInteractionPrompt(currentlyHoveredObject.GetObjectName());
                 }
             }
@@ -85,12 +88,27 @@ public class InteractWithObjects : MonoBehaviour
         print("HIDING PROMPT");
     }
 
-
+    //InputSystem Message
     private void OnInteract(InputValue input)
     {
         if (currentlyHoveredObject != null)
         {
             currentlyHoveredObject.OnInteract.Invoke();
+
+            if (currentlyHoveredObject.gameObject.tag == "Interactable")
+            {
+                Inventory.Add((InteractableObject)currentlyHoveredObject);
+
+                //Make gameObject go away
+                foreach (Transform child in currentlyHoveredObject.transform)
+                {
+                    child.gameObject.SetActive(false);
+                }
+            } else {
+                //Useable
+            }
         }
+
+        Debug.Log(Inventory);
     }
 }
