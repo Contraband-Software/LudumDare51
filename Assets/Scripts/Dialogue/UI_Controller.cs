@@ -143,13 +143,12 @@ public class UI_Controller : MonoBehaviour
         while(remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
-            timeOutBar.localScale = new Vector2(timeOutBar.localScale.x * (remainingTime/ fullTime), timeOutBar.localScale.y);
-            Debug.Log("Time Left: " + remainingTime);
+            timeOutBar.localScale = new Vector2((remainingTime/ fullTime), timeOutBar.localScale.y);
             yield return new WaitForEndOfFrame();
         }
         if (canReplyCurrent)
         {
-            SendDialogueChosen(autoChooseChoice);
+            SendDialogueChosen(autoChooseChoice+1);
         }
     }
     #endregion
