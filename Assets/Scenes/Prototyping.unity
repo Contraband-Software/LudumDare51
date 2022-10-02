@@ -874,16 +874,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 2214807526861102349, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4677110234580959039, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: m_DefaultActionMap
-      value: 3000af6b-f8e6-4180-92e5-7d7f4b0c73d4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b56dddcb69c894f8a1e3587b4237d5, type: 3}
 --- !u!1 &2050379295

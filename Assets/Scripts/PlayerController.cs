@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float GravityAcceleration = 30.0f;
     [SerializeField] LayerMask GroundLayerMask;
 
+
+    private UI_Controller uiCon;
+
     private Vector2 horizontalInput;
 
     private float verticalVelocity = 0f;
@@ -90,6 +93,7 @@ public class PlayerController : MonoBehaviour
         OriginalHeight = characterController.height;
 
         fadeCrouchDown = FadeCrouchDown();
+        uiCon = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
     }
 
     private void FixedUpdate()
@@ -133,4 +137,23 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    #region UI DIALOGUE SELECTION
+    private void OnDialogue1()
+    {
+        uiCon.SelectDialogueOption(1);
+    }
+    private void OnDialogue2()
+    {
+        uiCon.SelectDialogueOption(2);
+    }
+    private void OnDialogue3()
+    {
+        uiCon.SelectDialogueOption(3);
+    }
+    private void OnDialogue4()
+    {
+        uiCon.SelectDialogueOption(4);
+    }
+    #endregion
 }
