@@ -5,7 +5,9 @@ using UnityEngine;
 
 using GraphSystem;
 using static GraphSystem.DialogueNode;
+using Unity.VisualScripting;
 
+[RequireComponent(typeof(ChronoDialogueController))]
 public class DialogueSequenceController : MonoBehaviour
 {
     [Serializable]
@@ -45,14 +47,28 @@ public class DialogueSequenceController : MonoBehaviour
 
     private void Start()
     {
-        flags = new List<string>();
+        UIController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
 
+        InitController();
+    }
+
+    private void InitController()
+    {
+        isHalted = false;
+        MainSequenceEnded = false;
+        MainSequenceCanBeSuspended = true;
+
+        flags = new List<string>();
         currentEvent = MainDialogue;
         currentSequenceState = SequenceState.Main;
 
-        UIController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
-
         InitCurrentEvent();
+    }
+
+    private void InitCurrentEvent()
+    {
+        currentDialogue = currentEvent.Initiate();
+        HandleCurrentNode();
     }
 
     private void Update()
@@ -107,12 +123,6 @@ public class DialogueSequenceController : MonoBehaviour
         throw new Exception("DialogueSequenceController: NO TRIGGERED EVENT WITH THAT NAME");
     }
 
-    private void InitCurrentEvent()
-    {
-        currentDialogue = currentEvent.Initiate();
-        HandleCurrentNode();
-    }
-
     private void HandleCurrentNode()
     {
         switch (currentDialogue.type)
@@ -154,6 +164,12 @@ public class DialogueSequenceController : MonoBehaviour
 
             case NodeType.Action:
                 //invoke action
+                ActionNode.ActionData actionData = (ActionNode.ActionData)currentDialogue.data;
+
+                GameObject go = GameObject.Find(actionData.gameObject);
+                var comp = go.GetComponent<ActionComponent>();
+                comp.action();
+
                 AdvanceDialogueChoiceless();
                 HandleCurrentNode();
                 break;

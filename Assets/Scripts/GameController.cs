@@ -2,15 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(DialogueSequenceController))]
 public class GameController : MonoBehaviour
 {
     DialogueSequenceController dialogueController;
 
+    private DialogueSequenceController FindDialogueController()
+    {
+        return GameObject.FindGameObjectWithTag("ActController").GetComponent<DialogueSequenceController>();
+    }
+
     private void Awake()
     {
-        dialogueController = GetComponent<DialogueSequenceController>();
+        dialogueController = FindDialogueController();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        dialogueController = FindDialogueController();
     }
 
     public DialogueSequenceController GetDialogueController()
