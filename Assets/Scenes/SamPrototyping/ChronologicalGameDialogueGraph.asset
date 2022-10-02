@@ -90,7 +90,7 @@ MonoBehaviour:
   speakerName: Sam2
   dialogue: I am Sam!
   hostilityEffect: 0
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 83e1a1b457e33854b96bffb219a4cd94, type: 3}
   timeOut: 2
 --- !u!114 &-5593850167792493912
 MonoBehaviour:
@@ -332,7 +332,7 @@ MonoBehaviour:
   speakerName: Sam3
   dialogue: What's your name?
   hostilityEffect: 0
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 83e1a1b457e33854b96bffb219a4cd94, type: 3}
   timeOut: 9.99
   responses:
   - response: SHUT UP!
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1160, y: -200}
+  position: {x: 1144, y: -184}
   ports:
     keys:
     - next
@@ -786,8 +786,8 @@ MonoBehaviour:
   speakerName: Sam1
   dialogue: Hello!
   hostilityEffect: 0
-  audioClip: {fileID: 0}
-  timeOut: 1
+  audioClip: {fileID: 8300000, guid: 8626ad77b1d0a8347a315f59c633bb0d, type: 3}
+  timeOut: 3.27
 --- !u!114 &8234128782366898715
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -134,12 +134,12 @@ public class DialogueSequenceController : MonoBehaviour
         {
             case NodeType.Dialogue:
                 DialogueNode.DialogueData diagData = (DialogueNode.DialogueData)currentDialogue.data;
-                UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut);
+                UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut, diagData.clip);
                 break;
 
             case NodeType.DialogueRespond:
                 DialogueNodeRespond.DialogueRespondData diagRespondData = (DialogueNodeRespond.DialogueRespondData)currentDialogue.data;
-                UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut);
+                UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut, diagRespondData.clip);
                 break;
 
             case NodeType.Wait:

@@ -71,13 +71,11 @@ public class UI_Controller : MonoBehaviour
 
     //Pass in the speaker name and list of options
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
-    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut)
+    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut, AudioClip clip)
     {
         Debug.Log("DrawNode: " + incomingText);
+
         //COROTUINE RESET
-        
-
-
         StopCoroutine(noOptionTimeOutReply);
         StopCoroutine(countdownDisplay);
 
@@ -124,15 +122,15 @@ public class UI_Controller : MonoBehaviour
                 t.fontSize = smallestTextSize;
             }
 
-            countdownDisplay = CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay());
+            countdownDisplay = CountdownDisplay(timeOut + clip.length);
             StartCoroutine(countdownDisplay);
         }
         else
         {
             speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f + timeOutCanvasRect.sizeDelta.y);
 
-            countdownDisplay = CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay());
-            noOptionTimeOutReply = NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0);
+            countdownDisplay = CountdownDisplay(timeOut + clip.length);
+            noOptionTimeOutReply = NoOptionTimeOutReply(timeOut + clip.length, 0);
             StartCoroutine(noOptionTimeOutReply);
             StartCoroutine(countdownDisplay);
         }
@@ -220,7 +218,8 @@ public class UI_Controller : MonoBehaviour
             timeOutBar.localScale = new Vector2(0f, 1f);
             print(timeOutBar.localScale.x.ToString());
 
-            Debug.Log("Israel moment");
+            //Get and play correct audio clip from List<GraphConnections.ResponseConnectionData> dialogueOptions
+            //apply correct clip length delay
 
             StopCoroutine(noOptionTimeOutReply);
             StopCoroutine(countdownDisplay);
