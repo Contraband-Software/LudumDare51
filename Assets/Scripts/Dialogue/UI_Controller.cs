@@ -14,6 +14,8 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] CanvasGroup dialogueOptions_cg;
     [SerializeField] GameObject transitionedTexts;
     [SerializeField] RectTransform speakerCanvasRect;
+    [SerializeField] RectTransform timeOutCanvasRect;
+    [SerializeField] RectTransform timeOutBar;
     [SerializeField] TextMeshProUGUI currentDialogue_text;
     [SerializeField] TextMeshProUGUI speakerName_text;
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
@@ -34,6 +36,7 @@ public class UI_Controller : MonoBehaviour
     private int diagOptions = 0;
     private string current_SpeakerName;
     private bool canReplyCurrent = false;
+    int autoChooseChoice = 0;
 
     //Game Controls
     DialogueSequenceController dialogCon;
@@ -75,7 +78,7 @@ public class UI_Controller : MonoBehaviour
         currentDialogue_text.text = incomingText;
 
         canReplyCurrent = canReply;
-        int autoChooseChoice = 0;
+        autoChooseChoice = 0;
 
         //UPDATE TEXTS TO REFLECT RESPONSE PROMPT
         speakerName_text.text = speakerName + ": ";
@@ -106,12 +109,14 @@ public class UI_Controller : MonoBehaviour
                 t.enableAutoSizing = false;
                 t.fontSize = smallestTextSize;
             }
+
+            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
         }
         else
         {
-            Debug.Log("StartCoroutine + NoOptionTimeOutReply: " + timeOut.ToString());
-            speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f);
+            speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f + timeOutCanvasRect.sizeDelta.y);
             StartCoroutine(NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0));
+            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
         }
     }
 
@@ -120,12 +125,34 @@ public class UI_Controller : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("NoOptionTimeOutReply + WaitForSeconds: " + time.ToString());
 
+        StopCoroutine(CountdownDisplay(0));
         SendDialogueBlank(index);
 
         yield break;
     }
-#endregion
+    #endregion
 
+
+    #region TIMING
+    private IEnumerator CountdownDisplay(float startingTime)
+    {
+        Debug.Log("COUNTDOWN STARTING TIME: " + startingTime.ToString());
+        timeOutBar.localScale = new Vector2(1f, 1f);
+        float fullTime = startingTime;
+        float remainingTime = fullTime;
+        while(remainingTime > 0)
+        {
+            remainingTime -= Time.deltaTime;
+            timeOutBar.localScale = new Vector2(timeOutBar.localScale.x * (remainingTime/ fullTime), timeOutBar.localScale.y);
+            Debug.Log("Time Left: " + remainingTime);
+            yield return new WaitForEndOfFrame();
+        }
+        if (canReplyCurrent)
+        {
+            SendDialogueChosen(autoChooseChoice);
+        }
+    }
+    #endregion
 
     #region DIALOGUE OPTION HANDLING (CLUNKY AS SHIT)
     private void OnDialogue1()
@@ -172,6 +199,7 @@ public class UI_Controller : MonoBehaviour
 
             dialogueChosen = true;
 
+            StopCoroutine(CountdownDisplay(0));
             dialogCon.PostResponse(indexChosen - 1);
         }
         
@@ -273,8 +301,6 @@ public class UI_Controller : MonoBehaviour
         dialogueUI_cg.alpha = 1f;
         dialogueOptions_cg.alpha = 1f;
     }
-
-
 
     #endregion
 }
