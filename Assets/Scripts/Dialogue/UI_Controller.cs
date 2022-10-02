@@ -38,6 +38,11 @@ public class UI_Controller : MonoBehaviour
     private bool canReplyCurrent = false;
     int autoChooseChoice = 0;
 
+    //COROUTINES
+    private IEnumerator noOptionTimeOutReply;
+    private IEnumerator countdownDisplay;
+    private IEnumerator delayedResponsePostage;
+
     //Game Controls
     DialogueSequenceController dialogCon;
 
@@ -45,6 +50,10 @@ public class UI_Controller : MonoBehaviour
     {
         dialogCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController();
         SetOriginalTextPositions();
+
+        noOptionTimeOutReply = NoOptionTimeOutReply(0,0);
+        countdownDisplay = CountdownDisplay(0);
+        delayedResponsePostage = DelayedResponsePostage(0, 0);
     }
 
 #region GAME CONTROLLER INTERFACE
@@ -65,8 +74,12 @@ public class UI_Controller : MonoBehaviour
     public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut)
     {
         Debug.Log("DrawNode: " + incomingText);
-        StopCoroutine(NoOptionTimeOutReply(0, 0));
-        StopCoroutine(CountdownDisplay(0));
+        //COROTUINE RESET
+        
+
+
+        StopCoroutine(noOptionTimeOutReply);
+        StopCoroutine(countdownDisplay);
 
         MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
@@ -111,13 +124,17 @@ public class UI_Controller : MonoBehaviour
                 t.fontSize = smallestTextSize;
             }
 
-            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
+            countdownDisplay = CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay());
+            StartCoroutine(countdownDisplay);
         }
         else
         {
             speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f + timeOutCanvasRect.sizeDelta.y);
-            StartCoroutine(NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0));
-            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
+
+            countdownDisplay = CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay());
+            noOptionTimeOutReply = NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0);
+            StartCoroutine(noOptionTimeOutReply);
+            StartCoroutine(countdownDisplay);
         }
     }
 
@@ -126,7 +143,7 @@ public class UI_Controller : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("NoOptionTimeOutReply + WaitForSeconds: " + time.ToString());
 
-        StopCoroutine(CountdownDisplay(0));
+        StopCoroutine(countdownDisplay);
         SendDialogueBlank(index);
 
         yield break;
@@ -199,10 +216,17 @@ public class UI_Controller : MonoBehaviour
             currentDialogue_text.text = current_DialogueOptions[indexChosen - 1].response;
 
             dialogueChosen = true;
-
-            StopCoroutine(CountdownDisplay(0));
+            print(timeOutBar.localScale.x.ToString());
             timeOutBar.localScale = new Vector2(0f, 1f);
-            DelayedResponsePostage(dialogCon.GetGlobalTimeDelay(), indexChosen);
+            print(timeOutBar.localScale.x.ToString());
+
+            Debug.Log("Israel moment");
+
+            StopCoroutine(noOptionTimeOutReply);
+            StopCoroutine(countdownDisplay);
+
+            delayedResponsePostage = DelayedResponsePostage(dialogCon.GetGlobalTimeDelay(), indexChosen);
+            StartCoroutine(delayedResponsePostage);
         }
         
     }

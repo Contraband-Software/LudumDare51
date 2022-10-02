@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SamPrototyping.unity
+    guid: e58083f21c472034ea9a203e3c394876
+  - enabled: 1
+    path: Assets/Scenes/SamPrototyping2.unity
+    guid: 5cac56890608aa546a4cd8c0da3645e8
   m_configObjects: {}

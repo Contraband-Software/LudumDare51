@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52744690d042254c812eab42966146b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 0
+  scene: 2
 --- !u!4 &263316577
 Transform:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2214807527917233910}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2214807527917233911}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cb0feffd48f2474aa982123650e323a, type: 3}
@@ -1432,54 +1432,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: GlobalDialogueDelay
-      value: 2.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: OnMainDialogueEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: OnMainDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: OnMainDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2214807527917233912}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: OnMainDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614172227568394518, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b56dddcb69c894f8a1e3587b4237d5, type: 3}
---- !u!1 &2214807527917233911 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2214807528248528887, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 2214807527917233910}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2214807527917233912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2214807527917233911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d52744690d042254c812eab42966146b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: 0
