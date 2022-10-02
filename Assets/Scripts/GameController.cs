@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-5)]
 public class GameController : MonoBehaviour
 {
     DialogueSequenceController dialogueController;
@@ -16,10 +17,14 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         dialogueController = FindDialogueController();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log(scene.ToString());
+        Debug.Log(dialogueController == null);
         dialogueController = FindDialogueController();
     }
 

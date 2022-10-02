@@ -1392,5 +1392,10 @@ PrefabInstance:
       propertyPath: scene
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+        type: 3}
+      propertyPath: GlobalDialogueDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b56dddcb69c894f8a1e3587b4237d5, type: 3}
