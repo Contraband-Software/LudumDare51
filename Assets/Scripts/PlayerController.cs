@@ -9,15 +9,16 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] CharacterController characterController;
     [SerializeField] float MoveSpeed = 10.0f;
-    [SerializeField] float MaxFallSpeed = 10.0f;
-    [SerializeField] float JumpHeight = 3.5f;
+    [SerializeField, Min(0)] float MaxFallSpeed = 10.0f;
+    [SerializeField, Min(0)] float JumpHeight = 3.5f;
+    [SerializeField, Range(0, 1)] float CrouchHeightPercentage = 0.3f;
 
     [Header("Camera")]
     [SerializeField] float SensitivityX = 8f;
     [SerializeField] float SensitivityY = 0.5f;
     [SerializeField] bool LockCursorOnStart = true;
     [SerializeField] Transform PlayerCamera;
-    [SerializeField] float LookXClamp = 85f;
+    [SerializeField, Min(0)] float LookXClamp = 85f;
 
     [Header("Environment")]
     [SerializeField] float GravityAcceleration = 30.0f;
@@ -33,6 +34,11 @@ public class PlayerController : MonoBehaviour
     private float mouseX, mouseY;
     private float xRotation = 0f;
 
+    private float OriginalHeight;
+
+    IEnumerator fadeCrouchDown;
+    IEnumerator fadeCrouchUp;
+
     private float ClampAbsolute(float val, float factor) { return Mathf.Clamp(val, factor * -1, factor); }
 
     public void OnMove(InputValue input)
@@ -46,18 +52,41 @@ public class PlayerController : MonoBehaviour
         mouseY = input.Get<Vector2>().y;
     }
 
-    public void OnJump()
+    public void OnJump(InputValue input)
     {
+        Debug.Log(input.isPressed);
         isJumping = true;
     }
-    public void OnDDone()
+
+    IEnumerator FadeCrouchDown()
     {
-        Debug.Log("rfrsdhfhj");
+        while (characterController.height - OriginalHeight * CrouchHeightPercentage > 0.1)
+        {
+            characterController.height -= (characterController.height - OriginalHeight * CrouchHeightPercentage) * 0.1f;
+            yield return new WaitForSeconds(.01f);
+        }
+    }
+
+    public void OnCrouch(InputValue input)
+    {
+        StopAllCoroutines();
+
+        if (input.isPressed)
+        {
+            StartCoroutine(fadeCrouchDown);
+        } else
+        {
+            characterController.height = OriginalHeight;
+            transform.position += transform.up * OriginalHeight/2;
+        }
     }
 
     private void Awake()
     {
         Cursor.lockState = (LockCursorOnStart) ? CursorLockMode.Locked : CursorLockMode.None;
+        OriginalHeight = characterController.height;
+
+        fadeCrouchDown = FadeCrouchDown();
     }
 
     private void FixedUpdate()
@@ -66,6 +95,25 @@ public class PlayerController : MonoBehaviour
         characterController.Move(transform.up * Time.deltaTime * ClampAbsolute(verticalVelocity, MaxFallSpeed));
         //horizontal movement
         characterController.Move((transform.right * horizontalInput.x + transform.forward * horizontalInput.y) * MoveSpeed * Time.deltaTime);
+
+        //MOVEMENTS
+        isGrounded = Physics.CheckSphere(transform.position, characterController.height / 2 + 0.1f, GroundLayerMask);
+        if (isGrounded)
+        {
+            if (isJumping)
+            {
+                verticalVelocity = Mathf.Sqrt(2f * JumpHeight * GravityAcceleration);
+                isJumping = false;
+            }
+            else
+            {
+                verticalVelocity = 0;
+            }
+        }
+        else
+        {
+            verticalVelocity += GravityAcceleration * Time.deltaTime * -1;
+        }
     }
 
     private void Update()
@@ -80,21 +128,6 @@ public class PlayerController : MonoBehaviour
         targetRotation.x = xRotation;
         PlayerCamera.eulerAngles = targetRotation;
 
-        //MOVEMENTS
-        isGrounded = Physics.CheckSphere(transform.position, characterController.height, GroundLayerMask);
-        if (isGrounded)
-        {
-            if (isJumping)
-            {
-                verticalVelocity = Mathf.Sqrt(2f * JumpHeight * GravityAcceleration);
-                isJumping = false;
-            } else
-            {
-                verticalVelocity = 0;
-            }
-        } else
-        {
-            verticalVelocity += GravityAcceleration * Time.deltaTime * -1;
-        }
+
     }
 }
