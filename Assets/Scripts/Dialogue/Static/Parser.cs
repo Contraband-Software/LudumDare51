@@ -69,7 +69,9 @@ namespace GraphSystem
                     break;
                 case NodeType.Action:
                 case NodeType.Wait:
-                    currentNode = (BaseNode)currentNode.GetOutputPort(GraphGlobals.LinkNextNodeFieldName).Connection.node;
+                    NodePort node = currentNode.GetOutputPort(GraphGlobals.LinkNextNodeFieldName);
+                    NodePort endNode = node.Connection;
+                    currentNode = (BaseNode)endNode.node;
                     return currentNode;
                     break;
                 case NodeType.End:

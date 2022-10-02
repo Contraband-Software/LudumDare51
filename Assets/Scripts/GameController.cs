@@ -105,13 +105,15 @@ public class GameController : MonoBehaviour
                 {
                     canRespond = !(diagData.responses[0].response == GraphGlobals.MagicDialogueSkipValue);
                 }
-                Debug.Log(diagData.timeOut);
+                
                 UIController.DrawNode(diagData.dialog, canRespond, diagData.name, diagData.responses, diagData.timeOut);
                 break;
             case NodeType.Wait:
-                float waitData = (float)currentDialogue.data;
+                WaitNode.WaitData waitData = (WaitNode.WaitData)currentDialogue.data;
                 //wait for time, then move to next node
-                StartCoroutine(WaitNode(waitData));
+                UIController.OnWait(waitData.timeInSeconds, waitData.clearScreen);
+
+                StartCoroutine(WaitNode(waitData.timeInSeconds));
                 break;
             case NodeType.End:
                 //Stop processing nodes, continue processing custom evenmt script

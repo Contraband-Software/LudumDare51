@@ -24,7 +24,7 @@ namespace GraphSystem
     public static class GraphGlobals
     {
         public static string ResponseFieldName = "Responses";
-        public static string LinkNextNodeFieldName = "Next";
+        public static string LinkNextNodeFieldName = "next";
 
         public static string MagicDialogueSkipValue = "[PASS]";
     }
