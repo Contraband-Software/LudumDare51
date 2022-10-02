@@ -5,6 +5,7 @@ using XNode;
 
 namespace GraphSystem
 {
+    [DefaultExecutionOrder(-20)]
     public abstract class AbstractTriggeredDialogue : MonoBehaviour
     {
         [SerializeField] NodeGraph graph;

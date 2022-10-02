@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2214807528248528882}
   - component: {fileID: 2214807528248528885}
   - component: {fileID: 2214807528248528884}
+  - component: {fileID: 2214807527917233912}
   m_Layer: 0
   m_Name: ActController
   m_TagString: ActController
@@ -78,9 +79,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb0feffd48f2474aa982123650e323a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMainDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2214807527917233912}
+        m_TargetAssemblyTypeName: ActEnd, Assembly-CSharp
+        m_MethodName: NextAct
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   MainDialogue: {fileID: 2214807528248528884}
   TriggeredEvents: []
-  GlobalDialogueDelay: 0
+  GlobalDialogueDelay: 2.99
 --- !u!114 &2214807528248528884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +110,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000, guid: 2ebcc08e8fe107b459da07cc0666c9bf, type: 2}
+--- !u!114 &2214807527917233912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2214807528248528887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52744690d042254c812eab42966146b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 0
 --- !u!1001 &2214807527284411535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2214807526861102346}
     m_Modifications:
+    - target: {fileID: 6004732424837524889, guid: 53f86c4cfd0a46b4289a3b09d88a7a7e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6797336240500389769, guid: 53f86c4cfd0a46b4289a3b09d88a7a7e,
         type: 3}
       propertyPath: m_Pivot.x

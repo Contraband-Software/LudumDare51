@@ -38,13 +38,22 @@ public class UI_Controller : MonoBehaviour
     private bool canReplyCurrent = false;
     int autoChooseChoice = 0;
 
+    //COROUTINES
+    private IEnumerator noOptionTimeOutReply;
+    private IEnumerator countdownDisplay;
+    private IEnumerator delayedResponsePostage;
+
     //Game Controls
     DialogueSequenceController dialogCon;
 
-    private void Awake()
+    private void Start()
     {
         dialogCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController();
         SetOriginalTextPositions();
+
+        noOptionTimeOutReply = NoOptionTimeOutReply(0,0);
+        countdownDisplay = CountdownDisplay(0);
+        delayedResponsePostage = DelayedResponsePostage(0, 0);
     }
 
 #region GAME CONTROLLER INTERFACE
@@ -62,10 +71,13 @@ public class UI_Controller : MonoBehaviour
 
     //Pass in the speaker name and list of options
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
-    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut)
+    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut, AudioClip clip)
     {
         Debug.Log("DrawNode: " + incomingText);
-        StopCoroutine(NoOptionTimeOutReply(0, 0));
+
+        //COROTUINE RESET
+        StopCoroutine(noOptionTimeOutReply);
+        StopCoroutine(countdownDisplay);
 
         MoveAllTransitionedBack();
         InstantSoftClearDialogueOptions();
@@ -110,13 +122,17 @@ public class UI_Controller : MonoBehaviour
                 t.fontSize = smallestTextSize;
             }
 
-            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
+            countdownDisplay = CountdownDisplay(timeOut + clip.length);
+            StartCoroutine(countdownDisplay);
         }
         else
         {
             speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f + timeOutCanvasRect.sizeDelta.y);
-            StartCoroutine(NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0));
-            StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
+
+            countdownDisplay = CountdownDisplay(timeOut + clip.length);
+            noOptionTimeOutReply = NoOptionTimeOutReply(timeOut + clip.length, 0);
+            StartCoroutine(noOptionTimeOutReply);
+            StartCoroutine(countdownDisplay);
         }
     }
 
@@ -125,7 +141,7 @@ public class UI_Controller : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("NoOptionTimeOutReply + WaitForSeconds: " + time.ToString());
 
-        StopCoroutine(CountdownDisplay(0));
+        StopCoroutine(countdownDisplay);
         SendDialogueBlank(index);
 
         yield break;
@@ -142,9 +158,10 @@ public class UI_Controller : MonoBehaviour
         float remainingTime = fullTime;
         while(remainingTime > 0)
         {
+            //Debug.Log("REMAINING TIME: " + remainingTime.ToString());
             remainingTime -= Time.deltaTime;
             timeOutBar.localScale = new Vector2((remainingTime/ fullTime), timeOutBar.localScale.y);
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
         if (canReplyCurrent)
         {
@@ -197,13 +214,28 @@ public class UI_Controller : MonoBehaviour
             currentDialogue_text.text = current_DialogueOptions[indexChosen - 1].response;
 
             dialogueChosen = true;
-
-            StopCoroutine(CountdownDisplay(0));
+            print(timeOutBar.localScale.x.ToString());
             timeOutBar.localScale = new Vector2(0f, 1f);
-            dialogCon.PostResponse(indexChosen - 1);
+            print(timeOutBar.localScale.x.ToString());
+
+            //Get and play correct audio clip from List<GraphConnections.ResponseConnectionData> dialogueOptions
+            //apply correct clip length delay
+
+            StopCoroutine(noOptionTimeOutReply);
+            StopCoroutine(countdownDisplay);
+
+            delayedResponsePostage = DelayedResponsePostage(dialogCon.GetGlobalTimeDelay(), indexChosen);
+            StartCoroutine(delayedResponsePostage);
         }
         
     }
+
+    private IEnumerator DelayedResponsePostage(float time, int indexChosen)
+    {
+        yield return new WaitForSeconds(time);
+        dialogCon.PostResponse(indexChosen - 1);
+    }
+
     private void SendDialogueBlank(int indexChosen)
     {
         dialogueChosen = true;

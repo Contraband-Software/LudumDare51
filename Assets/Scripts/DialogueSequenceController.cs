@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GraphSystem;
-using static GraphSystem.DialogueNode;
-using Unity.VisualScripting;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(ChronoDialogueController))]
 public class DialogueSequenceController : MonoBehaviour
 {
+    public UnityEvent OnMainDialogueEnd;
+
     [Serializable]
     public struct NamedTriggeredEvent
     {
@@ -107,6 +108,8 @@ public class DialogueSequenceController : MonoBehaviour
         {
             Debug.Log("DialogueSequenceController: MAIN SEQUENCE ENDED.");
             MainSequenceEnded = true;
+
+            OnMainDialogueEnd.Invoke();
         }
     }
 
@@ -125,16 +128,18 @@ public class DialogueSequenceController : MonoBehaviour
 
     private void HandleCurrentNode()
     {
+        Debug.Log(currentDialogue.NodeID);
+
         switch (currentDialogue.type)
         {
             case NodeType.Dialogue:
                 DialogueNode.DialogueData diagData = (DialogueNode.DialogueData)currentDialogue.data;
-                UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut);
+                UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut, diagData.clip);
                 break;
 
             case NodeType.DialogueRespond:
                 DialogueNodeRespond.DialogueRespondData diagRespondData = (DialogueNodeRespond.DialogueRespondData)currentDialogue.data;
-                UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut);
+                UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut, diagRespondData.clip);
                 break;
 
             case NodeType.Wait:
