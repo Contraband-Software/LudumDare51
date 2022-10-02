@@ -36,6 +36,7 @@ public class UI_Controller : MonoBehaviour
     private int diagOptions = 0;
     private string current_SpeakerName;
     private bool canReplyCurrent = false;
+    int autoChooseChoice = 0;
 
     //Game Controls
     DialogueSequenceController dialogCon;
@@ -77,7 +78,7 @@ public class UI_Controller : MonoBehaviour
         currentDialogue_text.text = incomingText;
 
         canReplyCurrent = canReply;
-        int autoChooseChoice = 0;
+        autoChooseChoice = 0;
 
         //UPDATE TEXTS TO REFLECT RESPONSE PROMPT
         speakerName_text.text = speakerName + ": ";
@@ -137,12 +138,18 @@ public class UI_Controller : MonoBehaviour
     {
         Debug.Log("COUNTDOWN STARTING TIME: " + startingTime.ToString());
         timeOutBar.localScale = new Vector2(1f, 1f);
-        float remainingTime = startingTime;
+        float fullTime = startingTime;
+        float remainingTime = fullTime;
         while(remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
-            timeOutBar.localScale = new Vector2(timeOutBar.localScale.x * (remainingTime/startingTime), timeOutBar.localScale.y);
+            timeOutBar.localScale = new Vector2(timeOutBar.localScale.x * (remainingTime/ fullTime), timeOutBar.localScale.y);
+            Debug.Log("Time Left: " + remainingTime);
             yield return new WaitForEndOfFrame();
+        }
+        if (canReplyCurrent)
+        {
+            SendDialogueChosen(autoChooseChoice);
         }
     }
     #endregion
