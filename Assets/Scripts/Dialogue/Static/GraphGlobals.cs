@@ -10,6 +10,7 @@ namespace GraphSystem
         Wait,
         Dialogue,
         DialogueRespond,
+        HaltFlagged,
         Action,
         End
     }

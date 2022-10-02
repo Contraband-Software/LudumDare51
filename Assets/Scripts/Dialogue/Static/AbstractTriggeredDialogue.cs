@@ -13,7 +13,6 @@ namespace GraphSystem
 
         private void Awake()
         {
-            Debug.Log("AbstractTriggeredDialogue awake");
             DialogueGraphParser = new Parser(graph);
         }
 

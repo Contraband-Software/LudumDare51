@@ -38,8 +38,14 @@ public class DialogueSequenceController : MonoBehaviour
 
     bool MainSequenceEnded = false;
 
+    bool isHalted = false;
+    List<string> flags;
+    string currentLockingFlag = "";
+
     private void Start()
     {
+        flags = new List<string>();
+
         currentEvent = MainDialogue;
         currentSequenceState = SequenceState.Main;
 
@@ -64,6 +70,16 @@ public class DialogueSequenceController : MonoBehaviour
                 case SequenceState.Main:
                     MainSequenceEnd();
                     break;
+            }
+        }
+
+        if (isHalted)
+        {
+            if (flags.Contains(currentLockingFlag))
+            {
+                isHalted = false;
+                AdvanceDialogueChoiceless();
+                HandleCurrentNode();
             }
         }
     }
@@ -118,6 +134,14 @@ public class DialogueSequenceController : MonoBehaviour
 
                 StartCoroutine(WaitNode(waitData.timeInSeconds));
                 break;
+
+            case NodeType.HaltFlagged:
+
+                HaltForFlagNode.HaltData haltData = (HaltForFlagNode.HaltData)currentDialogue.data;
+
+                isHalted = true;
+                currentLockingFlag = haltData.flag;
+                break;
             case NodeType.End:
                 //Stop processing nodes, continue processing custom evenmt script
                 break;
@@ -137,6 +161,19 @@ public class DialogueSequenceController : MonoBehaviour
     private void AdvanceDialogueChoiceless()
     {
         currentDialogue = currentEvent.AdvanceDialogue(0);
+    }
+
+    public void PostFlag(string flag)
+    {
+        if (flags.Contains(flag))
+        {
+            //return true;
+        }
+        else
+        {
+            flags.Add(flag);
+            //return false;
+        }
     }
 
     public void PostResponse(int choiceIndex)

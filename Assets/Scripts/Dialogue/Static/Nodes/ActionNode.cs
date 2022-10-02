@@ -6,15 +6,9 @@ using XNode;
 
 namespace GraphSystem
 {
-	public class ActionNode : BaseNode
-	{
+	public class ActionNode : AbstractOneToOneNode
+    {
         [SerializeField] private string gameObject;
-
-        [Input]
-        public GraphConnections.ResponseConnectionLink previous;
-
-        [Output(connectionType = ConnectionType.Override)]
-        public GraphConnections.ResponseConnectionLink next;
 
         public override NodeData GetNodeValue()
 		{

@@ -8,7 +8,7 @@ using static GraphSystem.GraphGlobals;
 
 namespace GraphSystem
 {
-    public class WaitNode : BaseNode
+    public class WaitNode : AbstractOneToOneNode
     {
         public struct WaitData
         {
@@ -20,12 +20,6 @@ namespace GraphSystem
         [SerializeField] private bool clearScreen;
 
         private WaitData waitData;
-
-        [Input]
-        public GraphConnections.ResponseConnectionLink previous;
-
-        [Output(connectionType = ConnectionType.Override)]
-        public GraphConnections.ResponseConnectionLink next;
 
         protected override void Init()
         {
