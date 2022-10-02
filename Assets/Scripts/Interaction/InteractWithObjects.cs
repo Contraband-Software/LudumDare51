@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using MiniGames;
+using UnityEngine.InputSystem;
 
 public class InteractWithObjects : MonoBehaviour
 {
@@ -10,10 +12,12 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] private float interactionDistance;
     [SerializeField] private CanvasGroup interactPrompt_cg;
     [SerializeField] private TextMeshProUGUI interactPromptText;
-
-    private string currentlyHoveredObject;
+ 
     private bool hoveringOverObject = false;
     private bool showingInteractionPrompt = false;
+
+
+    private AbstractBaseObject currentlyHoveredObject;
 
 
     // Start is called before the first frame update
@@ -39,16 +43,16 @@ public class InteractWithObjects : MonoBehaviour
             if (objectHit.collider.gameObject.tag == "Interactable")
             {
                 hoveringOverObject = true;
-                if(objectHit.collider.gameObject.name != currentlyHoveredObject)
+                if(currentlyHoveredObject == null || objectHit.collider.gameObject.GetInstanceID() != currentlyHoveredObject.gameObject.GetInstanceID())
                 {
-                    currentlyHoveredObject = objectHit.collider.gameObject.name;
-                    DisplayInteractionPrompt(objectHit.collider.gameObject.name);
+                    currentlyHoveredObject = objectHit.collider.gameObject.GetComponent<AbstractBaseObject>();
+                    DisplayInteractionPrompt(currentlyHoveredObject.GetObjectName());
                 }
             }
             else
             {
                 hoveringOverObject = false;
-                currentlyHoveredObject = "";
+                currentlyHoveredObject = null;
                 if (showingInteractionPrompt)
                 {
                     HideInteractionPrompt();
@@ -58,7 +62,7 @@ public class InteractWithObjects : MonoBehaviour
         else
         {
             hoveringOverObject = false;
-            currentlyHoveredObject = "";
+            currentlyHoveredObject = null;
             if (showingInteractionPrompt)
             {
                 HideInteractionPrompt();
@@ -69,6 +73,7 @@ public class InteractWithObjects : MonoBehaviour
     private void DisplayInteractionPrompt(string objectName)
     {
         showingInteractionPrompt = true;
+
         interactPrompt_cg.alpha = 1f;
         interactPromptText.text = objectName + " - Press [E] To Interact";
         print("DISPLAYING PROMPT");
@@ -78,5 +83,14 @@ public class InteractWithObjects : MonoBehaviour
         showingInteractionPrompt = false;
         interactPrompt_cg.alpha = 0f;
         print("HIDING PROMPT");
+    }
+
+
+    private void OnInteract(InputValue input)
+    {
+        if (currentlyHoveredObject != null)
+        {
+            currentlyHoveredObject.OnInteract.Invoke();
+        }
     }
 }
