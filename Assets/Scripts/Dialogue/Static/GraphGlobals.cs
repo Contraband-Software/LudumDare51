@@ -9,6 +9,7 @@ namespace GraphSystem
         Root,
         Wait,
         Dialogue,
+        DialogueRespond,
         Action,
         End
     }

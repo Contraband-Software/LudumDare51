@@ -18,10 +18,9 @@ namespace GraphSystem
         [Serializable]
         public class ResponseConnectionData : ResponseConnection
         {
-            [TextArea]
-            public string response;
-
+            [TextArea] public string response;
             public bool AutoChoose;
+            public AudioClip audioClip;
         }
     }
 }

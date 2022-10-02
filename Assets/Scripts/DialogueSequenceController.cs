@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GraphSystem;
+using static GraphSystem.DialogueNode;
 
 public class DialogueSequenceController : MonoBehaviour
 {
@@ -99,20 +100,15 @@ public class DialogueSequenceController : MonoBehaviour
     {
         switch (currentDialogue.type)
         {
-            //case NodeType.Root:
-            //    break;
             case NodeType.Dialogue:
-                //Debug.Log("HandleCurrentNode NodeType.Dialogue");
-
                 DialogueNode.DialogueData diagData = (DialogueNode.DialogueData)currentDialogue.data;
 
-                bool canRespond = true;
-                if (diagData.responses.Count == 1)
-                {
-                    canRespond = !(diagData.responses[0].response == GraphGlobals.MagicDialogueSkipValue);
-                }
+                UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut);
+                break;
+            case NodeType.DialogueRespond:
+                DialogueNodeRespond.DialogueRespondData diagRespondData = (DialogueNodeRespond.DialogueRespondData)currentDialogue.data;
 
-                UIController.DrawNode(diagData.dialog, canRespond, diagData.name, diagData.responses, diagData.timeOut);
+                UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut);
                 break;
             case NodeType.Wait:
                 WaitNode.WaitData waitData = (WaitNode.WaitData)currentDialogue.data;

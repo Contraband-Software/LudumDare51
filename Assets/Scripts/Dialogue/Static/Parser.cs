@@ -57,6 +57,10 @@ namespace GraphSystem
             switch (currentNodeType)
             {
                 case NodeType.Dialogue:
+                    currentNode = (BaseNode)currentNode.GetOutputPort(GraphGlobals.LinkNextNodeFieldName).Connection.node;
+                    return currentNode;
+                    break;
+                case NodeType.DialogueRespond:
                     if (responseIndex < currentNode.DynamicOutputs.Count())
                     {
                         currentNode = (BaseNode)currentNode.DynamicOutputs.ToList<NodePort>()[(int)responseIndex].Connection.node;

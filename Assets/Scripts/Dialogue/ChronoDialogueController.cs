@@ -37,6 +37,8 @@ public class ChronoDialogueController : AbstractTriggeredDialogue
 
         currentNodeData = newNode.GetNodeValue();
 
+        Debug.Log(currentNodeData.NodeID);
+
         return GetCurrentDialogue();
     }
 }

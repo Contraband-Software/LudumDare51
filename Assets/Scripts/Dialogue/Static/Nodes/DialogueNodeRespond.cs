@@ -1,38 +1,37 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-using static GraphSystem.GraphGlobals;
 
 namespace GraphSystem
 {
-    public class DialogueNode : DialogueBaseNode
+    public class DialogueNodeRespond : DialogueBaseNode
     {
-        public class DialogueData : BaseDialogueData
+        public class DialogueRespondData : BaseDialogueData
         {
-            public GraphConnections.ResponseConnectionData next;
+            public List<GraphConnections.ResponseConnectionData> responses;
         }
 
-        private DialogueData dialogueData;
+        private DialogueRespondData dialogueData;
 
-        [Output(connectionType = ConnectionType.Override)]
-        public GraphConnections.ResponseConnectionData next;
+        [Output(dynamicPortList = true, connectionType = ConnectionType.Override)]
+        public List<GraphConnections.ResponseConnectionData> responses;
 
         protected override void Init()
         {
             base.Init();
 
-            dialogueData = new DialogueData();
+            dialogueData = new DialogueRespondData();
             dialogueData.name = speakerName;
             dialogueData.dialog = dialogue;
-            dialogueData.next = next;
+            dialogueData.responses = responses;
             dialogueData.timeOut = timeOut;
         }
 
         public override NodeData GetNodeValue()
         {
             NodeData baseData;
-            baseData.type = NodeType.Dialogue;
+            baseData.type = NodeType.DialogueRespond;
             baseData.data = dialogueData;
             baseData.NodeID = "Dialig_" + speakerName + "_" + this.position;
             return baseData;
