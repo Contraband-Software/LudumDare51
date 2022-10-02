@@ -10,8 +10,21 @@ public class MiniGameController : MonoBehaviour
         GetComponent<GraphSystem.ActionComponent>().action = Meth;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void Meth()
     {
-        Debug.Log("meth");
+        Debug.Log("Before goodbye");
     }
 }
