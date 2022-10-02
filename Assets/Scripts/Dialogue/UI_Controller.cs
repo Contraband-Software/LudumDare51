@@ -117,7 +117,7 @@ public class UI_Controller : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("NoOptionTimeOutReply + WaitForSeconds: " + time.ToString());
 
-        SendDialogueChosen(index);
+        SendDialogueBlank(index);
 
         yield break;
     }
@@ -158,22 +158,24 @@ public class UI_Controller : MonoBehaviour
     //Sends when valid dialogue options chosen. 
     private void SendDialogueChosen(int indexChosen)
     {
-        if (!dialogueChosen)
+        if (!dialogueChosen && canReplyCurrent)
         {
             Debug.Log(dialogueChosen);
-            if (canReplyCurrent)
-            {
-                //print("OPTION CHOSE: " + indexChosen.ToString());
-                ChosenDialogueTransition(indexChosen - 1);
-                dialogueOptions_cg.alpha = 0f;
-                
-            }
+            print("OPTION CHOSE: " + indexChosen.ToString());
+            ChosenDialogueTransition(indexChosen - 1);
+            dialogueOptions_cg.alpha = 0f;
+            currentDialogue_text.text = current_DialogueOptions[indexChosen - 1].response;
 
             dialogueChosen = true;
 
             gameCon.PostResponse(indexChosen - 1);
         }
         
+    }
+    private void SendDialogueBlank(int indexChosen)
+    {
+        dialogueChosen = true;
+        gameCon.PostResponse(indexChosen - 1);
     }
 
     #region RESETTING
