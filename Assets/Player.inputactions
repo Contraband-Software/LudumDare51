@@ -44,7 +44,7 @@
                 {
                     "name": "Dialogue1",
                     "type": "Button",
-                    "id": "eaee4e47-a353-4110-8941-ae13abba5c9e",
+                    "id": "c016f7fa-2f77-4f37-8dcf-6b3737664efe",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -330,17 +330,6 @@
                 },
                 {
                     "name": "",
-                    "id": "802ffc6e-82aa-489b-9434-d481d6dbebc6",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Dialogue1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "62deda3d-f639-47d7-aef1-160ed1bb5feb",
                     "path": "<Keyboard>/2",
                     "interactions": "",
@@ -391,6 +380,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4d4dd97-0459-4f12-8751-bb79480b93f3",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dialogue1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

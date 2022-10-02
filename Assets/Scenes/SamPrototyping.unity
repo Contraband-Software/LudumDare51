@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 2695308412928388872, guid: f2f2a5900718ff943a7e27846929dd85,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8229805299424045932, guid: f2f2a5900718ff943a7e27846929dd85,
         type: 3}
@@ -400,6 +400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117101512406146714, guid: 93119bddc5f54f241a40dab11ff5e3d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93119bddc5f54f241a40dab11ff5e3d1, type: 3}
@@ -1627,7 +1632,7 @@ PrefabInstance:
     - target: {fileID: 2214807526861102349, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2214807527917233912, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
@@ -1654,5 +1659,10 @@ PrefabInstance:
       propertyPath: TriggeredEvents.Array.data[0].EventController
       value: 
       objectReference: {fileID: 1917152841}
+    - target: {fileID: 4677110234580959039, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 3000af6b-f8e6-4180-92e5-7d7f4b0c73d4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b56dddcb69c894f8a1e3587b4237d5, type: 3}

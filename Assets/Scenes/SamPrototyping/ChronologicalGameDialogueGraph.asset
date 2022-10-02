@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Set Interrupt
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1896, y: 328}
+  position: {x: 1816, y: 312}
   ports:
     keys:
     - previous
@@ -44,6 +44,54 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Set: 1
+--- !u!114 &-8307223500914520754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2040, y: -456}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: -8307223500914520754}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 6626741245739555457}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: -8307223500914520754}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 7181565426900773320}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: sam
+  dialogue: LOL
+  hostilityEffect: 0
+  audioClip: {fileID: 8300000, guid: 779630e39e6030e46a75ce6fb8cf7cb8, type: 3}
+  timeOut: 0
 --- !u!114 &-6377894510142632473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +105,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: -200}
+  position: {x: 568, y: -184}
   ports:
     keys:
     - next
@@ -105,7 +153,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1080, y: 136}
+  position: {x: 1032, y: 200}
   ports:
     keys:
     - previous
@@ -150,7 +198,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2616, y: 216}
+  position: {x: 2616, y: 184}
   ports:
     keys:
     - previous
@@ -265,7 +313,7 @@ MonoBehaviour:
   m_Name: Dialogue Node Respond
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 856, y: -200}
+  position: {x: 792, y: -184}
   ports:
     keys:
     - responses
@@ -376,7 +424,7 @@ MonoBehaviour:
   m_Name: Set Interrupt
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1240, y: -424}
+  position: {x: 1320, y: -392}
   ports:
     keys:
     - previous
@@ -420,7 +468,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1848, y: -40}
+  position: {x: 1816, y: -136}
   ports:
     keys:
     - previous
@@ -431,7 +479,7 @@ MonoBehaviour:
       _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: responses 0
+      - fieldName: responses 1
         node: {fileID: 8234128782366898715}
         reroutePoints: []
       _direction: 0
@@ -465,7 +513,7 @@ MonoBehaviour:
   m_Name: Halt For Flag
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1240, y: -536}
+  position: {x: 1320, y: -504}
   ports:
     keys:
     - previous
@@ -528,6 +576,8 @@ MonoBehaviour:
   - {fileID: 8928644801515300597}
   - {fileID: 4875376649530517563}
   - {fileID: -2468175609115936266}
+  - {fileID: 7181565426900773320}
+  - {fileID: -8307223500914520754}
 --- !u!114 &815715740760770167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +591,7 @@ MonoBehaviour:
   m_Name: Dialogue Node Respond
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1512, y: 392}
+  position: {x: 1320, y: 376}
   ports:
     keys:
     - responses
@@ -604,7 +654,7 @@ MonoBehaviour:
   m_Name: Action
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2072, y: 8}
+  position: {x: 2040, y: -136}
   ports:
     keys:
     - previous
@@ -648,7 +698,7 @@ MonoBehaviour:
   m_Name: Set Interrupt
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 136, y: 8}
+  position: {x: 120, y: -24}
   ports:
     keys:
     - previous
@@ -692,7 +742,7 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -104, y: -56}
+  position: {x: -104, y: -24}
   ports:
     keys:
     - Start
@@ -722,7 +772,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1240, y: -808}
+  position: {x: 1320, y: -776}
   ports:
     keys:
     - previous
@@ -767,7 +817,7 @@ MonoBehaviour:
   m_Name: Set Interrupt
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1240, y: -680}
+  position: {x: 1320, y: -648}
   ports:
     keys:
     - previous
@@ -811,7 +861,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2296, y: -56}
+  position: {x: 2360, y: -88}
   ports:
     keys:
     - next
@@ -840,6 +890,9 @@ MonoBehaviour:
       - fieldName: responses 1
         node: {fileID: -3644222684648900101}
         reroutePoints: []
+      - fieldName: next
+        node: {fileID: -8307223500914520754}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -849,6 +902,54 @@ MonoBehaviour:
   hostilityEffect: 0
   audioClip: {fileID: 8300000, guid: 8626ad77b1d0a8347a315f59c633bb0d, type: 3}
   timeOut: 4
+--- !u!114 &7181565426900773320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1816, y: -456}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: 7181565426900773320}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -8307223500914520754}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: 7181565426900773320}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: responses 0
+        node: {fileID: 8234128782366898715}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: sam
+  dialogue: SMUGGUS
+  hostilityEffect: 0
+  audioClip: {fileID: 8300000, guid: 779630e39e6030e46a75ce6fb8cf7cb8, type: 3}
+  timeOut: 0
 --- !u!114 &7603906741103608850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,7 +963,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 376, y: -184}
+  position: {x: 344, y: -184}
   ports:
     keys:
     - next
@@ -910,12 +1011,13 @@ MonoBehaviour:
   m_Name: Dialogue Node Respond
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1624, y: -312}
+  position: {x: 1592, y: -456}
   ports:
     keys:
     - responses
     - previous
     - responses 0
+    - responses 1
     values:
     - _fieldName: responses
       _node: {fileID: 8234128782366898715}
@@ -948,6 +1050,18 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
+        node: {fileID: 7181565426900773320}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 1
+      _node: {fileID: 8234128782366898715}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
         node: {fileID: -2438127087454341536}
         reroutePoints: []
       _direction: 1
@@ -960,6 +1074,9 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 8626ad77b1d0a8347a315f59c633bb0d, type: 3}
   timeOut: 1
   responses:
+  - response: Eat my butt
+    AutoChoose: 1
+    audioClip: {fileID: 0}
   - response: LEAVE NOW!
     AutoChoose: 1
     audioClip: {fileID: 0}
@@ -976,7 +1093,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2136, y: 312}
+  position: {x: 2040, y: 312}
   ports:
     keys:
     - previous
