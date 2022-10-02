@@ -164,7 +164,7 @@ MonoBehaviour:
   MoveSpeed: 10
   MaxFallSpeed: 50.95
   JumpHeight: 3.5
-  SensitivityX: 1000
+  SensitivityX: 50
   SensitivityY: 50
   LockCursorOnStart: 1
   PlayerCamera: {fileID: 1117101513413809485}

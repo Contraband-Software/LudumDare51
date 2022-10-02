@@ -6,8 +6,6 @@ using GraphSystem;
 
 public class ChronoDialogueController : AbstractTriggeredDialogue
 {
-    [Header("Settings")]
-
     NodeData currentNodeData;
 
     public override void Suspend(bool status)

@@ -39,6 +39,13 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = input.Get<Vector2>();
     }
+
+    public void OnLook(InputValue input)
+    {
+        mouseX = input.Get<Vector2>().x;
+        mouseY = input.Get<Vector2>().y;
+    }
+
     public void OnJump()
     {
         isJumping = true;
@@ -55,17 +62,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //mouseX = (Mouse.current.delta.ReadValue() * Time.deltaTime).x;
-        //mouseY = (Mouse.current.delta.ReadValue() * Time.deltaTime).y;
+        
     }
 
     private void FixedUpdate()
     {
         //CAMERA LOOK
         //Turning left and right
-        transform.Rotate(Vector3.up, mouseX * SensitivityX * Time.deltaTime);
+        transform.Rotate(Vector3.up, mouseX * SensitivityX * Time.smoothDeltaTime);
         //looking up and down
-        xRotation -= mouseY * SensitivityY;
+        xRotation -= mouseY * SensitivityY * Time.smoothDeltaTime;
         xRotation = ClampAbsolute(xRotation, LookXClamp);
         Vector3 targetRotation = PlayerCamera.eulerAngles;
         targetRotation.x = xRotation;
