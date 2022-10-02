@@ -64,7 +64,7 @@ public class UI_Controller : MonoBehaviour
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
     public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut)
     {
-        Debug.Log("DrawNode");
+        Debug.Log("DrawNode: " + incomingText);
         StopCoroutine(NoOptionTimeOutReply(0, 0));
 
         MoveAllTransitionedBack();
@@ -199,6 +199,7 @@ public class UI_Controller : MonoBehaviour
             dialogueChosen = true;
 
             StopCoroutine(CountdownDisplay(0));
+            timeOutBar.localScale = new Vector2(0f, 1f);
             dialogCon.PostResponse(indexChosen - 1);
         }
         
