@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InteractWithObjects : MonoBehaviour
 {
     [Header("RAYCASTING")]
     [SerializeField] private GameObject raycastObject;
     [SerializeField] private float interactionDistance;
+    [SerializeField] private CanvasGroup interactPrompt_cg;
+    [SerializeField] private TextMeshProUGUI interactPromptText;
 
     private string currentlyHoveredObject;
     private bool hoveringOverObject = false;
@@ -16,7 +19,7 @@ public class InteractWithObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactPrompt_cg.alpha = 0f;
     }
 
     // Update is called once per frame
@@ -66,11 +69,13 @@ public class InteractWithObjects : MonoBehaviour
     private void DisplayInteractionPrompt()
     {
         showingInteractionPrompt = true;
+        interactPrompt_cg.alpha = 1f;
         print("DISPLAYING PROMPT");
     }
     private void HideInteractionPrompt()
     {
         showingInteractionPrompt = false;
+        interactPrompt_cg.alpha = 1f;
         print("HIDING PROMPT");
     }
 }
