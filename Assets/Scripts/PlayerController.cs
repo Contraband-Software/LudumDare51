@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator FadeCrouchDown()
     {
+        Debug.Log("START CROUCH");
         while (characterController.height - OriginalHeight * CrouchHeightPercentage > 0.1)
         {
             characterController.height -= (characterController.height - OriginalHeight * CrouchHeightPercentage) * 0.1f;
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
         if (input.isPressed)
         {
+            Debug.Log("CROCUH PRESSED");
+            fadeCrouchDown = FadeCrouchDown();
             StartCoroutine(fadeCrouchDown);
         } else
         {
