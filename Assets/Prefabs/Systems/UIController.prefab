@@ -1515,6 +1515,8 @@ MonoBehaviour:
   dialogueOptions_cg: {fileID: 6797336241939254468}
   transitionedTexts: {fileID: 6797336242170025567}
   speakerCanvasRect: {fileID: 4099821654947651112}
+  timeOutCanvasRect: {fileID: 6004732424837524889}
+  timeOutBar: {fileID: 7945574657870844778}
   currentDialogue_text: {fileID: 6797336242509561873}
   speakerName_text: {fileID: 6797336241857158363}
   dialogueOptions_text:

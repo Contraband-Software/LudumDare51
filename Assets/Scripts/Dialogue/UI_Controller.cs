@@ -15,6 +15,7 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] GameObject transitionedTexts;
     [SerializeField] RectTransform speakerCanvasRect;
     [SerializeField] RectTransform timeOutCanvasRect;
+    [SerializeField] RectTransform timeOutBar;
     [SerializeField] TextMeshProUGUI currentDialogue_text;
     [SerializeField] TextMeshProUGUI speakerName_text;
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
@@ -112,7 +113,6 @@ public class UI_Controller : MonoBehaviour
         }
         else
         {
-            Debug.Log("StartCoroutine + NoOptionTimeOutReply: " + timeOut.ToString());
             speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f + timeOutCanvasRect.sizeDelta.y);
             StartCoroutine(NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0));
             StartCoroutine(CountdownDisplay(timeOut + dialogCon.GetGlobalTimeDelay()));
@@ -135,10 +135,13 @@ public class UI_Controller : MonoBehaviour
     #region TIMING
     private IEnumerator CountdownDisplay(float startingTime)
     {
+        Debug.Log("COUNTDOWN STARTING TIME: " + startingTime.ToString());
+        timeOutBar.localScale = new Vector2(1f, 1f);
         float remainingTime = startingTime;
         while(remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
+            timeOutBar.localScale = new Vector2(timeOutBar.localScale.x * (remainingTime/startingTime), timeOutBar.localScale.y);
             yield return new WaitForEndOfFrame();
         }
     }
