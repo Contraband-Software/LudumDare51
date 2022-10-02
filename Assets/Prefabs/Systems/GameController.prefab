@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5021971534393557835}
   - component: {fileID: 5454764168417418495}
+  - component: {fileID: 8666690348229949777}
   - component: {fileID: 5193464323960956359}
   m_Layer: 0
   m_Name: GameController
@@ -45,9 +46,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad1bc74719a7164490fc603e4e7f6c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8666690348229949777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916633342245375409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb0feffd48f2474aa982123650e323a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   MainDialogue: {fileID: 5193464323960956359}
   TriggeredEvents: []
-  GlobalDialogueDelay: 1
+  GlobalDialogueDelay: 10
 --- !u!114 &5193464323960956359
 MonoBehaviour:
   m_ObjectHideFlags: 0

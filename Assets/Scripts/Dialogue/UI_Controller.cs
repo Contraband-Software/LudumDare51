@@ -34,11 +34,11 @@ public class UI_Controller : MonoBehaviour
     private bool canReplyCurrent = false;
 
     //Game Controls
-    GameController gameCon;
+    DialogueSequenceController gameCon;
 
     private void Awake()
     {
-        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController();
         SetOriginalTextPositions();
     }
 
