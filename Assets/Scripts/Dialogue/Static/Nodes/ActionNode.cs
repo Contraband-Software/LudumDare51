@@ -5,6 +5,7 @@ using System;
 using XNode;
 using UnityEngine.Events;
 using static GraphSystem.WaitNode;
+using System.ComponentModel;
 
 namespace GraphSystem
 {
@@ -12,10 +13,10 @@ namespace GraphSystem
     {
         public struct ActionData
         {
-            public UnityEvent unityEvent;
+            public string gameObject;
         }
 
-        [SerializeField] UnityEvent unityEvent;
+        [SerializeField] string gameObject;
 
         private ActionData actionData;
 
@@ -24,7 +25,7 @@ namespace GraphSystem
             base.Init();
 
             actionData = new ActionData();
-            actionData.unityEvent = unityEvent;
+            actionData.gameObject = gameObject;
         }
 
         public override NodeData GetNodeValue()
@@ -32,7 +33,7 @@ namespace GraphSystem
             NodeData baseData;
             baseData.type = NodeType.Action;
             baseData.data = actionData;
-            baseData.NodeID = "ActionNode_" + unityEvent.ToString() + "_" + this.position;
+            baseData.NodeID = "ActionNode_" + gameObject + "_" + this.position;
             return baseData;
         }
 	}

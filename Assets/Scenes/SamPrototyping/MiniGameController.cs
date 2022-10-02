@@ -5,17 +5,13 @@ using UnityEngine.Events;
 
 public class MiniGameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        GetComponent<GraphSystem.ActionComponent>().action = Meth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Meth()
     {
-        
+        Debug.Log("meth");
     }
-
-    public UnityAction myEvent;
 }

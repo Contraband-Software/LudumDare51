@@ -24,6 +24,7 @@ namespace GraphSystem
             dialogueData = new DialogueData();
             dialogueData.name = speakerName;
             dialogueData.dialog = dialogue;
+            dialogueData.hostilityEffect = hostilityEffect;
             dialogueData.next = next;
             dialogueData.timeOut = timeOut;
             dialogueData.clip = audioClip;

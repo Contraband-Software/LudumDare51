@@ -11,12 +11,14 @@ namespace GraphSystem
         {
             public string name;
             public string dialog;
+            public int hostilityEffect;
             public float timeOut;
             public AudioClip clip;
         }
 
         [SerializeField, TextArea] protected string speakerName;
         [SerializeField, TextArea(5, 100)] protected string dialogue;
+        [SerializeField] protected int hostilityEffect;
         [SerializeField] protected AudioClip audioClip;
         [SerializeField, Min(0)] protected float timeOut;
 

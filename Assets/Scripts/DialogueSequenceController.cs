@@ -5,6 +5,7 @@ using UnityEngine;
 
 using GraphSystem;
 using static GraphSystem.DialogueNode;
+using Unity.VisualScripting;
 
 public class DialogueSequenceController : MonoBehaviour
 {
@@ -154,6 +155,12 @@ public class DialogueSequenceController : MonoBehaviour
 
             case NodeType.Action:
                 //invoke action
+                ActionNode.ActionData actionData = (ActionNode.ActionData)currentDialogue.data;
+
+                GameObject go = GameObject.Find(actionData.gameObject);
+                var comp = go.GetComponent<ActionComponent>();
+                comp.action();
+
                 AdvanceDialogueChoiceless();
                 HandleCurrentNode();
                 break;
