@@ -330,16 +330,16 @@ MonoBehaviour:
   speakerName: Sam3
   dialogue: What's your name?
   audioClip: {fileID: 0}
-  timeOut: 0
+  timeOut: 9.99
   responses:
   - response: SHUT UP!
-    AutoChoose: 0
+    AutoChoose: 1
     audioClip: {fileID: 0}
   - response: Chungus
     AutoChoose: 0
     audioClip: {fileID: 0}
   - response: bob
-    AutoChoose: 1
+    AutoChoose: 0
     audioClip: {fileID: 0}
 --- !u!114 &-2438127087454341536
 MonoBehaviour:
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1880, y: -200}
+  position: {x: 1896, y: -200}
   ports:
     keys:
     - previous

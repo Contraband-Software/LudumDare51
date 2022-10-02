@@ -12,6 +12,7 @@ namespace GraphSystem
             public string name;
             public string dialog;
             public float timeOut;
+            public AudioClip clip;
         }
 
         [SerializeField, TextArea] protected string speakerName;
