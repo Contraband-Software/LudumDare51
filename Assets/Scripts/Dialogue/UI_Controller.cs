@@ -200,10 +200,17 @@ public class UI_Controller : MonoBehaviour
 
             StopCoroutine(CountdownDisplay(0));
             timeOutBar.localScale = new Vector2(0f, 1f);
-            dialogCon.PostResponse(indexChosen - 1);
+            DelayedResponsePostage(dialogCon.GetGlobalTimeDelay(), indexChosen);
         }
         
     }
+
+    private IEnumerator DelayedResponsePostage(float time, int indexChosen)
+    {
+        yield return new WaitForSeconds(time);
+        dialogCon.PostResponse(indexChosen - 1);
+    }
+
     private void SendDialogueBlank(int indexChosen)
     {
         dialogueChosen = true;
