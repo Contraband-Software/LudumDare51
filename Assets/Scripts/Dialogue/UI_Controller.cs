@@ -51,7 +51,6 @@ public class UI_Controller : MonoBehaviour
         {
             Debug.Log("CLEARING");
             dialogueUI_cg.alpha = 0f;
-            FadeOutDialoguePanel();
         }
         
     }
