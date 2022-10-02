@@ -26,6 +26,8 @@ public class InteractWithObjects : MonoBehaviour
     void Start()
     {
         interactPrompt_cg.alpha = 0f;
+
+        Inventory = new List<InteractableObject>();
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class InteractWithObjects : MonoBehaviour
         RaycastHit objectHit;
         if (Physics.Raycast(raycastObject.transform.position, fwd, out objectHit, interactionDistance))
         {
-            if (objectHit.collider.gameObject.tag == "Interactable" || objectHit.collider.gameObject.tag == "Usable") 
+            if (objectHit.collider.gameObject.tag == "Interactable" || objectHit.collider.gameObject.tag == "Useable") 
             {
                 GameObject root = objectHit.collider.transform.root.gameObject;
                 hoveringOverObject = true;
@@ -97,6 +99,8 @@ public class InteractWithObjects : MonoBehaviour
 
             if (currentlyHoveredObject.gameObject.tag == "Interactable")
             {
+                Debug.Log(((InteractableObject)currentlyHoveredObject).GetObjectName());
+
                 Inventory.Add((InteractableObject)currentlyHoveredObject);
 
                 //Make gameObject go away
@@ -106,9 +110,11 @@ public class InteractWithObjects : MonoBehaviour
                 }
             } else {
                 //Useable
+                UseableObject station = (UseableObject)currentlyHoveredObject;
+                station.Use(Inventory);
             }
         }
 
-        Debug.Log(Inventory);
+        Debug.Log(Inventory.Count);
     }
 }

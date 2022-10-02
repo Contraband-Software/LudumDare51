@@ -170,51 +170,6 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Set: 0
---- !u!114 &-2438127087454341536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
-  m_Name: Wait
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 1816, y: -136}
-  ports:
-    keys:
-    - previous
-    - next
-    values:
-    - _fieldName: previous
-      _node: {fileID: -2438127087454341536}
-      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: responses 1
-        node: {fileID: 8234128782366898715}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: next
-      _node: {fileID: -2438127087454341536}
-      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: previous
-        node: {fileID: 1119485331311749484}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  timeInSeconds: 1
-  clearScreen: 1
 --- !u!114 &-201299036880887756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,59 +233,13 @@ MonoBehaviour:
   - {fileID: -6377894510142632473}
   - {fileID: 8234128782366898715}
   - {fileID: 6626741245739555457}
-  - {fileID: -2438127087454341536}
   - {fileID: -201299036880887756}
   - {fileID: 3453258494024764244}
-  - {fileID: 1119485331311749484}
   - {fileID: 1319653990447724924}
   - {fileID: 4875376649530517563}
   - {fileID: -2468175609115936266}
   - {fileID: 7181565426900773320}
   - {fileID: -8307223500914520754}
---- !u!114 &1119485331311749484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be1baf2651b1fe84cb006ef88f1bfbac, type: 3}
-  m_Name: Action
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 2040, y: -136}
-  ports:
-    keys:
-    - previous
-    - next
-    values:
-    - _fieldName: previous
-      _node: {fileID: 1119485331311749484}
-      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: next
-        node: {fileID: -2438127087454341536}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: next
-      _node: {fileID: 1119485331311749484}
-      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: previous
-        node: {fileID: 6626741245739555457}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  gameObject: MiniGameObject
 --- !u!114 &1319653990447724924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,10 +440,10 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
-        node: {fileID: 1119485331311749484}
-        reroutePoints: []
-      - fieldName: next
         node: {fileID: -8307223500914520754}
+        reroutePoints: []
+      - fieldName: responses 1
+        node: {fileID: 8234128782366898715}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -702,7 +611,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: -2438127087454341536}
+        node: {fileID: 6626741245739555457}
         reroutePoints: []
       _direction: 1
       _connectionType: 1

@@ -11,16 +11,37 @@ namespace GraphSystem
         [SerializeField] NodeGraph graph;
 
         protected Parser DialogueGraphParser;
+        protected NodeData currentNodeData;
 
         private void Awake()
         {
             DialogueGraphParser = new Parser(graph);
         }
+        public NodeData AdvanceDialogue(int responseIndex)
+        {
+            BaseNode newNode = DialogueGraphParser.GetNextNode((uint)responseIndex);
+            currentNodeData = newNode.GetNodeValue();
 
-        public abstract void Suspend(bool status);
-        public abstract NodeData Initiate();
-        public abstract NodeData AdvanceDialogue(int responseIndex);
-        public abstract NodeData GetCurrentDialogue();
+            return GetCurrentDialogue();
+        }
+
+        public NodeData GetCurrentDialogue()
+        {
+            return currentNodeData;
+        }
+
+        public NodeData Initiate()
+        {
+            BaseNode newNode = DialogueGraphParser.GetStartNode();
+
+            currentNodeData = newNode.GetNodeValue();
+
+            Debug.Log(currentNodeData.NodeID);
+
+            return GetCurrentDialogue();
+        }
+
         public abstract bool IsComplete();
+        public abstract void Suspend(bool status);
     }
 }

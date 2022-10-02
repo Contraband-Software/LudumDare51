@@ -19,8 +19,6 @@ public class MiniGameController : GraphSystem.AbstractTriggeredDialogue
 
     bool buttonPressed = false;
 
-    NodeData currentNodeData;
-
     private void Start()
     {
         GetComponent<GraphSystem.ActionComponent>().action = Meth;
@@ -28,7 +26,7 @@ public class MiniGameController : GraphSystem.AbstractTriggeredDialogue
 
     public override void Suspend(bool status) { }
 
-    public override NodeData Initiate()
+    /*public override NodeData Initiate()
     {
         BaseNode newNode = DialogueGraphParser.GetStartNode();
 
@@ -48,7 +46,7 @@ public class MiniGameController : GraphSystem.AbstractTriggeredDialogue
     public override NodeData GetCurrentDialogue()
     {
         return currentNodeData;
-    }
+    }*/
 
     public override bool IsComplete()
     {

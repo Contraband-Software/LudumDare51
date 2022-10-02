@@ -6,6 +6,9 @@ public class MyInteractableObject : MonoBehaviour
 {
     public void Interact()
     {
-        print("Interacted");
+        if(GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().TryPlaySequence("KeyDialogue"))
+        {
+
+        }
     }
 }

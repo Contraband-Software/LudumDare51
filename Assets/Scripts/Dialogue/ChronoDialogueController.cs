@@ -6,8 +6,6 @@ using GraphSystem;
 
 public class ChronoDialogueController : AbstractTriggeredDialogue
 {
-    NodeData currentNodeData;
-
     public override void Suspend(bool status)
     {
         Debug.Log("Suspended: " + status.ToString());
@@ -18,7 +16,7 @@ public class ChronoDialogueController : AbstractTriggeredDialogue
         //terminate if we reach the end of the main story tree
         return GetCurrentDialogue().type == NodeType.End;
     }
-    public override NodeData AdvanceDialogue(int responseIndex)
+    /*public override NodeData AdvanceDialogue(int responseIndex)
     {
         BaseNode newNode = DialogueGraphParser.GetNextNode((uint)responseIndex);
         currentNodeData = newNode.GetNodeValue();
@@ -38,5 +36,5 @@ public class ChronoDialogueController : AbstractTriggeredDialogue
         Debug.Log(currentNodeData.NodeID);
 
         return GetCurrentDialogue();
-    }
+    }*/
 }
