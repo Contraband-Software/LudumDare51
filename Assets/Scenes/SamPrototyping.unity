@@ -307,6 +307,18 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &339962115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2214807527917233910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb0feffd48f2474aa982123650e323a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &628169738
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +403,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 339962115}
         m_TargetAssemblyTypeName: DialogueSequenceController, Assembly-CSharp
         m_MethodName: PostFlag
         m_Mode: 5
@@ -1192,7 +1204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2021537988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1211,7 +1223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: 88}
+  m_AnchoredPosition: {x: -85, y: 165}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2021537989
@@ -1374,6 +1386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+        type: 3}
+      propertyPath: GlobalDialogueDelay
+      value: 2.99
       objectReference: {fileID: 0}
     - target: {fileID: 5614172227568394518, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
