@@ -60,12 +60,15 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = (LockCursorOnStart) ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        //falling/jumping
+        characterController.Move(transform.up * Time.deltaTime * ClampAbsolute(verticalVelocity, MaxFallSpeed));
+        //horizontal movement
+        characterController.Move((transform.right * horizontalInput.x + transform.forward * horizontalInput.y) * MoveSpeed * Time.deltaTime);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         //CAMERA LOOK
         //Turning left and right
@@ -93,10 +96,5 @@ public class PlayerController : MonoBehaviour
         {
             verticalVelocity += GravityAcceleration * Time.deltaTime * -1;
         }
-
-        //falling/jumping
-        characterController.Move(transform.up * Time.deltaTime * ClampAbsolute(verticalVelocity, MaxFallSpeed));
-        //horizontal movement
-        characterController.Move((transform.right * horizontalInput.x + transform.forward * horizontalInput.y) * MoveSpeed * Time.deltaTime);
     }
 }
