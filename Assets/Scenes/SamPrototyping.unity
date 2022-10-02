@@ -614,11 +614,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
-    - target: {fileID: 4916633342245375409, guid: 8959ce3d1096e4b4786f46a49a758171,
-        type: 3}
-      propertyPath: m_TagString
-      value: GameController
-      objectReference: {fileID: 0}
     - target: {fileID: 5021971534393557835, guid: 8959ce3d1096e4b4786f46a49a758171,
         type: 3}
       propertyPath: m_RootOrder
@@ -674,16 +669,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5454764168417418495, guid: 8959ce3d1096e4b4786f46a49a758171,
-        type: 3}
-      propertyPath: MainDialogue
-      value: 
-      objectReference: {fileID: 5193464323960956359}
-    - target: {fileID: 5454764168417418495, guid: 8959ce3d1096e4b4786f46a49a758171,
-        type: 3}
-      propertyPath: GlobalDialogueDelay
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8959ce3d1096e4b4786f46a49a758171, type: 3}
 --- !u!4 &5193464323960956357 stripped
@@ -692,18 +677,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5193464323960956356}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5193464323960956359 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5193464323960956359, guid: 8959ce3d1096e4b4786f46a49a758171,
-    type: 3}
-  m_PrefabInstance: {fileID: 5193464323960956356}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bcde129ac2697d42981501c3cc99431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5900499238299878599
 MonoBehaviour:
   m_ObjectHideFlags: 0
