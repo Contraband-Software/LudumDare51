@@ -60,12 +60,12 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = (LockCursorOnStart) ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
-    private void Update()
-    {
+    //private void Update()
+    //{
         
-    }
+    //}
 
-    private void FixedUpdate()
+    private void Update()
     {
         //CAMERA LOOK
         //Turning left and right
