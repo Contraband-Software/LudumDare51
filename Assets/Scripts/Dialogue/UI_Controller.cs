@@ -13,6 +13,7 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] CanvasGroup dialogueUI_cg;
     [SerializeField] CanvasGroup dialogueOptions_cg;
     [SerializeField] GameObject transitionedTexts;
+    [SerializeField] RectTransform speakerCanvasRect;
     [SerializeField] TextMeshProUGUI currentDialogue_text;
     [SerializeField] TextMeshProUGUI speakerName_text;
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
@@ -26,6 +27,7 @@ public class UI_Controller : MonoBehaviour
     private List<Vector2> dialogueTextPositionsStored = new List<Vector2>();
     [SerializeField] LeanTweenType cg_fadout;
     [SerializeField] float cg_fadout_time;
+    private float originalSpeakerYpos;
 
     //Dialogue Variables
     private List<GraphConnections.ResponseConnectionData> current_DialogueOptions = new List<GraphConnections.ResponseConnectionData>();
@@ -108,6 +110,7 @@ public class UI_Controller : MonoBehaviour
         else
         {
             Debug.Log("StartCoroutine + NoOptionTimeOutReply");
+            speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f);
             StartCoroutine(NoOptionTimeOutReply(timeOut + gameCon.GetGlobalTimeDelay(), 0));
         }
     }
@@ -162,8 +165,9 @@ public class UI_Controller : MonoBehaviour
         {
             Debug.Log(dialogueChosen);
             print("OPTION CHOSE: " + indexChosen.ToString());
-            ChosenDialogueTransition(indexChosen - 1);
             dialogueOptions_cg.alpha = 0f;
+            speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f);
+            speakerName_text.text = "YOU:";
             currentDialogue_text.text = current_DialogueOptions[indexChosen - 1].response;
 
             dialogueChosen = true;
@@ -191,6 +195,8 @@ public class UI_Controller : MonoBehaviour
 
     private void SetOriginalTextPositions()
     {
+        originalSpeakerYpos = speakerCanvasRect.anchoredPosition.y;
+
         for(int rt= 0; rt < dialogueTextRects.Count; rt++)
         {
             dialogueTextPositionsStored.Add(dialogueTextRects[rt].anchoredPosition);
@@ -199,6 +205,8 @@ public class UI_Controller : MonoBehaviour
     }
     private void ResetTextPositionToOriginal()
     {
+        speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, originalSpeakerYpos);
+
         for (int rt = 0; rt < dialogueTextRects.Count; rt++)
         {
             dialogueTextRects[rt].anchoredPosition = dialogueTextPositionsStored[rt];
@@ -245,6 +253,9 @@ public class UI_Controller : MonoBehaviour
             transitionedTexts.transform.GetChild(c).SetParent(dialogueOptions_cg.gameObject.transform);
         }
     }
+
+
+    
 
 
     //changes dialogue option texts to be blank
