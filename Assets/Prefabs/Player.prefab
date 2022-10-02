@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 296344835}
   - component: {fileID: 296344837}
   - component: {fileID: 296344836}
+  - component: {fileID: 296344838}
   m_Layer: 5
   m_Name: InteractionPrompt
   m_TagString: Untagged
@@ -136,6 +137,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &296344838
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296344834}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &761916138
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,8 +517,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastObject: {fileID: 1117101513413809490}
   interactionDistance: 10
-  interactPrompt_cg: {fileID: 0}
-  interactPromptText: {fileID: 0}
+  interactPrompt_cg: {fileID: 296344838}
+  interactPromptText: {fileID: 296344836}
 --- !u!1 &1117101513413809490
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class InteractWithObjects : MonoBehaviour
                 if(objectHit.collider.gameObject.name != currentlyHoveredObject)
                 {
                     currentlyHoveredObject = objectHit.collider.gameObject.name;
-                    DisplayInteractionPrompt();
+                    DisplayInteractionPrompt(objectHit.collider.gameObject.name);
                 }
             }
             else
@@ -66,16 +66,17 @@ public class InteractWithObjects : MonoBehaviour
         }
     }
 
-    private void DisplayInteractionPrompt()
+    private void DisplayInteractionPrompt(string objectName)
     {
         showingInteractionPrompt = true;
         interactPrompt_cg.alpha = 1f;
+        interactPromptText.text = objectName + " - Press [E] To Interact";
         print("DISPLAYING PROMPT");
     }
     private void HideInteractionPrompt()
     {
         showingInteractionPrompt = false;
-        interactPrompt_cg.alpha = 1f;
+        interactPrompt_cg.alpha = 0f;
         print("HIDING PROMPT");
     }
 }
