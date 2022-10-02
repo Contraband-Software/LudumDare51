@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainDialogue: {fileID: 5193464323960956359}
   TriggeredEvents: []
-  GlobalDialogueDelay: 10
+  GlobalDialogueDelay: 0
 --- !u!114 &5193464323960956359
 MonoBehaviour:
   m_ObjectHideFlags: 0

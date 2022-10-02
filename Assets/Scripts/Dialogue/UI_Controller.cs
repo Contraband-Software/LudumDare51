@@ -36,11 +36,11 @@ public class UI_Controller : MonoBehaviour
     private bool canReplyCurrent = false;
 
     //Game Controls
-    DialogueSequenceController gameCon;
+    DialogueSequenceController dialogCon;
 
     private void Awake()
     {
-        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController();
+        dialogCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController();
         SetOriginalTextPositions();
     }
 
@@ -109,9 +109,9 @@ public class UI_Controller : MonoBehaviour
         }
         else
         {
-            Debug.Log("StartCoroutine + NoOptionTimeOutReply");
+            Debug.Log("StartCoroutine + NoOptionTimeOutReply: " + timeOut.ToString());
             speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f);
-            StartCoroutine(NoOptionTimeOutReply(timeOut + gameCon.GetGlobalTimeDelay(), 0));
+            StartCoroutine(NoOptionTimeOutReply(timeOut + dialogCon.GetGlobalTimeDelay(), 0));
         }
     }
 
@@ -172,14 +172,14 @@ public class UI_Controller : MonoBehaviour
 
             dialogueChosen = true;
 
-            gameCon.PostResponse(indexChosen - 1);
+            dialogCon.PostResponse(indexChosen - 1);
         }
         
     }
     private void SendDialogueBlank(int indexChosen)
     {
         dialogueChosen = true;
-        gameCon.PostResponse(indexChosen - 1);
+        dialogCon.PostResponse(indexChosen - 1);
     }
 
     #region RESETTING

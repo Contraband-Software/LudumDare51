@@ -113,6 +113,7 @@ public class DialogueSequenceController : MonoBehaviour
             case NodeType.Wait:
                 WaitNode.WaitData waitData = (WaitNode.WaitData)currentDialogue.data;
                 //wait for time, then move to next node
+                //print(waitData.clearScreen);
                 UIController.OnWait(waitData.timeInSeconds, waitData.clearScreen);
 
                 StartCoroutine(WaitNode(waitData.timeInSeconds));
