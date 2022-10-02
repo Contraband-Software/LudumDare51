@@ -20,6 +20,6 @@ namespace GraphSystem
         [SerializeField, Min(0)] protected float timeOut;
 
         [Input]
-        public GraphConnections.ResponseConnectionLink previous;
+        public GraphConnections.ConnectionLink previous;
     }
 }

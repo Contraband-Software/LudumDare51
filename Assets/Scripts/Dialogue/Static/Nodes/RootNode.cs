@@ -12,7 +12,7 @@ namespace GraphSystem
         [Header("Only use one RootNode!")]
 
         [Output(connectionType = ConnectionType.Override)]
-        public GraphConnections.ResponseConnectionLink Start;
+        public GraphConnections.ConnectionLink Start;
 
         public BaseNode GetStartNode()
         {

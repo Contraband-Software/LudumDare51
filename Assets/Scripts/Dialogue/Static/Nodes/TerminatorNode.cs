@@ -8,7 +8,7 @@ namespace GraphSystem
 	public class TerminatorNode : BaseNode
 	{
         [Input]
-        public GraphConnections.ResponseConnectionLink previous;
+        public GraphConnections.ConnectionLink previous;
 
         public override NodeData GetNodeValue()
         {

@@ -37,9 +37,16 @@ public class DialogueSequenceController : MonoBehaviour
     SequenceState currentSequenceState;
 
     bool MainSequenceEnded = false;
+    bool MainSequenceCanBeSuspended = true;
+
+    bool isHalted = false;
+    List<string> flags;
+    string currentLockingFlag = "";
 
     private void Start()
     {
+        flags = new List<string>();
+
         currentEvent = MainDialogue;
         currentSequenceState = SequenceState.Main;
 
@@ -64,6 +71,16 @@ public class DialogueSequenceController : MonoBehaviour
                 case SequenceState.Main:
                     MainSequenceEnd();
                     break;
+            }
+        }
+
+        if (isHalted)
+        {
+            if (flags.Contains(currentLockingFlag))
+            {
+                isHalted = false;
+                AdvanceDialogueChoiceless();
+                HandleCurrentNode();
             }
         }
     }
@@ -102,24 +119,41 @@ public class DialogueSequenceController : MonoBehaviour
         {
             case NodeType.Dialogue:
                 DialogueNode.DialogueData diagData = (DialogueNode.DialogueData)currentDialogue.data;
-
                 UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut);
                 break;
+
             case NodeType.DialogueRespond:
                 DialogueNodeRespond.DialogueRespondData diagRespondData = (DialogueNodeRespond.DialogueRespondData)currentDialogue.data;
-
                 UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut);
                 break;
-            case NodeType.Wait:
-                WaitNode.WaitData waitData = (WaitNode.WaitData)currentDialogue.data;
-                //wait for time, then move to next node
-                //print(waitData.clearScreen);
-                UIController.OnWait(waitData.timeInSeconds, waitData.clearScreen);
 
+            case NodeType.Wait:
+                //wait for time, then move to next node
+                WaitNode.WaitData waitData = (WaitNode.WaitData)currentDialogue.data;
+                UIController.OnWait(waitData.timeInSeconds, waitData.clearScreen);
                 StartCoroutine(WaitNode(waitData.timeInSeconds));
                 break;
+
+            case NodeType.HaltFlagged:
+                //stop execution until we recieve the specified flag
+                HaltForFlagNode.HaltData haltData = (HaltForFlagNode.HaltData)currentDialogue.data;
+                isHalted = true;
+                currentLockingFlag = haltData.flag;
+                break;
+
+            case NodeType.SetInterrupt:
+                if (currentSequenceState == SequenceState.Main)
+                {
+                    SetInterruptNode.SetInterruptData interData = (SetInterruptNode.SetInterruptData)currentDialogue.data;
+                    MainSequenceCanBeSuspended = interData.isSet;
+                }
+
+                AdvanceDialogueChoiceless();
+                HandleCurrentNode();
+                break;
+
             case NodeType.End:
-                //Stop processing nodes, continue processing custom evenmt script
+                //Stop processing nodes, continue processing custom event script
                 break;
         }
     }
@@ -137,6 +171,19 @@ public class DialogueSequenceController : MonoBehaviour
     private void AdvanceDialogueChoiceless()
     {
         currentDialogue = currentEvent.AdvanceDialogue(0);
+    }
+
+    public void PostFlag(string flag)
+    {
+        if (flags.Contains(flag))
+        {
+            //return true;
+        }
+        else
+        {
+            flags.Add(flag);
+            //return false;
+        }
     }
 
     public void PostResponse(int choiceIndex)
@@ -162,7 +209,7 @@ public class DialogueSequenceController : MonoBehaviour
     /// <returns>Whether it was successful or not</returns>
     public bool TryPlaySequence(string name)
     {
-        if (currentSequenceState == SequenceState.Main)
+        if (currentSequenceState == SequenceState.Main && MainSequenceCanBeSuspended)
         {
             currentEvent.Suspend(true);
 

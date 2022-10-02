@@ -3,25 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using XNode;
+using UnityEngine.Events;
+using static GraphSystem.WaitNode;
 
 namespace GraphSystem
 {
-	public class ActionNode : BaseNode
-	{
-        [SerializeField] private string gameObject;
+	public class ActionNode : AbstractOneToOneNode
+    {
+        public struct ActionData
+        {
+            public UnityEvent unityEvent;
+        }
 
-        [Input]
-        public GraphConnections.ResponseConnectionLink previous;
+        [SerializeField] UnityEvent unityEvent;
 
-        [Output(connectionType = ConnectionType.Override)]
-        public GraphConnections.ResponseConnectionLink next;
+        private ActionData actionData;
+
+        protected override void Init()
+        {
+            base.Init();
+
+            actionData = new ActionData();
+            actionData.unityEvent = unityEvent;
+        }
 
         public override NodeData GetNodeValue()
 		{
             NodeData baseData;
             baseData.type = NodeType.Action;
-            baseData.data = gameObject;
-            baseData.NodeID = "ActionNode_" + gameObject + "_" + this.position;
+            baseData.data = actionData;
+            baseData.NodeID = "ActionNode_" + unityEvent.ToString() + "_" + this.position;
             return baseData;
         }
 	}

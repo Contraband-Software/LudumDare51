@@ -71,6 +71,10 @@ namespace GraphSystem
                         return null;
                     }
                     break;
+
+                //Link-only nodes
+                case NodeType.SetInterrupt:
+                case NodeType.HaltFlagged:
                 case NodeType.Action:
                 case NodeType.Wait:
                     NodePort node = currentNode.GetOutputPort(GraphGlobals.LinkNextNodeFieldName);
@@ -78,8 +82,8 @@ namespace GraphSystem
                     currentNode = (BaseNode)endNode.node;
                     return currentNode;
                     break;
+
                 case NodeType.End:
-                case NodeType.Root:
                     return null;
                     break;
             }

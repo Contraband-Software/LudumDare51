@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-using static GraphSystem.GraphGlobals;
 
 namespace GraphSystem
 {
@@ -10,13 +9,13 @@ namespace GraphSystem
     {
         public class DialogueData : BaseDialogueData
         {
-            public GraphConnections.ResponseConnectionData next;
+            public GraphConnections.ConnectionLink next;
         }
 
         private DialogueData dialogueData;
 
         [Output(connectionType = ConnectionType.Override)]
-        public GraphConnections.ResponseConnectionData next;
+        public GraphConnections.ConnectionLink next;
 
         protected override void Init()
         {
