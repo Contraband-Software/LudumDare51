@@ -12,6 +12,7 @@ public class InteractWithObjects : MonoBehaviour
     [SerializeField] private float interactionDistance;
     [SerializeField] private CanvasGroup interactPrompt_cg;
     [SerializeField] private TextMeshProUGUI interactPromptText;
+    [SerializeField] private LayerMask layerMask;
  
     private bool hoveringOverObject = false;
     private bool showingInteractionPrompt = false;
@@ -42,9 +43,8 @@ public class InteractWithObjects : MonoBehaviour
         Vector3 fwd = raycastObject.transform.TransformDirection(Vector3.forward);
         Debug.DrawRay(raycastObject.transform.position, fwd * interactionDistance, Color.green);
         RaycastHit objectHit;
-        if (Physics.Raycast(raycastObject.transform.position, fwd, out objectHit, interactionDistance))
+        if (Physics.Raycast(raycastObject.transform.position, fwd, out objectHit, interactionDistance, layerMask))
         {
-            print(objectHit.collider.gameObject.tag);
             if (objectHit.collider.gameObject.tag == "Interactable" || objectHit.collider.gameObject.tag == "Useable") 
             {
                 GameObject root = objectHit.collider.transform.parent.gameObject;
