@@ -319,6 +319,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!20 &1070754915 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1117101513413809486, guid: 93119bddc5f54f241a40dab11ff5e3d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 867772951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1405464853
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +572,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4496672800050208189, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1070754915}
     - target: {fileID: 4496672800055184780, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
         type: 3}
       propertyPath: m_RootOrder
@@ -625,11 +636,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TASK_LockPick
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496672800686454911, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
-        type: 3}
-      propertyPath: inventoryRequirements.Array.data[0]
-      value: Paper Clip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466dedb4d64b9c94d8cdc04c2ecc32de, type: 3}
