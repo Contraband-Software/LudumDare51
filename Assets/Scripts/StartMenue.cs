@@ -50,7 +50,7 @@ public class StartMenue : MonoBehaviour
 
     public void startClicked()
     {
-        SceneManager.LoadScene("tutorial");
+        SceneManager.LoadScene("exposition");
         
     }
     public void exitClicked()

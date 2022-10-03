@@ -3582,11 +3582,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 4677110233267952682, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -194.14038
+      objectReference: {fileID: 0}
     - target: {fileID: 4677110233654115079, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 983914555}
+    - target: {fileID: 6220860480173754522, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220860480173754522, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 5600
+      objectReference: {fileID: 0}
     - target: {fileID: 7468152951438921218, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
       propertyPath: FadeSpeed
