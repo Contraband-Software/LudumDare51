@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class GasRoom : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Image blackOut;
+    [SerializeField] AudioSource hissing;
 
     [Header("Settings")]
     [SerializeField] float FadeSpeed = 0.1f;
@@ -16,6 +18,7 @@ public class GasRoom : MonoBehaviour
 
     public void StartGassingRoom()
     {
+        hissing.Play();
         StartCoroutine(FadeScreen());
     }
 
@@ -24,6 +27,11 @@ public class GasRoom : MonoBehaviour
         while (progress < FadeCutoff)
         {
             progress += (1 - progress) * FadeSpeed;
+
+            Color newColor = blackOut.color;
+            newColor.a = progress;
+            blackOut.color = newColor;
+
             yield return new WaitForSeconds(.001f);
         }
 
