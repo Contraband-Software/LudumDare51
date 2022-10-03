@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1496, y: 152}
+  position: {x: 1720, y: 152}
   ports:
     keys:
     - previous
@@ -256,7 +256,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
-        node: {fileID: 7092131490655384299}
+        node: {fileID: 4109857643430935974}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -290,6 +290,7 @@ MonoBehaviour:
   - {fileID: 2926531023399725198}
   - {fileID: 3820577358321183735}
   - {fileID: 3135926626003879527}
+  - {fileID: 4109857643430935974}
 --- !u!114 &567734921053361955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +600,50 @@ MonoBehaviour:
       _dynamic: 0
   timeInSeconds: 1
   clearScreen: 0
+--- !u!114 &4109857643430935974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4754e2e7fb0f974f8aea058d712fbdb, type: 3}
+  m_Name: Halt For Flag
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1496, y: 152}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: 4109857643430935974}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 7092131490655384299}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 4109857643430935974}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -76407092340143311}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  flag: GassingDone
 --- !u!114 &7092131490655384299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,7 +681,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: -76407092340143311}
+        node: {fileID: 4109857643430935974}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
