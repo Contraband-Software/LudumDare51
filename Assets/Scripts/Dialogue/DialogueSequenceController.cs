@@ -55,6 +55,11 @@ public class DialogueSequenceController : MonoBehaviour
         InitController();
     }
 
+    public GraphSystem.NodeType GetCurrentNodeType()
+    {
+        return currentDialogue.type;
+    }
+
     private void InitController()
     {
         isHalted = false;

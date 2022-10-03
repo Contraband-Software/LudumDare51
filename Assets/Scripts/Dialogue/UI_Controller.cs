@@ -180,13 +180,16 @@ public class UI_Controller : MonoBehaviour
 
     public void SelectDialogueOption(int option)
     {
-        if(option <= diagOptions)
+        if (dialogCon.GetCurrentNodeType() == GraphSystem.NodeType.DialogueRespond)
         {
-            SendDialogueChosen(option);
-        }
-        else
-        {
-            throw new System.Exception("ERROR - UI CONTROLLER INVALID OPTION");
+            if (option <= diagOptions)
+            {
+                SendDialogueChosen(option);
+            }
+            else
+            {
+                throw new System.Exception("ERROR - UI CONTROLLER INVALID OPTION");
+            }
         }
     }
 

@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Min(0)] float MaxFallSpeed = 10.0f;
     [SerializeField, Min(0)] float JumpHeight = 3.5f;
     [SerializeField, Range(0, 1)] float CrouchHeightPercentage = 0.3f;
+    [SerializeField, Min(0)] float CrouchSpeed = 0.1f;
+    [SerializeField, Min(0)] float CrouchCutOffValue = 0.1f;
 
     [Header("Camera")]
     [SerializeField] float SensitivityX = 8f;
@@ -66,11 +68,22 @@ public class PlayerController : MonoBehaviour
     IEnumerator FadeCrouchDown()
     {
         Debug.Log("START CROUCH");
-        while (characterController.height - OriginalHeight * CrouchHeightPercentage > 0.1)
+        while (characterController.height - OriginalHeight * CrouchHeightPercentage > CrouchCutOffValue)
         {
-            characterController.height -= (characterController.height - OriginalHeight * CrouchHeightPercentage) * 0.1f;
-            yield return new WaitForSeconds(.01f);
+            characterController.height -= (characterController.height - OriginalHeight * CrouchHeightPercentage) * CrouchSpeed;
+            yield return new WaitForSeconds(.001f);
         }
+    }
+    IEnumerator FadeCrouchUp()
+    {
+        Debug.Log("END CROUCH");
+        while (OriginalHeight - characterController.height > CrouchCutOffValue)
+        {
+            characterController.height += (OriginalHeight - characterController.height) * CrouchSpeed;
+            yield return new WaitForSeconds(.001f);
+        }
+
+        //transform.position += transform.up * OriginalHeight / 2;
     }
 
     public void OnCrouch(InputValue input)
@@ -84,8 +97,8 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(fadeCrouchDown);
         } else
         {
-            characterController.height = OriginalHeight;
-            transform.position += transform.up * OriginalHeight/2;
+            fadeCrouchUp = FadeCrouchUp();
+            StartCoroutine(fadeCrouchUp);
         }
     }
 
