@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     private float OriginalHeight;
 
+    private Transform freezeTransform;
+    private bool isFreeze = false;
     IEnumerator fadeCrouchDown;
     IEnumerator fadeCrouchUp;
 
@@ -63,6 +65,17 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputValue input)
     {
         isJumping = true;
+    }
+
+    public void Freeze()
+    {
+        isFreeze = true;
+        freezeTransform = PlayerCamera;
+    }
+
+    public void UnFreeze()
+    {
+        isFreeze=false;
     }
 
     IEnumerator FadeCrouchDown()
@@ -154,6 +167,10 @@ public class PlayerController : MonoBehaviour
         targetRotation.x = xRotation;
         PlayerCamera.eulerAngles = targetRotation;
 
+        if (isFreeze)
+        {
+            PlayerCamera = freezeTransform;
+        }
 
     }
 
