@@ -20,7 +20,7 @@ public class SafeObject : MiniGames.UseableObject
         {
             print("YOU GOT DA SHIT NIGGA");
 
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().TryPlaySequence("GRDiag");
+/*            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().TryPlaySequence("GRDiag");*/
         }
     }
 }
