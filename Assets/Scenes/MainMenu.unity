@@ -183,7 +183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ludum dare 51
+  m_text: MOTEL 88'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 130ef18c89dab4c4184d1c33379c742f, type: 2}
   m_sharedMaterial: {fileID: -611431830893671465, guid: 130ef18c89dab4c4184d1c33379c742f,
