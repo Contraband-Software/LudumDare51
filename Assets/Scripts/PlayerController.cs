@@ -53,13 +53,22 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue input)
     {
-        horizontalInput = input.Get<Vector2>();
+        if (!isFreeze)
+        {
+            horizontalInput = input.Get<Vector2>();
+
+        }
+        
     }
 
     public void OnLook(InputValue input)
     {
-        mouseX = input.Get<Vector2>().x;
-        mouseY = input.Get<Vector2>().y;
+        if (!isFreeze)
+        {
+            mouseX = input.Get<Vector2>().x;
+            mouseY = input.Get<Vector2>().y;
+        }
+        
     }
 
     public void OnJump(InputValue input)
@@ -70,7 +79,9 @@ public class PlayerController : MonoBehaviour
     public void Freeze()
     {
         isFreeze = true;
-        freezeTransform = PlayerCamera;
+        horizontalInput = Vector2.zero;
+        mouseX = 0f;
+        mouseY = 0f;
     }
 
     public void UnFreeze()
@@ -101,18 +112,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnCrouch(InputValue input)
     {
-        StopAllCoroutines();
 
-        if (input.isPressed)
+        if (!isFreeze)
         {
-            Debug.Log("CROCUH PRESSED");
-            fadeCrouchDown = FadeCrouchDown();
-            StartCoroutine(fadeCrouchDown);
-        } else
-        {
-            fadeCrouchUp = FadeCrouchUp();
-            StartCoroutine(fadeCrouchUp);
+            StopAllCoroutines();
+
+            if (input.isPressed)
+            {
+                Debug.Log("CROCUH PRESSED");
+                fadeCrouchDown = FadeCrouchDown();
+                StartCoroutine(fadeCrouchDown);
+            }
+            else
+            {
+                fadeCrouchUp = FadeCrouchUp();
+                StartCoroutine(fadeCrouchUp);
+            }
         }
+        
     }
 
     private void Awake()
@@ -166,11 +183,6 @@ public class PlayerController : MonoBehaviour
         Vector3 targetRotation = PlayerCamera.eulerAngles;
         targetRotation.x = xRotation;
         PlayerCamera.eulerAngles = targetRotation;
-
-        if (isFreeze)
-        {
-            PlayerCamera = freezeTransform;
-        }
 
     }
 

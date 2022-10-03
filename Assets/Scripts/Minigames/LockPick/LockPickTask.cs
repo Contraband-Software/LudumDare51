@@ -9,6 +9,7 @@ public class LockPickTask : MonoBehaviour
 
     public bool taskDisplaying = false;
     public bool taskComplete = false;
+    private int successes = 0;
     [SerializeField] InteractWithObjects interactObjectsScript;
     [SerializeField] CanvasGroup lockPickTask_cg;
     private PlayerController pController;
@@ -56,6 +57,7 @@ public class LockPickTask : MonoBehaviour
     public void DisplayLockPick(List<string> playerInventory)
     {
         pController.Freeze();
+        successes = 0;
 
         taskDisplaying = true;
         lockPickTask_cg.alpha = 1f;
@@ -157,13 +159,48 @@ public class LockPickTask : MonoBehaviour
 
     public void LockPickPlace()
     {
-        if(currentSliderNotch.anchoredPosition.y < maxY * 0.07f && currentSliderNotch.anchoredPosition.y > minY * 0.07f)
+        if (hasAllComponents)
         {
-            print("SUCCESS");
+            if (currentSliderNotch.anchoredPosition.y < maxY * 0.07f && currentSliderNotch.anchoredPosition.y > minY * 0.07f)
+            {
+                successes++;
+                RotateTool();
+                if (successes == 2)
+                {
+                    print("TASK COMPLETE");
+                    StopCoroutine(currentSliderCoroutine);
+                }
+                else
+                {
+                    StopCoroutine(currentSliderCoroutine);
+                    currentSliderCoroutine = SliderSlide(rightNotch);
+                    StartCoroutine(currentSliderCoroutine);
+                }
+            }
+            else
+            {
+                print("FAIL");
+                StopCoroutine(currentSliderCoroutine);
+                currentSliderCoroutine = SliderSlide(leftNotch);
+            }
         }
-        else
+
+        
+    }
+
+    private void RotateTool()
+    {
+        if(successes == 1)
         {
-            print("FAIL");
+            Vector3 cEuls = crochetRect.eulerAngles;
+            cEuls.z = crochetZTarget;
+            crochetRect.eulerAngles = cEuls;
+        }
+        if(successes == 2)
+        {
+            Vector3 pEuls = paperclipRect.eulerAngles;
+            pEuls.z = paperclipZTarget;
+            paperclipRect.eulerAngles = pEuls;
         }
     }
     
