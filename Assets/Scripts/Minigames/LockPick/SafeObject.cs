@@ -10,6 +10,8 @@ public class SafeObject : MiniGames.UseableObject
     [SerializeField] List<string> inventoryRequirements = new List<string>();
     [SerializeField] LockPickTask lockPickTask;
 
+
+
     public override void Use(List<InteractableObject> playInv)
     {
         //show interface
@@ -25,7 +27,6 @@ public class SafeObject : MiniGames.UseableObject
         {
             lockPickTask.HasAllComponentsForGame();
             lockPickTask.DisplayLockPick(playerInvString);
-            /*            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().TryPlaySequence("GRDiag");*/
         }
         else
         {

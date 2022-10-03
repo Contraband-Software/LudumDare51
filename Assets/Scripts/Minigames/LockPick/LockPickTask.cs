@@ -42,6 +42,8 @@ public class LockPickTask : MonoBehaviour
     public float speed2 = 350f;
     private RectTransform currentSliderNotch;
 
+    [SerializeField] BoxCollider boxController;
+
     public UnityEvent onTaskSuccess;
 
     private void Start()
@@ -216,6 +218,7 @@ public class LockPickTask : MonoBehaviour
 
     private void ShutDownTask()
     {
+        boxController.enabled = false;
         HideLockPick();
         safe.tag = "Untagged";
         onTaskSuccess.Invoke();

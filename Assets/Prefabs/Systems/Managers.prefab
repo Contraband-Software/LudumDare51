@@ -206,9 +206,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   MainDialogue: {fileID: 2214807528248528884}
-  TriggeredEvents:
-  - Name: GRDiag
-    EventController: {fileID: 0}
+  TriggeredEvents: []
   GlobalDialogueDelay: 2.05
   StartMainSequence: 1
 --- !u!114 &2214807528248528884
@@ -223,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcde129ac2697d42981501c3cc99431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 66ed983636c5d9c42b6985c0576e020e, type: 2}
+  graph: {fileID: 11400000, guid: 32d9b99441a5e514b8c99a2dd0a84450, type: 2}
 --- !u!114 &2214807527917233912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52744690d042254c812eab42966146b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 2
+  scene: 3
 --- !u!1001 &1036415891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -725,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.09803922}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.14901961}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
