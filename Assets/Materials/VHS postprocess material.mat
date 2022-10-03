@@ -90,7 +90,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EdgeFuzz: 0.0008
+    - _EdgeFuzz: 0.0007899874
     - _EdgeWobble: 0.00075
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0

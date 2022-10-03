@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SamPrototyping2.unity
     guid: 5cac56890608aa546a4cd8c0da3645e8
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ffab07a88d18a914f8bd8aa68b4c4408
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 1d6d30bf3094cbc429c7fddcf69f3bef
+  - enabled: 1
+    path: Assets/Scenes/act 1.unity
+    guid: 86a4d06363dfa654c999243028883e06
   m_configObjects: {}
