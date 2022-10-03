@@ -339,10 +339,10 @@ GameObject:
   - component: {fileID: 1117101512406146709}
   - component: {fileID: 1117101512406146711}
   - component: {fileID: 5469009372053025049}
-  - component: {fileID: 1834312341}
+  - component: {fileID: 284307936}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  UseUIController: 1
 --- !u!114 &5469009372053025049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +428,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 63
---- !u!114 &1834312341
+--- !u!114 &284307936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
