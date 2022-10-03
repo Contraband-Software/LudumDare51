@@ -172,6 +172,10 @@ public class DialogueSequenceController : MonoBehaviour
                 ActionNode.ActionData actionData = (ActionNode.ActionData)currentDialogue.data;
 
                 GameObject go = GameObject.Find(actionData.gameObject);
+                if (go == null)
+                {
+                    throw new System.Exception("GRAPH SYSTEM: ACTION NODE HAS NOT BEEN SET WITH A VALID GAMEOBJECT NAME");
+                }
                 var comp = go.GetComponent<ActionComponent>();
                 comp.action();
 

@@ -6,6 +6,7 @@ using TMPro;
 
 using GraphSystem;
 
+[RequireComponent(typeof(PlayerInput)), RequireComponent(typeof(AudioSource))]
 public class UI_Controller : MonoBehaviour
 {
 
@@ -19,7 +20,6 @@ public class UI_Controller : MonoBehaviour
     [SerializeField] TextMeshProUGUI currentDialogue_text;
     [SerializeField] TextMeshProUGUI speakerName_text;
     [SerializeField] List<TextMeshProUGUI> dialogueOptions_text = new List<TextMeshProUGUI>();
-
 
     [Header("UI Animation")]
     //Resetting Variables
@@ -46,6 +46,8 @@ public class UI_Controller : MonoBehaviour
     //Game Controls
     DialogueSequenceController dialogCon;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         dialogCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController();
@@ -54,6 +56,8 @@ public class UI_Controller : MonoBehaviour
         noOptionTimeOutReply = NoOptionTimeOutReply(0,0);
         countdownDisplay = CountdownDisplay(0);
         delayedResponsePostage = DelayedResponsePostage(0, 0);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
 #region GAME CONTROLLER INTERFACE
@@ -91,6 +95,10 @@ public class UI_Controller : MonoBehaviour
 
         canReplyCurrent = canReply;
         autoChooseChoice = 0;
+
+        audioSource.clip = clip;
+
+        audioSource.Play();
 
         //UPDATE TEXTS TO REFLECT RESPONSE PROMPT
         speakerName_text.text = speakerName + ": ";
