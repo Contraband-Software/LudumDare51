@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class LockPickTask : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class LockPickTask : MonoBehaviour
     public bool taskDisplaying = false;
     public bool taskComplete = false;
     private int successes = 0;
-    [SerializeField] InteractWithObjects interactObjectsScript;
+    InteractWithObjects interactObjectsScript;
     [SerializeField] CanvasGroup lockPickTask_cg;
     private PlayerController pController;
 
@@ -33,12 +34,15 @@ public class LockPickTask : MonoBehaviour
     private float paperclipZRot_og = -240f;
     private float crochetZTarget = -49f;
     private float paperclipZTarget = -190f;
+    [SerializeField] GameObject safe;
 
     [Header("sETTINGS")]
     private bool hasAllComponents = false;
     public float speed1 = 250f;
     public float speed2 = 350f;
     private RectTransform currentSliderNotch;
+
+    public UnityEvent onTaskSuccess;
 
     private void Start()
     {
@@ -169,6 +173,7 @@ public class LockPickTask : MonoBehaviour
                 {
                     print("TASK COMPLETE");
                     StopCoroutine(currentSliderCoroutine);
+                    ShutDownTask();
                 }
                 else
                 {
@@ -182,6 +187,10 @@ public class LockPickTask : MonoBehaviour
                 print("FAIL");
                 StopCoroutine(currentSliderCoroutine);
                 currentSliderCoroutine = SliderSlide(leftNotch);
+
+                successes = 0;
+
+                HideLockPick();
             }
         }
 
@@ -202,6 +211,14 @@ public class LockPickTask : MonoBehaviour
             pEuls.z = paperclipZTarget;
             paperclipRect.eulerAngles = pEuls;
         }
+    }
+
+
+    private void ShutDownTask()
+    {
+        HideLockPick();
+        safe.tag = "Untagged";
+        onTaskSuccess.Invoke();
     }
     
 }
