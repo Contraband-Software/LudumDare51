@@ -50,6 +50,7 @@ public class StartMenue : MonoBehaviour
 
     public void startClicked()
     {
+        vhs.SetFloat("_EdgeFuzz", 0.0008f);
         SceneManager.LoadScene("exposition");
         
     }

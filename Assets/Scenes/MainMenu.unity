@@ -838,7 +838,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "A Ludum dare 51 game made by Jakub Bala, Julius Vander Arend, Natasha
-    Goldie, Oscar Whitwell, and Samuel Tassef. All Code, Models, Textures, Artwork,
+    Goldie, Oscar Whitwell, and Samuel Taseff. All Code, Models, Textures, Artwork,
     Sound, And writing done in 72 hours for Ludum Dare 51.\n\n\nControlls: \n\nWASD
     movement and mouselook \nE to interact\nEsc to exit the game"
   m_isRightToLeft: 0
