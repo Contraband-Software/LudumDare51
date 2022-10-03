@@ -9,23 +9,26 @@ public class GameController : MonoBehaviour
 {
     DialogueSequenceController dialogueController;
 
-    private DialogueSequenceController FindDialogueController()
+    private void FindDialogueController()
     {
-        return GameObject.FindGameObjectWithTag("ActController").GetComponent<DialogueSequenceController>();
+        try
+        {
+            dialogueController = GameObject.FindGameObjectWithTag("ActController").GetComponent<DialogueSequenceController>();
+        } catch {
+
+        }
     }
 
     private void Awake()
     {
-        dialogueController = FindDialogueController();
-
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        FindDialogueController();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log(scene.ToString());
-        Debug.Log(dialogueController == null);
-        dialogueController = FindDialogueController();
+        FindDialogueController();
     }
 
     public DialogueSequenceController GetDialogueController()
