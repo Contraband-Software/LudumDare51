@@ -1046,43 +1046,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38ac56e71bde0844bab777eafff00b8f, type: 3}
---- !u!1 &284307931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1117101512406146714, guid: 93119bddc5f54f241a40dab11ff5e3d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1270275117}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &284307936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284307931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: eee41d6d7ea5b4344aee4cba5b866e33,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1001 &296525821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3625,7 +3588,7 @@ PrefabInstance:
     - target: {fileID: 2214807526861102349, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2214807527917233912, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
@@ -4181,11 +4144,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1117101512406146711, guid: 93119bddc5f54f241a40dab11ff5e3d1,
-        type: 3}
-      propertyPath: UseUIController
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1117101512406146713, guid: 93119bddc5f54f241a40dab11ff5e3d1,
         type: 3}
       propertyPath: m_RootOrder
@@ -7731,7 +7689,7 @@ PrefabInstance:
     - target: {fileID: 1219484778183160691, guid: f2f2a5900718ff943a7e27846929dd85,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f2a5900718ff943a7e27846929dd85, type: 3}
