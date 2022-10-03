@@ -16,7 +16,14 @@ public class SafeObject : MiniGames.UseableObject
         //hand off game logic to another gameobject (child)
 
         print("I AM FINNA INSPECT THIS BITCH");
-        lockPickTask.DisplayLockPick();
+
+        List<string> playerInvString = new List<string>();
+        foreach(InteractableObject obj in playInv)
+        {
+            playerInvString.Add(obj.GetObjectName());
+        }
+
+        lockPickTask.DisplayLockPick(playerInvString);
 
         if (Global.MatchRequirements(playInv, inventoryRequirements))
         {

@@ -580,18 +580,6 @@ PrefabInstance:
       objectReference: {fileID: 591059186}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b56dddcb69c894f8a1e3587b4237d5, type: 3}
---- !u!114 &2004198955 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2004198955, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
-    type: 3}
-  m_PrefabInstance: {fileID: 4496672800201334926}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d4727c664f12848874b0574a7b71d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4496672800201334926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -599,16 +587,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4496672800050208187, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496672800050208190, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4496672800055184780, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
         type: 3}
       propertyPath: m_RootOrder
@@ -669,10 +647,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: TASK_LockPick
       objectReference: {fileID: 0}
-    - target: {fileID: 4496672800686454911, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
-        type: 3}
-      propertyPath: lockPickTask
-      value: 
-      objectReference: {fileID: 2004198955}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466dedb4d64b9c94d8cdc04c2ecc32de, type: 3}
