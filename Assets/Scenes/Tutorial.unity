@@ -1051,17 +1051,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1897699300}
+    m_TransformParent: {fileID: 1788427135}
     m_Modifications:
     - target: {fileID: 2804709791339296561, guid: 574ca3ee56879044185f5baa726b8bd0,
         type: 3}
       propertyPath: m_Name
       value: InteractableBrick
       objectReference: {fileID: 0}
+    - target: {fileID: 2804709791339296561, guid: 574ca3ee56879044185f5baa726b8bd0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 3289743314523712907, guid: 574ca3ee56879044185f5baa726b8bd0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3289743314523712907, guid: 574ca3ee56879044185f5baa726b8bd0,
         type: 3}
@@ -3033,6 +3038,12 @@ Transform:
   m_Father: {fileID: 4431623}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &983914555 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1117101513413809486, guid: 93119bddc5f54f241a40dab11ff5e3d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1270275117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1008025286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3610,7 +3621,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 983914555}
     - target: {fileID: 4677110233654115079, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
       propertyPath: m_RenderMode
@@ -6084,6 +6095,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1749174109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1788427134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788427135}
+  - component: {fileID: 1788427137}
+  - component: {fileID: 1788427136}
+  m_Layer: 0
+  m_Name: InteractableBrickManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1788427135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788427134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 296525822}
+  m_Father: {fileID: 1897699300}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788427136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788427134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65164335c3be955438b065c13ebeb239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1788427137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788427134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8764726afc78fab45b7a117b13c62dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectName: Brick
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1788427136}
+        m_TargetAssemblyTypeName: BrickObject, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1820203365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 000d6e339f223274fb514118f64aa6d7,
@@ -6120,7 +6205,7 @@ Transform:
   m_Children:
   - {fileID: 2062242514}
   - {fileID: 515772476}
-  - {fileID: 296525822}
+  - {fileID: 1788427135}
   m_Father: {fileID: 592061065}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

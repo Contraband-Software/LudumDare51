@@ -10,6 +10,12 @@ namespace MiniGames
         [SerializeField] string ObjectName;
 
         public string GetObjectName() {
+#if UNITY_EDITOR
+            if (ObjectName == null)
+            {
+                throw new System.Exception("AbstractBaseObject: INTERACTABLE OBJECT NAME NOT SET");
+            }
+#endif
             return ObjectName;
         }
 
