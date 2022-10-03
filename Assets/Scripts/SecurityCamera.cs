@@ -36,6 +36,6 @@ public class SecurityCamera : MonoBehaviour
         {
             targetDetected = false;
         }
-        Debug.Log(targetDetected);
+        //Debug.Log(targetDetected);
     }
 }

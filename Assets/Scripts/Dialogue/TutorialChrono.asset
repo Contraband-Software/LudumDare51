@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1064, y: -104}
+  position: {x: 1048, y: -104}
   ports:
     keys:
     - previous
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: Halt For Flag
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -424, y: 40}
+  position: {x: -376, y: 40}
   ports:
     keys:
     - previous
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -168, y: -104}
+  position: {x: -152, y: -104}
   ports:
     keys:
     - next
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -872, y: -104}
+  position: {x: -824, y: -104}
   ports:
     keys:
     - Start
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: Set Interrupt
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -424, y: -104}
+  position: {x: -376, y: -104}
   ports:
     keys:
     - previous
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -648, y: -104}
+  position: {x: -600, y: -104}
   ports:
     keys:
     - previous
@@ -499,7 +499,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   timeInSeconds: 0
-  clearScreen: 0
+  clearScreen: 1
 --- !u!114 &7092131490655384299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: Action
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: -104}
+  position: {x: 824, y: -104}
   ports:
     keys:
     - previous
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: Set Interrupt
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -424, y: 152}
+  position: {x: -376, y: 152}
   ports:
     keys:
     - previous
