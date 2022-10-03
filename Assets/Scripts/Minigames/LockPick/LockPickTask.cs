@@ -11,6 +11,7 @@ public class LockPickTask : MonoBehaviour
     public bool taskComplete = false;
     [SerializeField] InteractWithObjects interactObjectsScript;
     [SerializeField] CanvasGroup lockPickTask_cg;
+    private PlayerController pController;
 
     [Header("SLIDERS")]
     [SerializeField] RectTransform leftSlider;
@@ -41,6 +42,7 @@ public class LockPickTask : MonoBehaviour
     private void Start()
     {
         interactObjectsScript = GameObject.Find("Player").GetComponent<InteractWithObjects>();
+        pController = GameObject.Find("Player").GetComponent<PlayerController>();
         lockPickTask_cg.alpha = 0f;
 
         crochetHookImage.enabled = false;
@@ -53,6 +55,8 @@ public class LockPickTask : MonoBehaviour
 
     public void DisplayLockPick(List<string> playerInventory)
     {
+        pController.Freeze();
+
         taskDisplaying = true;
         lockPickTask_cg.alpha = 1f;
 
@@ -88,6 +92,8 @@ public class LockPickTask : MonoBehaviour
 
     public void HideLockPick()
     {
+        pController.UnFreeze();
+
         taskDisplaying = false;
         lockPickTask_cg.alpha = 0f;
 
