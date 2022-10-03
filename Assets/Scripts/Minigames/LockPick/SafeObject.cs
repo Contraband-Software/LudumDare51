@@ -15,8 +15,6 @@ public class SafeObject : MiniGames.UseableObject
         //show interface
         //hand off game logic to another gameobject (child)
 
-        print("I AM FINNA INSPECT THIS BITCH");
-
         List<string> playerInvString = new List<string>();
         foreach(InteractableObject obj in playInv)
         {
@@ -25,8 +23,6 @@ public class SafeObject : MiniGames.UseableObject
 
         if (Global.MatchRequirements(playInv, inventoryRequirements))
         {
-            print("YOU GOT DA SHIT NIGGA");
-
             lockPickTask.HasAllComponentsForGame();
             lockPickTask.DisplayLockPick(playerInvString);
             /*            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().TryPlaySequence("GRDiag");*/
