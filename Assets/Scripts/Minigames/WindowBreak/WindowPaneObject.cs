@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WindowPaneObject : MiniGames.UseableObject
 {
+    [SerializeField] AudioSource breakSound;
     [SerializeField] List<string> reqs;
 
     bool breakable = false;
@@ -24,6 +25,8 @@ public class WindowPaneObject : MiniGames.UseableObject
         if (Global.MatchRequirements(playInv, reqs) && breakable)
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().PostFlag("WindowBroken");
+
+            breakSound.Play();
         }
     }
 }

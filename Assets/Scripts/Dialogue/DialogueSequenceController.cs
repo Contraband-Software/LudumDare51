@@ -147,12 +147,17 @@ public class DialogueSequenceController : MonoBehaviour
         {
             case NodeType.Dialogue:
                 DialogueNode.DialogueData diagData = (DialogueNode.DialogueData)currentDialogue.data;
-                UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut, diagData.clip);
+                if (diagData.clip == null)
+                {
+                    Debug.Log("null clip");
+                    diagData.clip = null;
+                }
+                UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut, diagData.clip, diagData.voiced);
                 break;
 
             case NodeType.DialogueRespond:
                 DialogueNodeRespond.DialogueRespondData diagRespondData = (DialogueNodeRespond.DialogueRespondData)currentDialogue.data;
-                UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut, diagRespondData.clip);
+                UIController.DrawNode(diagRespondData.dialog, true, diagRespondData.name, diagRespondData.responses, diagRespondData.timeOut, diagRespondData.clip, diagRespondData.voiced);
                 break;
 
             case NodeType.Wait:

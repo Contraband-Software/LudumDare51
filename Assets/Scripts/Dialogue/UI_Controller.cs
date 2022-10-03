@@ -75,7 +75,7 @@ public class UI_Controller : MonoBehaviour
 
     //Pass in the speaker name and list of options
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
-    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut, AudioClip clip)
+    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut, AudioClip clip, bool voiced)
     {
         Debug.Log("DrawNode: " + incomingText);
 
@@ -96,9 +96,14 @@ public class UI_Controller : MonoBehaviour
         canReplyCurrent = canReply;
         autoChooseChoice = 0;
 
-        audioSource.clip = clip;
+        float length = 0;
 
-        audioSource.Play();
+        if (clip != null && voiced)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+            length = clip.length;
+        }
 
         //UPDATE TEXTS TO REFLECT RESPONSE PROMPT
         speakerName_text.text = speakerName + ": ";
@@ -130,15 +135,15 @@ public class UI_Controller : MonoBehaviour
                 t.fontSize = smallestTextSize;
             }
 
-            countdownDisplay = CountdownDisplay(timeOut + clip.length);
+            countdownDisplay = CountdownDisplay(timeOut + length);
             StartCoroutine(countdownDisplay);
         }
         else
         {
             speakerCanvasRect.anchoredPosition = new Vector2(speakerCanvasRect.anchoredPosition.x, 0f + timeOutCanvasRect.sizeDelta.y);
 
-            countdownDisplay = CountdownDisplay(timeOut + clip.length);
-            noOptionTimeOutReply = NoOptionTimeOutReply(timeOut + clip.length, 0);
+            countdownDisplay = CountdownDisplay(timeOut + length);
+            noOptionTimeOutReply = NoOptionTimeOutReply(timeOut + length, 0);
             StartCoroutine(noOptionTimeOutReply);
             StartCoroutine(countdownDisplay);
         }

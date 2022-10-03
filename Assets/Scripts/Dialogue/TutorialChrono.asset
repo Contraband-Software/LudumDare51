@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 360, y: -104}
+  position: {x: 792, y: 152}
   ports:
     keys:
     - next
@@ -81,7 +81,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
-        node: {fileID: -694118664216436332}
+        node: {fileID: 3135926626003879527}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -91,6 +91,7 @@ MonoBehaviour:
   dialogue: "Oh I worked so hard to make it perfect for us. This place is just like
     my mom\u2019s apartment\u2026 You need to learn some respect though young lady."
   hostilityEffect: 0
+  isVoiced: 1
   audioClip: {fileID: 8300000, guid: 1e901a0a713815a46a4d07112099cc02, type: 3}
   timeOut: 0
 --- !u!114 &-3239368653185158308
@@ -175,7 +176,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: -8110302117374284209}
+        node: {fileID: 3820577358321183735}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 584, y: -104}
+  position: {x: 1016, y: 152}
   ports:
     keys:
     - next
@@ -228,6 +229,7 @@ MonoBehaviour:
   speakerName: You
   dialogue: Who is this guy?
   hostilityEffect: 0
+  isVoiced: 1
   audioClip: {fileID: 8300000, guid: a49e247fb57a2734bbfb2302a074af10, type: 3}
   timeOut: 0
 --- !u!114 &-76407092340143311
@@ -243,7 +245,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1048, y: -104}
+  position: {x: 1480, y: 152}
   ports:
     keys:
     - previous
@@ -289,6 +291,8 @@ MonoBehaviour:
   - {fileID: 7092131490655384299}
   - {fileID: -169334142322599897}
   - {fileID: 2926531023399725198}
+  - {fileID: 3820577358321183735}
+  - {fileID: 3135926626003879527}
 --- !u!114 &567734921053361955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +386,7 @@ MonoBehaviour:
     you wouldn\u2019t mind just standing\u2026 or sitting in the way of the cameras
     every now and then..."
   hostilityEffect: 0
+  isVoiced: 1
   audioClip: {fileID: 8300000, guid: 2bd3bbffe9989234f9be10d89ced2024, type: 3}
   timeOut: 1
 --- !u!114 &2440766748499750707
@@ -503,6 +508,100 @@ MonoBehaviour:
       _dynamic: 0
   timeInSeconds: 0
   clearScreen: 1
+--- !u!114 &3135926626003879527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 568, y: 152}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: 3135926626003879527}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -8110302117374284209}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: 3135926626003879527}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 3820577358321183735}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: 
+  dialogue: '[ It is a solid wall ]'
+  hostilityEffect: 0
+  isVoiced: 0
+  audioClip: {fileID: 8300000, guid: 80da6dd15326244439b63a2e4a1e40c8, type: 3}
+  timeOut: 3.26
+--- !u!114 &3820577358321183735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 328, y: 152}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: 3820577358321183735}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -694118664216436332}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 3820577358321183735}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 3135926626003879527}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  timeInSeconds: 1
+  clearScreen: 0
 --- !u!114 &7092131490655384299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +615,7 @@ MonoBehaviour:
   m_Name: Action
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 824, y: -104}
+  position: {x: 1240, y: 40}
   ports:
     keys:
     - previous
