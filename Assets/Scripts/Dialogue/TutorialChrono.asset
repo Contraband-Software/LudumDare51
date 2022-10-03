@@ -374,13 +374,13 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   speakerName: ???
-  dialogue: "I love how I get to watch you, it\u2019s a shame though\u2026 on my
-    salary, I could hardly afford to give you the respect you deserve. So, if you
-    wouldn\u2019t mind just standing\u2026 or sitting in the way of the cameras every
-    now and then I\u2019d love it. I can watch you at all times\u2026 from all angles\u2026"
+  dialogue: "I'm so glad you're finally with me, it\u2019s a shame though\u2026 on
+    my salary, I could hardly afford to give you the respect you deserve. So, if
+    you wouldn\u2019t mind just standing\u2026 or sitting in the way of the cameras
+    every now and then..."
   hostilityEffect: 0
   audioClip: {fileID: 8300000, guid: 2bd3bbffe9989234f9be10d89ced2024, type: 3}
-  timeOut: 0
+  timeOut: 1
 --- !u!114 &2440766748499750707
 MonoBehaviour:
   m_ObjectHideFlags: 0
