@@ -89,7 +89,7 @@ MonoBehaviour:
       _dynamic: 0
   speakerName: ???
   dialogue: "Oh I worked so hard to make it perfect for us. This place is just like
-    my mom\u2019s apartment\u2026 You need to learn some respect though young lady."
+    my mom\u2019s."
   hostilityEffect: 0
   isVoiced: 1
   audioClip: {fileID: 8300000, guid: 1e901a0a713815a46a4d07112099cc02, type: 3}
