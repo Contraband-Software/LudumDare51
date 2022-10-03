@@ -11,10 +11,15 @@ public class GasRoom : MonoBehaviour
     [SerializeField] AudioSource hissing;
 
     [Header("Settings")]
-    [SerializeField] float FadeSpeed = 0.1f;
+    [SerializeField, Min(0)] float FadeSpeed = 0.1f;
     [SerializeField, Range(0, 1)] float FadeCutoff = 0.9f;
 
     float progress = 0;
+
+    private void Awake()
+    {
+        GetComponent<GraphSystem.ActionComponent>().action = () => { StartGassingRoom(); };
+    }
 
     public void StartGassingRoom()
     {

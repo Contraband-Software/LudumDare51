@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: blackOut
       value: 
       objectReference: {fileID: 6220860480173754523}
+    - target: {fileID: 7468152951778524561, guid: 041f31a304f720b4c9e8b32ed8d9c3ec,
+        type: 3}
+      propertyPath: FadeSpeed
+      value: 0.005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041f31a304f720b4c9e8b32ed8d9c3ec, type: 3}
 --- !u!114 &6220860480173754523 stripped
