@@ -13,6 +13,7 @@ public class SecurityCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
         rb = target.GetComponent<Rigidbody>();
     }
 
