@@ -208,7 +208,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: -76407092340143311}
+        node: {fileID: 7092131490655384299}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1480, y: 152}
+  position: {x: 1496, y: 152}
   ports:
     keys:
     - previous
@@ -257,9 +257,6 @@ MonoBehaviour:
       connections:
       - fieldName: next
         node: {fileID: 7092131490655384299}
-        reroutePoints: []
-      - fieldName: next
-        node: {fileID: -169334142322599897}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -615,7 +612,7 @@ MonoBehaviour:
   m_Name: Action
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1240, y: 40}
+  position: {x: 1272, y: 152}
   ports:
     keys:
     - previous
@@ -625,7 +622,10 @@ MonoBehaviour:
       _node: {fileID: 7092131490655384299}
       _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: next
+        node: {fileID: -169334142322599897}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
