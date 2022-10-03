@@ -626,5 +626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TASK_LockPick
       objectReference: {fileID: 0}
+    - target: {fileID: 4496672800686454911, guid: 466dedb4d64b9c94d8cdc04c2ecc32de,
+        type: 3}
+      propertyPath: inventoryRequirements.Array.data[0]
+      value: Paper Clip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466dedb4d64b9c94d8cdc04c2ecc32de, type: 3}

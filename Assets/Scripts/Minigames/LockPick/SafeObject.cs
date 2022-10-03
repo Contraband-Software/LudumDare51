@@ -23,13 +23,17 @@ public class SafeObject : MiniGames.UseableObject
             playerInvString.Add(obj.GetObjectName());
         }
 
-        lockPickTask.DisplayLockPick(playerInvString);
-
         if (Global.MatchRequirements(playInv, inventoryRequirements))
         {
             print("YOU GOT DA SHIT NIGGA");
 
-/*            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().TryPlaySequence("GRDiag");*/
+            lockPickTask.HasAllComponentsForGame();
+            lockPickTask.DisplayLockPick(playerInvString);
+            /*            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().TryPlaySequence("GRDiag");*/
+        }
+        else
+        {
+            lockPickTask.DisplayLockPick(playerInvString);
         }
     }
 }

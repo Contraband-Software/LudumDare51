@@ -894,8 +894,12 @@ MonoBehaviour:
   lockPickTask_cg: {fileID: 4496672800050208187}
   leftSlider: {fileID: 4496672800165032019}
   leftNotch: {fileID: 4496672799206965480}
+  rightSlider: {fileID: 0}
+  rightNotch: {fileID: 0}
   crochetHookImage: {fileID: 4496672800195968085}
   paperClipImage: {fileID: 4496672800573025283}
+  speed1: 250
+  speed2: 350
 --- !u!1 &4496672800165032018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,8 +1257,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   inventoryRequirements:
-  - PaperClip
-  - CrochetHook
+  - ' Paper Clip'
+  - Crochet Hook
   lockPickTask: {fileID: 2004198955}
 --- !u!114 &4496672800686454908
 MonoBehaviour:

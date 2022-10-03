@@ -26,6 +26,7 @@ public class LockPickTask : MonoBehaviour
     [SerializeField] Image paperClipImage;
 
     [Header("sETTINGS")]
+    private bool hasAllComponents = false;
     public float speed1 = 250f;
     public float speed2 = 350f;
 
@@ -59,10 +60,13 @@ public class LockPickTask : MonoBehaviour
         interactObjectsScript.lockPickTask = this;
         interactObjectsScript.NextInteractIsExit();
         interactObjectsScript.HideInteractionPrompt();
-
         GetMinMaxSliders();
 
-        StartSliderMotion();
+        if (hasAllComponents)
+        {
+            StartSliderMotion();
+        }
+        
     }
 
     public void HideLockPick()
@@ -71,6 +75,11 @@ public class LockPickTask : MonoBehaviour
         lockPickTask_cg.alpha = 0f;
 
         StopCoroutine(currentSliderCoroutine);
+    }
+
+    public void HasAllComponentsForGame()
+    {
+        hasAllComponents = true;
     }
 
 
@@ -88,19 +97,18 @@ public class LockPickTask : MonoBehaviour
     private IEnumerator SliderSlide(RectTransform sliderNotch)
     {
         float target = maxY;
+        float speed = 300f;
         if(sliderNotch == leftNotch)
         {
-
+            speed = speed1;
         }
         if (sliderNotch == rightNotch)
         {
-
+            speed = speed2;
         }
-        print("starting sliding");
 
         while (true)
         {
-            print("..");
             if(target == maxY && sliderNotch.anchoredPosition.y < target)
             {
                 sliderNotch.anchoredPosition = new Vector2(sliderNotch.anchoredPosition.x, sliderNotch.anchoredPosition.y + (Time.deltaTime * speed1));
