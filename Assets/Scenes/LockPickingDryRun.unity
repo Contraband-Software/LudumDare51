@@ -552,27 +552,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 2214807528248528884, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: graph
-      value: 
-      objectReference: {fileID: 11400000, guid: 557d439d398598744a0229037c4ce266,
-        type: 2}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: GlobalDialogueDelay
-      value: 2.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: TriggeredEvents.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
-        type: 3}
-      propertyPath: TriggeredEvents.Array.data[0].Name
-      value: GRDiag
-      objectReference: {fileID: 0}
     - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
       propertyPath: TriggeredEvents.Array.data[0].EventController

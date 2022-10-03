@@ -6,7 +6,7 @@ using TMPro;
 
 using GraphSystem;
 
-[RequireComponent(typeof(PlayerInput)), RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource))
 public class UI_Controller : MonoBehaviour
 {
 
