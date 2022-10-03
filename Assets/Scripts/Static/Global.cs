@@ -7,6 +7,7 @@ public static class Global
     public enum SceneNames
     {
         MAINMENU,
+        TUTORIAL,
         ACT1,
         ACT2
     }
@@ -35,6 +36,9 @@ public static class Global
         {
             case SceneNames.MAINMENU:
                 return "MainMenu";
+                break;
+            case SceneNames.TUTORIAL:
+                return "Tutorial";
                 break;
             case SceneNames.ACT1:
                 return "SamPrototyping";
