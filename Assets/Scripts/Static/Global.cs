@@ -41,10 +41,7 @@ public static class Global
                 return "Tutorial";
                 break;
             case SceneNames.ACT1:
-                return "SamPrototyping";
-                break;
-            case SceneNames.ACT2:
-                return "SamPrototyping2";
+                return "Act1";
                 break;
         }
 
