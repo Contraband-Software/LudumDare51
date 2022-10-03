@@ -5,6 +5,7 @@ using UnityEngine;
 
 using GraphSystem;
 using UnityEngine.Events;
+using static GraphSystem.WaitNode;
 
 [RequireComponent(typeof(ChronoDialogueController))]
 public class DialogueSequenceController : MonoBehaviour
@@ -31,6 +32,7 @@ public class DialogueSequenceController : MonoBehaviour
     [Header("Settings")]
     [Tooltip("Time in seconds to insert between consecutive dialogues on top of any wait nodes.")]
     [SerializeField, Min(0)] float GlobalDialogueDelay = 10;
+    [SerializeField] bool StartMainSequence = true;
 
     UI_Controller UIController;
 
@@ -63,7 +65,13 @@ public class DialogueSequenceController : MonoBehaviour
         currentEvent = MainDialogue;
         currentSequenceState = SequenceState.Main;
 
-        InitCurrentEvent();
+        if (StartMainSequence)
+        {
+            InitCurrentEvent();
+        } else
+        {
+            UIController.OnWait(0, true);
+        }
     }
 
     private void InitCurrentEvent()
