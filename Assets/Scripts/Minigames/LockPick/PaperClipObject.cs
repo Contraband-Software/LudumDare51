@@ -6,5 +6,10 @@ using UnityEngine;
 
 public class PaperClipObject : MonoBehaviour
 {
-    
+    [SerializeField] GameObject note;
+
+    public void OnPickupClip()
+    {
+        Destroy(note);
+    }
 }
