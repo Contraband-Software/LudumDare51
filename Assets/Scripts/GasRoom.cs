@@ -9,6 +9,7 @@ public class GasRoom : MonoBehaviour
     [Header("References")]
     [SerializeField] Image blackOut;
     [SerializeField] AudioSource hissing;
+    [SerializeField] GameObject gasEffect;
 
     [Header("Settings")]
     [SerializeField, Min(0)] float FadeSpeed = 0.1f;
@@ -24,6 +25,7 @@ public class GasRoom : MonoBehaviour
     public void StartGassingRoom()
     {
         hissing.Play();
+        gasEffect.SetActive(true);
         StartCoroutine(FadeScreen());
     }
 
