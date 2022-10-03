@@ -78,15 +78,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "6fbcffcf-8165-4f35-b26d-3623d1ad4cc5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Crouch",
                     "type": "PassThrough",
                     "id": "b7efd01b-5da2-441c-a57e-56a7c02036d5",
@@ -99,6 +90,15 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "c16cd349-f59a-4a91-9699-d953d6e8c650",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MinigameInteract",
+                    "type": "Button",
+                    "id": "6f4432b8-b47c-4f6e-8a06-1c2b991e3426",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -372,17 +372,6 @@
                 },
                 {
                     "name": "",
-                    "id": "d6cc88f6-a6b0-4579-b272-f47e89b0d004",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ec55b120-3b30-4db0-9d64-81b5efcc6c49",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
@@ -411,6 +400,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b4135cf-7328-4afe-a997-888da0b390bd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MinigameInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
