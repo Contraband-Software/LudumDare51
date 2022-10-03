@@ -43,7 +43,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
-  gameObject: RevealWindow
+  gameObject: WindowPaneManager
 --- !u!114 &-8110302117374284209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: 7092131490655384299}
+        node: {fileID: -76407092340143311}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -255,6 +255,9 @@ MonoBehaviour:
       connections:
       - fieldName: next
         node: {fileID: 7092131490655384299}
+        reroutePoints: []
+      - fieldName: next
+        node: {fileID: -169334142322599897}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -523,10 +526,7 @@ MonoBehaviour:
       _node: {fileID: 7092131490655384299}
       _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: next
-        node: {fileID: -169334142322599897}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0

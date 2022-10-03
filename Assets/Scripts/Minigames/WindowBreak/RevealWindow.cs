@@ -11,6 +11,8 @@ public class RevealWindow : MonoBehaviour
         GetComponent<GraphSystem.ActionComponent>().action = () =>
         {
             windowCurtains.SetActive(false);
+
+            GetComponent<WindowPaneObject>().SetBreakable();
         };
     }
 }
