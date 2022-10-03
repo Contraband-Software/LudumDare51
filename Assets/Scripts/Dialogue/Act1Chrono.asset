@@ -1,0 +1,963 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9184516562440096194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d83b8a7ee10cf043addc2a1084baf49, type: 3}
+  m_Name: Terminator
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2376, y: -264}
+  ports:
+    keys:
+    - previous
+    values:
+    - _fieldName: previous
+      _node: {fileID: -9184516562440096194}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 3052240157521090321}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+--- !u!114 &-8458492594440710358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebed63212ef5e444e80a0781a06ece81, type: 3}
+  m_Name: Set Interrupt
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -360, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -8458492594440710358}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 5874163438207274945}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -8458492594440710358}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 7013002015701833604}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Set: 0
+--- !u!114 &-8042204259114128778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1544, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -8042204259114128778}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -8012711313320521083}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -8042204259114128778}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -6962471203215744646}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  timeInSeconds: 0
+  clearScreen: 1
+--- !u!114 &-8012711313320521083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1336, y: -264}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: -8012711313320521083}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -8042204259114128778}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: -8012711313320521083}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -4020838935991251603}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: ???
+  dialogue: Be careful, the shower has mold in it.
+  hostilityEffect: 0
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: b1480202f5f08004ab6c9a8540938683, type: 3}
+  timeOut: 0
+--- !u!114 &-7842005615620364563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebed63212ef5e444e80a0781a06ece81, type: 3}
+  m_Name: Set Interrupt
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 712, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -7842005615620364563}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -5006385202882939355}
+        reroutePoints: []
+      - fieldName: next
+        node: {fileID: 5993825586744160143}
+        reroutePoints: []
+      - fieldName: next
+        node: {fileID: 1740514398237357239}
+        reroutePoints: []
+      - fieldName: next
+        node: {fileID: -2866581251292632932}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -7842005615620364563}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -2495872093566294641}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Set: 1
+--- !u!114 &-7233575144111626772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1baf2651b1fe84cb006ef88f1bfbac, type: 3}
+  m_Name: Action
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1960, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -7233575144111626772}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -6962471203215744646}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -7233575144111626772}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 3052240157521090321}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  gameObject: GasRoom
+--- !u!114 &-6962471203215744646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4754e2e7fb0f974f8aea058d712fbdb, type: 3}
+  m_Name: Halt For Flag
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1752, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -6962471203215744646}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -8042204259114128778}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -6962471203215744646}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -7233575144111626772}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  flag: LockPick
+--- !u!114 &-5006385202882939355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 504, y: 696}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: -5006385202882939355}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -7842005615620364563}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: -5006385202882939355}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: responses 3
+        node: {fileID: -3747182787581687804}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: ???
+  dialogue: "Is this thing on\u2026? *mic tap* Mrs Miller~ Don\u2019t make the master
+    angry\u2026 Go find those presents for me, right now."
+  hostilityEffect: -1
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: 198864532ffa6184eab92b5e57c1ec0e, type: 3}
+  timeOut: 0
+--- !u!114 &-4020838935991251603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4754e2e7fb0f974f8aea058d712fbdb, type: 3}
+  m_Name: Halt For Flag
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -4020838935991251603}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -2495872093566294641}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -4020838935991251603}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -8012711313320521083}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  flag: Shower
+--- !u!114 &-3747182787581687804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e582c65e7f47134d82a680aa4ed21c7, type: 3}
+  m_Name: Dialogue Node Respond
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 264, y: -264}
+  ports:
+    keys:
+    - responses
+    - previous
+    - responses 0
+    - responses 1
+    - responses 2
+    - responses 3
+    values:
+    - _fieldName: responses
+      _node: {fileID: -3747182787581687804}
+      _typeQualifiedName: System.Collections.Generic.List`1[[GraphSystem.GraphConnections+ResponseConnectionData,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: -3747182787581687804}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 314365617693137062}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: responses 0
+      _node: {fileID: -3747182787581687804}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -2866581251292632932}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 1
+      _node: {fileID: -3747182787581687804}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 1740514398237357239}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 2
+      _node: {fileID: -3747182787581687804}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 5993825586744160143}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 3
+      _node: {fileID: -3747182787581687804}
+      _typeQualifiedName: GraphSystem.GraphConnections+ResponseConnectionData, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -5006385202882939355}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  speakerName: ???
+  dialogue: "Don\u2019t worry though\u2026 I\u2019ve left you a few presents here
+    and there\u2026 And maybe you\u2019ll stop being such an uptight!\u2026 Sorry,
+    my love I understand you didn\u2019t expect me. You\u2019ll learn to love me."
+  hostilityEffect: 0
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: 3df52332e9c6fe54eaa3b5047dabf75c, type: 3}
+  timeOut: 0
+  responses:
+  - response: What kind of presents?
+    AutoChoose: 0
+    audioClip: {fileID: 8300000, guid: a17b4567477025741b98fa59b6d62cd0, type: 3}
+  - response: "I don\u2019t want your presents, you creep!"
+    AutoChoose: 0
+    audioClip: {fileID: 8300000, guid: 83e1a1b457e33854b96bffb219a4cd94, type: 3}
+  - response: "That\u2019s very\u2026 kind, thank you\u2026"
+    AutoChoose: 0
+    audioClip: {fileID: 8300000, guid: 25bb0e4c9e4f7ef459d75ee9b33dff98, type: 3}
+  - response: '[Silence]'
+    AutoChoose: 1
+    audioClip: {fileID: 0}
+--- !u!114 &-2866581251292632932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 504, y: -264}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: -2866581251292632932}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -7842005615620364563}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: -2866581251292632932}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: responses 0
+        node: {fileID: -3747182787581687804}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: ???
+  dialogue: "Oh I know you\u2019re the type to like surprises, go on, take a look
+    around\u2026 I\u2019ll enjoy watching\u2026"
+  hostilityEffect: -1
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: 6b8fdb2dc7d53254c994e29304190725, type: 3}
+  timeOut: 0
+--- !u!114 &-2495872093566294641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 920, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: -2495872093566294641}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -7842005615620364563}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: -2495872093566294641}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -4020838935991251603}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  timeInSeconds: 0
+  clearScreen: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af41fc9256863d240909646fa77a1dfd, type: 3}
+  m_Name: Act1Chrono
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7033419529564919097}
+  - {fileID: -9184516562440096194}
+  - {fileID: 7013002015701833604}
+  - {fileID: 5874163438207274945}
+  - {fileID: -8458492594440710358}
+  - {fileID: 314365617693137062}
+  - {fileID: -3747182787581687804}
+  - {fileID: -2866581251292632932}
+  - {fileID: 1740514398237357239}
+  - {fileID: 5993825586744160143}
+  - {fileID: -5006385202882939355}
+  - {fileID: -7842005615620364563}
+  - {fileID: -4020838935991251603}
+  - {fileID: -8012711313320521083}
+  - {fileID: -6962471203215744646}
+  - {fileID: -2495872093566294641}
+  - {fileID: -8042204259114128778}
+  - {fileID: -7233575144111626772}
+  - {fileID: 3052240157521090321}
+--- !u!114 &314365617693137062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 56, y: -264}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: 314365617693137062}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -3747182787581687804}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: 314365617693137062}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 7013002015701833604}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: You
+  dialogue: "What the\u2026-"
+  hostilityEffect: 0
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: 4fc5689f8a8974d4ea9d0cb94d7e6aaf, type: 3}
+  timeOut: 0
+--- !u!114 &1740514398237357239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 504, y: 56}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: 1740514398237357239}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -7842005615620364563}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: 1740514398237357239}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: responses 1
+        node: {fileID: -3747182787581687804}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: ???
+  dialogue: "Watch your tongue! Or I\u2019ll come down there and... Oh\u2026 I\u2019m
+    Sorry\u2026 Did I scare you? Maybe my gifts will cheer you up\u2026"
+  hostilityEffect: -2
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: b0e6e74f8029cf446a0497c1a2914fc5, type: 3}
+  timeOut: 0
+--- !u!114 &3052240157521090321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4754e2e7fb0f974f8aea058d712fbdb, type: 3}
+  m_Name: Halt For Flag
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 2168, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: 3052240157521090321}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -7233575144111626772}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 3052240157521090321}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -9184516562440096194}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  flag: GasDone
+--- !u!114 &5874163438207274945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37125b16304dfd843aaa8b53dc1c8368, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -568, y: -264}
+  ports:
+    keys:
+    - previous
+    - next
+    values:
+    - _fieldName: previous
+      _node: {fileID: 5874163438207274945}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Start
+        node: {fileID: 7033419529564919097}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 5874163438207274945}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -8458492594440710358}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  timeInSeconds: 0
+  clearScreen: 1
+--- !u!114 &5993825586744160143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 504, y: 376}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: 5993825586744160143}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -7842005615620364563}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: 5993825586744160143}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: responses 2
+        node: {fileID: -3747182787581687804}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: ???
+  dialogue: "Oh you\u2019re so good and obedient\u2026 Now, go find those gifts for
+    me. Make your master happy~."
+  hostilityEffect: 2
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: 29991f5cacfa8664a96a1b520d69a2b4, type: 3}
+  timeOut: 0
+--- !u!114 &7013002015701833604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -152, y: -264}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: 7013002015701833604}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 314365617693137062}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: 7013002015701833604}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -8458492594440710358}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: ???
+  dialogue: Did you really think I would be that careless? Silly billy.
+  hostilityEffect: 0
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: a2ec1bf96ce50d841b420a947f5b923d, type: 3}
+  timeOut: 0
+--- !u!114 &7033419529564919097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb39f34313b8f046bec913ca3e92acb, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -776, y: -264}
+  ports:
+    keys:
+    - Start
+    values:
+    - _fieldName: Start
+      _node: {fileID: 7033419529564919097}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: 5874163438207274945}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0

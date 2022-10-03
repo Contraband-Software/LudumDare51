@@ -10,6 +10,8 @@ public class PaperClipObject : MonoBehaviour
 
     public void OnPickupClip()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().GetDialogueController().PostFlag("Shower");
+        
         Destroy(note);
     }
 }
