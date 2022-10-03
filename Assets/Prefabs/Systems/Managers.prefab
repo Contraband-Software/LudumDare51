@@ -95,8 +95,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   MainDialogue: {fileID: 2214807528248528884}
-  TriggeredEvents: []
-  GlobalDialogueDelay: 2.99
+  TriggeredEvents:
+  - Name: GRDiag
+    EventController: {fileID: 0}
+  GlobalDialogueDelay: 2.05
+  StartMainSequence: 1
 --- !u!114 &2214807528248528884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcde129ac2697d42981501c3cc99431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 2ebcc08e8fe107b459da07cc0666c9bf, type: 2}
+  graph: {fileID: 11400000, guid: 557d439d398598744a0229037c4ce266, type: 2}
 --- !u!114 &2214807527917233912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UIController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797336242585121712, guid: 53f86c4cfd0a46b4289a3b09d88a7a7e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6797336242585121712, guid: 53f86c4cfd0a46b4289a3b09d88a7a7e, type: 3}

@@ -139,4 +139,9 @@ public class InteractWithObjects : MonoBehaviour
 
         Debug.Log(Inventory.Count);
     }
+
+    private void OnMinigameInteract()
+    {
+        print("I HAVE SEX WITH MEN");
+    }
 }
