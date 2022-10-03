@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 4496672799812971154}
   - component: {fileID: 4496672799812971157}
   m_Layer: 5
-  m_Name: LeftNotch
+  m_Name: RightNotch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -895,8 +895,8 @@ MonoBehaviour:
   lockPickTask_cg: {fileID: 4496672800050208187}
   leftSlider: {fileID: 4496672800165032019}
   leftNotch: {fileID: 4496672799206965480}
-  rightSlider: {fileID: 0}
-  rightNotch: {fileID: 0}
+  rightSlider: {fileID: 4496672800549429667}
+  rightNotch: {fileID: 4496672799812971156}
   crochetHookImage: {fileID: 4496672800195968085}
   paperClipImage: {fileID: 4496672800573025283}
   crochetRect: {fileID: 4496672800195968084}
