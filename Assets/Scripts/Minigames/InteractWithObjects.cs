@@ -44,9 +44,10 @@ public class InteractWithObjects : MonoBehaviour
         RaycastHit objectHit;
         if (Physics.Raycast(raycastObject.transform.position, fwd, out objectHit, interactionDistance))
         {
+            print(objectHit.collider.gameObject.tag);
             if (objectHit.collider.gameObject.tag == "Interactable" || objectHit.collider.gameObject.tag == "Useable") 
             {
-                GameObject root = objectHit.collider.transform.root.gameObject;
+                GameObject root = objectHit.collider.transform.parent.gameObject;
                 hoveringOverObject = true;
                 if(currentlyHoveredObject == null || root.GetInstanceID() != currentlyHoveredObject.gameObject.GetInstanceID())
                 {

@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         OriginalHeight = characterController.height;
 
         fadeCrouchDown = FadeCrouchDown();
-        //uiCon = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
+        uiCon = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
     }
 
     private void FixedUpdate()
