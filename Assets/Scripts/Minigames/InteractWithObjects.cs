@@ -22,6 +22,11 @@ public class InteractWithObjects : MonoBehaviour
 
     private List<InteractableObject> Inventory;
 
+    [Header("HACKY AS SHIT BUT I CBA (LOCKPICK TASK)")]
+
+    private bool nextInteractIsExit = false;
+    public LockPickTask lockPickTask;
+
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +81,11 @@ public class InteractWithObjects : MonoBehaviour
         }
     }
 
+    public void NextInteractIsExit()
+    {
+        nextInteractIsExit = true;
+    }
+
     private void DisplayInteractionPrompt(string objectName)
     {
         showingInteractionPrompt = true;
@@ -84,7 +94,7 @@ public class InteractWithObjects : MonoBehaviour
         interactPromptText.text = objectName + " - Press [E] To Interact";
         print("DISPLAYING PROMPT");
     }
-    private void HideInteractionPrompt()
+    public void HideInteractionPrompt()
     {
         showingInteractionPrompt = false;
         interactPrompt_cg.alpha = 0f;
@@ -94,9 +104,20 @@ public class InteractWithObjects : MonoBehaviour
     //InputSystem Message
     private void OnInteract(InputValue input)
     {
+        if (nextInteractIsExit)
+        {
+            if (lockPickTask.taskDisplaying)
+            {
+                lockPickTask.HideLockPick(); ;
+            }
+            nextInteractIsExit = false;
+            return;
+        }
+
         if (currentlyHoveredObject != null)
         {
             currentlyHoveredObject.OnInteract.Invoke();
+            nextInteractIsExit = false;
 
             if (currentlyHoveredObject.gameObject.tag == "Interactable")
             {

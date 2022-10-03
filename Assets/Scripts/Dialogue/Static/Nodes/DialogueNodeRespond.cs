@@ -28,6 +28,7 @@ namespace GraphSystem
             dialogueData.responses = responses;
             dialogueData.timeOut = timeOut;
             dialogueData.clip = audioClip;
+            dialogueData.voiced = isVoiced;
         }
 
         public override NodeData GetNodeValue()
