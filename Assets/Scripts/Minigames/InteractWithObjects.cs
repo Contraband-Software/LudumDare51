@@ -142,6 +142,9 @@ public class InteractWithObjects : MonoBehaviour
 
     private void OnMinigameInteract()
     {
-        print("I HAVE SEX WITH MEN");
+        if(lockPickTask != null && !lockPickTask.taskComplete && lockPickTask.taskDisplaying)
+        {
+            lockPickTask.LockPickPlace();
+        }
     }
 }

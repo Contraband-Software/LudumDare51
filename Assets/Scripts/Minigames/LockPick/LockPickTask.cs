@@ -8,8 +8,10 @@ public class LockPickTask : MonoBehaviour
 {
 
     public bool taskDisplaying = false;
+    public bool taskComplete = false;
     [SerializeField] InteractWithObjects interactObjectsScript;
     [SerializeField] CanvasGroup lockPickTask_cg;
+    private PlayerController pController;
 
     [Header("SLIDERS")]
     [SerializeField] RectTransform leftSlider;
@@ -24,15 +26,23 @@ public class LockPickTask : MonoBehaviour
     [Header("OBJECTS IN LOCK")]
     [SerializeField] Image crochetHookImage;
     [SerializeField] Image paperClipImage;
+    [SerializeField] RectTransform crochetRect;
+    [SerializeField] RectTransform paperclipRect;
+    private float crochetZRot_og = -140f;
+    private float paperclipZRot_og = -240f;
+    private float crochetZTarget = -49f;
+    private float paperclipZTarget = -190f;
 
     [Header("sETTINGS")]
     private bool hasAllComponents = false;
     public float speed1 = 250f;
     public float speed2 = 350f;
+    private RectTransform currentSliderNotch;
 
     private void Start()
     {
         interactObjectsScript = GameObject.Find("Player").GetComponent<InteractWithObjects>();
+        pController = GameObject.Find("Player").GetComponent<PlayerController>();
         lockPickTask_cg.alpha = 0f;
 
         crochetHookImage.enabled = false;
@@ -45,10 +55,21 @@ public class LockPickTask : MonoBehaviour
 
     public void DisplayLockPick(List<string> playerInventory)
     {
+        pController.Freeze();
+
         taskDisplaying = true;
         lockPickTask_cg.alpha = 1f;
 
-        if(playerInventory.Contains("Crochet Hook"))
+        Vector3 cEuls = crochetRect.eulerAngles;
+        cEuls.z = crochetZRot_og;
+        crochetRect.eulerAngles = cEuls;
+
+        Vector3 pEuls = paperclipRect.eulerAngles;
+        pEuls.z = paperclipZRot_og;
+        paperclipRect.eulerAngles = pEuls;
+
+
+        if (playerInventory.Contains("Crochet Hook"))
         {
             crochetHookImage.enabled = true;
         }
@@ -71,6 +92,8 @@ public class LockPickTask : MonoBehaviour
 
     public void HideLockPick()
     {
+        pController.UnFreeze();
+
         taskDisplaying = false;
         lockPickTask_cg.alpha = 0f;
 
@@ -96,6 +119,8 @@ public class LockPickTask : MonoBehaviour
 
     private IEnumerator SliderSlide(RectTransform sliderNotch)
     {
+        currentSliderNotch = sliderNotch;
+
         float target = maxY;
         float speed = 300f;
         if(sliderNotch == leftNotch)
@@ -111,7 +136,7 @@ public class LockPickTask : MonoBehaviour
         {
             if(target == maxY && sliderNotch.anchoredPosition.y < target)
             {
-                sliderNotch.anchoredPosition = new Vector2(sliderNotch.anchoredPosition.x, sliderNotch.anchoredPosition.y + (Time.deltaTime * speed1));
+                sliderNotch.anchoredPosition = new Vector2(sliderNotch.anchoredPosition.x, sliderNotch.anchoredPosition.y + (Time.deltaTime * speed));
             }
             else
             {
@@ -119,7 +144,7 @@ public class LockPickTask : MonoBehaviour
             }
             if(target == minY && sliderNotch.anchoredPosition.y > target)
             {
-                sliderNotch.anchoredPosition = new Vector2(sliderNotch.anchoredPosition.x, sliderNotch.anchoredPosition.y - (Time.deltaTime * speed2));
+                sliderNotch.anchoredPosition = new Vector2(sliderNotch.anchoredPosition.x, sliderNotch.anchoredPosition.y - (Time.deltaTime * speed));
             }
             else
             {
@@ -127,6 +152,18 @@ public class LockPickTask : MonoBehaviour
             }
 
             yield return null;
+        }
+    }
+
+    public void LockPickPlace()
+    {
+        if(currentSliderNotch.anchoredPosition.y < maxY * 0.07f && currentSliderNotch.anchoredPosition.y > minY * 0.07f)
+        {
+            print("SUCCESS");
+        }
+        else
+        {
+            print("FAIL");
         }
     }
     
