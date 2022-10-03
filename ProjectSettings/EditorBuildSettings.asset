@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Act1.unity
     guid: 86a4d06363dfa654c999243028883e06
+  - enabled: 1
+    path: Assets/Scenes/exposition.unity
+    guid: c7537df6caa0b3943b2ffd1d638c859a
   m_configObjects: {}
