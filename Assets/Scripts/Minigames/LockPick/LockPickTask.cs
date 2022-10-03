@@ -188,6 +188,8 @@ public class LockPickTask : MonoBehaviour
                 StopCoroutine(currentSliderCoroutine);
                 currentSliderCoroutine = SliderSlide(leftNotch);
 
+                successes = 0;
+
                 HideLockPick();
             }
         }

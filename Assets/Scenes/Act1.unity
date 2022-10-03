@@ -2216,7 +2216,6 @@ Transform:
   m_Children:
   - {fileID: 3745622627098552224}
   - {fileID: 4083501150123836035}
-  - {fileID: 6738450969500305919}
   m_Father: {fileID: 543450652263775429}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4779,6 +4778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101033163}
   - component: {fileID: 2101033164}
+  - component: {fileID: 2101033165}
   m_Layer: 0
   m_Name: Lockpicking
   m_TagString: Untagged
@@ -4835,7 +4835,32 @@ MonoBehaviour:
   speed2: 350
   onTaskSuccess:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2101033165}
+        m_TargetAssemblyTypeName: LockPickSuccess, Assembly-CSharp
+        m_MethodName: OnLockPickComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2101033165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101033162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed782bf66ed26d4c9ca907537dcbc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeDoor: {fileID: 4083501150123836035}
 --- !u!1001 &2122024076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5771,7 +5796,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &832149485715728888
 GameObject:
@@ -6184,7 +6209,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &919132148342105728
 MonoBehaviour:
@@ -9258,7 +9283,8 @@ Transform:
   m_LocalPosition: {x: -0.1975783, y: -0.006986618, z: 0.23818028}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6738450969500305919}
   m_Father: {fileID: 941494873}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11539,13 +11565,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8513859189155822109}
-  m_LocalRotation: {x: 0.50000006, y: 0.50000006, z: -0.49999997, w: -0.49999994}
-  m_LocalPosition: {x: -0.1975783, y: -0.006986618, z: 0.23818028}
-  m_LocalScale: {x: -0.5286933, y: -0.5286933, z: -0.5286933}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.0000001192093, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.005286933, y: -0.0052869334, z: -0.005286932}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 941494873}
-  m_RootOrder: 2
+  m_Father: {fileID: 4083501150123836035}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &6812427813393500158
 MeshCollider:
@@ -13709,7 +13735,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8528780665527877501
 Transform:
@@ -14297,7 +14323,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &8707273952050099690
 GameObject:
