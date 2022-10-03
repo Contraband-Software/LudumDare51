@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float GravityAcceleration = 30.0f;
     [SerializeField] LayerMask GroundLayerMask;
 
+    [Header("Debug")]
+    [SerializeField] bool UseUIController = true;
+
 
     private UI_Controller uiCon;
 
@@ -57,7 +60,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputValue input)
     {
-        Debug.Log(input.isPressed);
         isJumping = true;
     }
 
@@ -93,7 +95,11 @@ public class PlayerController : MonoBehaviour
         OriginalHeight = characterController.height;
 
         fadeCrouchDown = FadeCrouchDown();
-        uiCon = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
+
+        if (UseUIController)
+        {
+            uiCon = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
+        }
     }
 
     private void FixedUpdate()
