@@ -45,7 +45,6 @@ public class InteractWithObjects : MonoBehaviour
         RaycastHit objectHit;
         if (Physics.Raycast(raycastObject.transform.position, fwd, out objectHit, interactionDistance, layerMask))
         {
-            print(objectHit.collider.gameObject.tag);
             if (objectHit.collider.gameObject.tag == "Interactable" || objectHit.collider.gameObject.tag == "Useable") 
             {
                 GameObject root = objectHit.collider.transform.parent.gameObject;
