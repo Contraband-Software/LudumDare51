@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Terminator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2376, y: -264}
+  position: {x: 1752, y: -264}
   ports:
     keys:
     - previous
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Name: Set Interrupt
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -360, y: -264}
+  position: {x: -360, y: -136}
   ports:
     keys:
     - previous
@@ -74,6 +74,55 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Set: 0
+--- !u!114 &-8262941421583914340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5832b32d52aefdb4389abf03d67ee0e1, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1336, y: -264}
+  ports:
+    keys:
+    - next
+    - previous
+    values:
+    - _fieldName: next
+      _node: {fileID: -8262941421583914340}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: previous
+        node: {fileID: -7233575144111626772}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: previous
+      _node: {fileID: -8262941421583914340}
+      _typeQualifiedName: GraphSystem.GraphConnections+ConnectionLink, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -6962471203215744646}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  speakerName: ???
+  dialogue: You stupid wench!
+  hostilityEffect: 0
+  isVoiced: 1
+  audioClip: {fileID: 8300000, guid: efd2c08ac1a2191428ae259d30ac6281, type: 3}
+  timeOut: 0
 --- !u!114 &-8042204259114128778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +136,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1544, y: -264}
+  position: {x: 1128, y: -264}
   ports:
     keys:
     - previous
@@ -132,7 +181,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1336, y: -264}
+  position: {x: 920, y: -264}
   ports:
     keys:
     - next
@@ -234,7 +283,7 @@ MonoBehaviour:
   m_Name: Action
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1960, y: -264}
+  position: {x: 1544, y: -264}
   ports:
     keys:
     - previous
@@ -246,7 +295,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: next
-        node: {fileID: -6962471203215744646}
+        node: {fileID: -8262941421583914340}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -278,7 +327,7 @@ MonoBehaviour:
   m_Name: Halt For Flag
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1752, y: -264}
+  position: {x: 1128, y: -136}
   ports:
     keys:
     - previous
@@ -302,7 +351,7 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: previous
-        node: {fileID: -7233575144111626772}
+        node: {fileID: -8262941421583914340}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -372,7 +421,7 @@ MonoBehaviour:
   m_Name: Halt For Flag
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1128, y: -264}
+  position: {x: 712, y: 8}
   ports:
     keys:
     - previous
@@ -580,7 +629,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 920, y: -264}
+  position: {x: 712, y: -120}
   ports:
     keys:
     - previous
@@ -644,6 +693,7 @@ MonoBehaviour:
   - {fileID: -8042204259114128778}
   - {fileID: -7233575144111626772}
   - {fileID: 3052240157521090321}
+  - {fileID: -8262941421583914340}
 --- !u!114 &314365617693137062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +806,7 @@ MonoBehaviour:
   m_Name: Halt For Flag
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2168, y: -264}
+  position: {x: 1544, y: -152}
   ports:
     keys:
     - previous
@@ -800,7 +850,7 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -568, y: -264}
+  position: {x: -360, y: -264}
   ports:
     keys:
     - previous
@@ -944,7 +994,7 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -776, y: -264}
+  position: {x: -568, y: -264}
   ports:
     keys:
     - Start
