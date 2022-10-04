@@ -16,6 +16,8 @@ public class StartMenue : MonoBehaviour
     void Start()
     {
         activeCam = cameras[0];
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
