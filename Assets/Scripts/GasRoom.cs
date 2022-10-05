@@ -4,6 +4,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(GraphSystem.ActionComponent))]
 public class GasRoom : MonoBehaviour
 {
     [Header("References")]
