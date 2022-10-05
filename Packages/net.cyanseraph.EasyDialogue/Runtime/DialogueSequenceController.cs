@@ -5,7 +5,6 @@ using UnityEngine;
 
 using GraphSystem;
 using UnityEngine.Events;
-using static GraphSystem.WaitNode;
 
 [RequireComponent(typeof(ChronoDialogueController))]
 public class DialogueSequenceController : MonoBehaviour
@@ -29,12 +28,12 @@ public class DialogueSequenceController : MonoBehaviour
     [SerializeField] AbstractTriggeredDialogue MainDialogue;
     [SerializeField] List<NamedTriggeredEvent> TriggeredEvents;
 
+    [SerializeField] AbstractUIController UIController;
+
     [Header("Settings")]
     [Tooltip("Time in seconds to insert between consecutive dialogues on top of any wait nodes.")]
     [SerializeField, Min(0)] float GlobalDialogueDelay = 10;
     [SerializeField] bool StartMainSequence = true;
-
-    UI_Controller UIController;
 
     AbstractTriggeredDialogue currentEvent;
     NodeData currentDialogue;
@@ -50,8 +49,6 @@ public class DialogueSequenceController : MonoBehaviour
 
     private void Start()
     {
-        UIController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UI_Controller>();
-
         InitController();
     }
 
@@ -150,7 +147,6 @@ public class DialogueSequenceController : MonoBehaviour
                 if (diagData.clip == null)
                 {
                     Debug.Log("null clip");
-                    diagData.clip = null;
                 }
                 UIController.DrawNode(diagData.dialog, false, diagData.name, new List<GraphConnections.ResponseConnectionData>(), diagData.timeOut, diagData.clip, diagData.voiced);
                 break;

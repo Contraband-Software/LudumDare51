@@ -3306,6 +3306,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 66ed983636c5d9c42b6985c0576e020e,
         type: 2}
+    - target: {fileID: 2214807528248528885, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+        type: 3}
+      propertyPath: UIController
+      value: 
+      objectReference: {fileID: 1144862754}
     - target: {fileID: 4677110233267952682, guid: 79b56dddcb69c894f8a1e3587b4237d5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3363,6 +3368,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b56dddcb69c894f8a1e3587b4237d5, type: 3}
+--- !u!114 &1144862754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4677110234580959024, guid: 79b56dddcb69c894f8a1e3587b4237d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1144862753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c670aa4e7f717094585a9b336339d7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1196036512
 PrefabInstance:
   m_ObjectHideFlags: 0

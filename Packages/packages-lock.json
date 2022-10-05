@@ -231,6 +231,12 @@
       },
       "url": "https://packages.unity.com"
     },
+    "net.cyanseraph.easydialogue": {
+      "version": "file:net.cyanseraph.EasyDialogue",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

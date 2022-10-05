@@ -7,7 +7,7 @@ using TMPro;
 using GraphSystem;
 
 [RequireComponent(typeof(AudioSource))]
-public class UI_Controller : MonoBehaviour
+public class UI_Controller : GraphSystem.AbstractUIController
 {
 
     [Header("Dialogue Display")]
@@ -61,7 +61,7 @@ public class UI_Controller : MonoBehaviour
     }
 
 #region GAME CONTROLLER INTERFACE
-    public void OnWait(float time, bool clear)
+    public override void OnWait(float time, bool clear)
     {
         Debug.Log(time);
         Debug.Log(clear);
@@ -75,7 +75,7 @@ public class UI_Controller : MonoBehaviour
 
     //Pass in the speaker name and list of options
     //shows UI for the given data. Should be CALLED ONCE per dialogue change
-    public void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut, AudioClip clip, bool voiced)
+    public override void DrawNode(string incomingText, bool canReply, string speakerName, List<GraphConnections.ResponseConnectionData> dialogueOptions, float timeOut, AudioClip clip, bool voiced)
     {
         Debug.Log("DrawNode: " + incomingText);
 
