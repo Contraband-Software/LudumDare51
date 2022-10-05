@@ -232,10 +232,11 @@
       "url": "https://packages.unity.com"
     },
     "net.cyanseraph.easydialogue": {
-      "version": "file:net.cyanseraph.EasyDialogue",
+      "version": "https://github.com/Contraband-Software/cyanEasyDialogue.git",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "3df55ca541a33c1ceed0d57607f9584ed907c964"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
