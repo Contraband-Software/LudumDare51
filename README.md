@@ -1,4 +1,4 @@
-# LudumDare51 - Motel 88
+# Our [Ludum Dare 51 Entry](https://ldjam.com/events/ludum-dare/51/motel-88) - Motel 88
 
 We took a much more aesthetic-focused approach for this game, testing our creative limits.
 
