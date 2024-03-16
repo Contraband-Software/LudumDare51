@@ -1,5 +1,7 @@
 # Our [Ludum Dare 51 Entry](https://ldjam.com/events/ludum-dare/51/motel-88) - Motel 88
 
+Our ludum dare 51 entry, an atmospheric puzzle escape game.
+
 We took a much more aesthetic-focused approach for this game, testing our creative limits.
 
 [Play the Latest Release Here](https://github.com/Contraband-Software/LudumDare51/releases/tag/windows-2)
